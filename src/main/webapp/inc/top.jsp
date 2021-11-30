@@ -34,7 +34,7 @@
     <!-- newStyle css -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
     <!-- subStyle css -->
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/subStyle.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/substyle.css">
 
 </head>
 
