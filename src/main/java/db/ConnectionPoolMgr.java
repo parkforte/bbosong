@@ -9,7 +9,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-//dbcp를 이용하여 커넥션 객체를 빌려오는 클래스
 public class ConnectionPoolMgr {
 	DataSource ds;
 

@@ -21,7 +21,17 @@ public class HashingUtil {
 
 		return salt;
 	}
-
+	
+	/**
+	 * @author YJ_Lee
+	 * 
+	 * @param pwd 암호화할 패스워드
+	 * @param salt 솔트
+	 * @return String 암호화된 다이제스트
+	 * 
+	 * makeNewSalt() 메서드를 이용하여 솔트 생성 후
+	 * 패스워드와 같이 매개변수로 전달하면 암호화된 다이제스트를 리턴
+	 */
 	public String hashing(String pwd, String salt) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance(HASH_ALGORITHM);
 		long start = System.currentTimeMillis();
