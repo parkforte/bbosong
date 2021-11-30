@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
 
-<style>
+<style> 
 	.container{
 		width:100%;
 		margin:0 auto;
@@ -22,7 +22,7 @@
 	}
 </style>
 
-<section class="section_padding">
+<section class="section_padding"> 
    <div class="container">
    <h2>글쓰기</h2>
        <!--회원가입 시 입력-->

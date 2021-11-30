@@ -62,7 +62,7 @@
     	<a href="write.jsp"><button class="btn_all mint_btn hover">수정</button></a> 
     	<a href="write.jsp"><button class="btn_all mint_btn hover">삭제</button></a> 
     </div>
-     </section>
+     </section> 
 
 </div>
 
