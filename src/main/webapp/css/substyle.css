@@ -25,7 +25,7 @@
 .select option:checked{background:#aac3c3;}
 
 /*table*/
-.tb_area{width:1200px;}
+.tb_area{width:100%;}
 .table1{border-spacing: 0;border: 0;}
 .table1 tr{border:0; }
 .table1 tr{}
@@ -38,7 +38,7 @@
 .ui-accordion .ui-accordion-header{background:#f2ebde;}
 
 /*tabmenu*/
-.tabarea{width:1200px;}
+.tabarea{width:100%;}
 ul.p_tabs{margin: 0px;padding: 0px;list-style: none;}
 ul.p_tabs li{background: none;color: #222;display: inline-block;padding: 10px 25px;cursor: pointer;}
 ul.p_tabs li.p_on{background: #aac3c3;color: #fff; border-top:4px solid #f2ebde;}
