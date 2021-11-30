@@ -7,7 +7,7 @@
 <section class="section_padding">
    <div class="container">
    
-   
+   <h2>작성</h2>
    </div>
 </section>
 
