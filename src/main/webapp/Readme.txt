@@ -1,8 +1,0 @@
-[작업내용공유log]
-
-
-2021-11-30 15:35 박진호
-- 프로젝트 업로드
-- css/Style.css => default
-- css/newStyle.css => 수정하는 Style
-- 각 서브페이지는 폴더별로 구분부탁드립니다.
