@@ -141,5 +141,5 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> 
     <!-- Header part end-->
