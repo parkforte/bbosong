@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+
+/*공통적인 부분*/
+*{border-collapse: collapse;list-style-type: none; box-sizing: border-box; margin:0; padding:0;}
+.mt20{margin-top:20px;}
+.mb20{margin-bottom:20px;}
+.mb10{margin-bottom:10px;}
+.t_right{text-align: right;}
+.t_center{text-align: center;}
+.dispb{display: block;}
+
+/*임의로 넣은 css*/
+.w900{width:900px;}
+.w1200{width:1200px;}
+
+/*button*/
+.btn_all{margin-bottom:20px;}
+.mint_btn{background:#aac3c3;  height:40px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
+.hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
+.begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}
+
+/*select*/
+.select select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer;}
+.select option:checked{background:#aac3c3;}
+
+/*table*/
+.tb_area{width:100%;}
+.table1{border-spacing: 0;border: 0;}
+.table1 tr{border:0; }
+.table1 tr{}
+.table1 tr th{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
+.table1 tr td{padding:10px 20px;text-align:center; border-bottom:1px solid #ccc;}
+
+/*accordion*/
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover
+{border: 1px solid #ccc !important;background: #aac3c3 !important;font-weight: normal;color: #ffffff;}
+.ui-accordion .ui-accordion-header{background:#f2ebde;}
+
+/*tabmenu*/
+.tabarea{width:100%;}
+ul.p_tabs{margin: 0px;padding: 0px;list-style: none;}
+ul.p_tabs li{background: none;color: #222;display: inline-block;padding: 10px 25px;cursor: pointer;}
+ul.p_tabs li.p_on{background: #aac3c3;color: #fff; border-top:4px solid #f2ebde;}
+.p_cont{display: none;padding: 15px; height:300px; }
+.p_cont.p_on{display: inherit; border-top:1px solid #ccc;}
+
+/*radio / checkbox*/
+.option-input {-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;-o-appearance: none;appearance: none;position: relative;top:-1px;right: 0;bottom: 0;left: 0;height: 20px;width: 20px;transition: all 0.15s ease-out 0s;background: #fff;border: 1px solid #ccc;color: #f2ebde;cursor: pointer;display: inline-block;margin-right: 0.5rem;outline: none;position: relative;z-index: 1000; vertical-align: middle;}
+.option-input:hover {background:#fff; border:1px solid #ccc;}
+.option-input:checked {background: #aac3c3;}
+.option-input:checked::before {height: 20px;width: 20px;position: absolute;content: '✔';display: inline-block;font-size: 19px;text-align: center;line-height: 15px;}
+.option-input:checked::after {-webkit-animation: click-wave 0.65s;-moz-animation: click-wave 0.65s;animation: click-wave 0.65s;background: #40e0d0; content: ''; display: block; position: relative; z-index: 100;}
+.option-input.radio {border-radius: 50%;}
+.option-input.radio::after {border-radius: 50%;}
+
+/*agreearea*/
+.text_area{ padding:20px;}
+.agree {display: block;padding: 20px;width:100%;height: 150px;background: #fff;border: 1px solid #ccc; line-height: 1.6em; outline:none;}
+
+/*coupon*/ 
+.t_input{padding:10px 5px; border-radius: 5px; outline: none; border:1px solid #ccc; margin-right:15px;}
+.cp_area{}
+.cp_area p {font-size:18px; font-weight: 600;}
+.cp_area span{color:green;}
+.list_style{}
+.list_style li{}
+.list_style li::before{display: inline-block; content: ''; width:5px; height:5px; border-radius: 3px; background: #ccc; vertical-align: middle; margin-right:10px;}
+
+/*tab_style2*/
+ul.p_tabs2{margin: 0px;padding: 0px;list-style: none; }
+ul.p_tabs2 li{background: none;color: #222;display: inline-block;padding: 10px 25px;cursor: pointer;}
+ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac3c3;}
+.p_cont2{display: none;padding: 15px; height:auto; }
+.p_cont2.p_on2{display: inherit; border:1px solid #ccc; border-radius: 5px;}
+
+/*회원가입 및 회원정보 수정 input 영역 */
+.input_area {border-top:1px solid #ccc; display: flex;flex-direction: row;justify-content: flex-start;align-items: center;  padding: 15px 5px;}
+.input_area:first-child{border-top:none;}
+.input_area .p_title{width:20%;}
+.input_area .p_input{width:80%;}
+.pwd_area p{margin:10px 0;}
