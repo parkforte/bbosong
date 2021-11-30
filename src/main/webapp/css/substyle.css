@@ -25,8 +25,8 @@
 .select option:checked{background:#aac3c3;}
 
 /*table*/
-.tb_area{width:100%;}
-.table1{border-spacing: 0;border: 0;}
+.tb_area{}
+.table1{border-spacing: 0;border: 0;width:100%;}
 .table1 tr{border:0; }
 .table1 tr{}
 .table1 tr th{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
