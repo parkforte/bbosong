@@ -50,6 +50,7 @@
                             <a href="#">강남구</a>
                             <a href="#">서초구</a>
                             <a href="#">동작구</a>
+                            <a href="#">송파구</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
@@ -80,7 +81,7 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html">Home</a>
+                                        <a class="nav-link" href="index.jsp">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
@@ -89,8 +90,8 @@
                                             회사소개
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">회사정보</a>
-                                            <a class="dropdown-item" href="single-blog.html">지점정보</a>
+                                            <a class="dropdown-item" href="#">회사정보</a>
+                                            <a class="dropdown-item" href="#">지점정보</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -100,10 +101,10 @@
                                             서비스안내
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">서비스소개</a>
-                                            <a class="dropdown-item" href="single-blog.html">이용방법</a>
-                                            <a class="dropdown-item" href="single-blog.html">이벤트</a>
-                                            <a class="dropdown-item" href="single-blog.html">공지사항</a>
+                                            <a class="dropdown-item" href="#">서비스소개</a>
+                                            <a class="dropdown-item" href="#">이용방법</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/eventBoard/list.jsp">이벤트</a>
+                                            <a class="dropdown-item" href="#">공지사항</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -113,10 +114,10 @@
                                             고객센터
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">FAQ</a>
-                                            <a class="dropdown-item" href="single-blog.html">Q&A</a>
-                                            <a class="dropdown-item" href="single-blog.html">세탁정보</a>
-                                            <a class="dropdown-item" href="single-blog.html">이용후기</a>
+                                            <a class="dropdown-item" href="#">FAQ</a>
+                                            <a class="dropdown-item" href="#">Q&A</a>
+                                            <a class="dropdown-item" href="#">세탁정보</a>
+                                            <a class="dropdown-item" href="#">이용후기</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -126,10 +127,10 @@
                                             로그인
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="top_place.html">로그인</a>
-                                            <a class="dropdown-item" href="tour_details.html">회원가입</a>
-                                            <a class="dropdown-item" href="elements.html">마이페이지</a>
-                                            <a class="dropdown-item" href="elements.html">회원탈퇴</a>
+                                            <a class="dropdown-item" href="#">로그인</a>
+                                            <a class="dropdown-item" href="#">회원가입</a>
+                                            <a class="dropdown-item" href="#">마이페이지</a>
+                                            <a class="dropdown-item" href="#">회원탈퇴</a>
                                         </div>
                                     </li>
                                 </ul>
