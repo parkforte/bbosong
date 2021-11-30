@@ -5,6 +5,8 @@
 }
 
 /**************** extend css start ****************/
+
+
 /**************** common css start ****************/
 body {
   font-family: "Open Sans", sans-serif;
@@ -2880,18 +2882,20 @@ ul {
 }
 
 /******** client review part css *********/
-.client_review {
+/*.client_review {
   background-color: #0c3e72;
 }
-
+*/
 .client_review .section_tittle h2 {
   color: #fff;
 }
 
+/*
 .client_review .single_review_slider {
   background-color: #0e477d;
   padding: 30px;
 }
+*/
 
 .client_review .single_review_slider p {
   display: inline-block;

@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+
+/*수정내용 start*/
+
+/* 헤더메뉴라인 */
+
+.sub_menu {
+  background-color: #aac3c3;
+  padding: 14px 0px;
+}
+
+.sub_menu .sub_menu_right_content a {
+  color: white;
+  margin: 15px;
+}
+
+
+.sub_menu .sub_menu_social_icon a {
+  color: white;
+  margin-right: 20px;
+}
+
+.sub_menu .sub_menu_social_icon span i {
+  color: #fe5c24;
+  margin-right: 8px;
+}
+
+.sub_menu .sub_menu_social_icon a:hover {
+  color: #fe5c24;
+}
+
+.sub_menu .sub_menu_social_icon span {
+  margin-left: 15px;
+  color: white;
+}
+
+/* 네비게이션바 */
+
+.main_menu .main-menu-item ul li .nav-link {
+  color: black;
+  font-size: 16px;
+  padding: 38px 22px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: capitalize;
+}
+
+.btn_1:hover, .btn_2:hover {
+  color: #fff;
+  background-color: #aac3c3;
+}
+
+/* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_menu.scss */
+.main_menu .main-menu-item ul li .nav-link:hover {
+  color: #fe5c24;
+}
+
+/* 배너라인  */
+.banner_part {
+  height: 880px;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../img/mainbanner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.banner_part .banner_text .btn_1 {
+  margin-top: 60px;
+  background-color: #fe5c24;
+  padding: 23px 79px;
+}
+
+/* line 110, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text .btn_1:hover {
+  color: #fff;
+  background-color: #aac3c3;
+}
+
+
+/* 이용후기 */
+.client_review {
+  background-color: #aac3c3;
+}
+
+.client_review .section_tittle h2 {
+  color: #fe5c24;
+}
+
+
+.client_review .single_review_slider {
+  background-color: #f2ebde;
+  padding: 30px;
+}
+
+.client_review .single_review_slider p {
+  display: inline-block;
+  color: black;
+  margin: 26px 0 32px;
+}
+
+/* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_event_part.scss */
+.event_part .owl-nav button i {
+  color: #fe5c24;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.client_review .owl-nav button {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  display: inline-block;
+  background-color: #fe5c24 !important;
+  color: #fff !important;
+}
+
+/* 지점정보 */
+
+.section_tittle h2 {
+  font-size: 46px;
+  color: #fe5c24;
+  line-height: 1.1;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 26px;
+}
+
+
+/* 메뉴 */
+
+.event_part {
+  background-image: url(../img/drying.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* footer */
+
+.footer-area {
+  background-color: #aac3c3;
+  padding: 130px 0px 0px;
+  position: relative;
+}
+
+.footer-area .single-footer-widget input {
+  height: 50px;
+  border: none;
+  width: 67% !important;
+  font-weight: 400;
+  padding-left: 20px;
+  border-radius: 0;
+  font-size: 13px;
+  color: #999999;
+  background-color: white;
+  border: 0px solid transparent;
+}
+
+.copyright_part {
+  background-color: #aac3c3;
+  padding: 26px 0px;
+}
+
+.footer-area .copyright_part_text {
+  background-color: #aac3c3;
+  padding: 32px 15px;
+  margin-top: 95px;
+}
+
+/*수정내용 end*/
