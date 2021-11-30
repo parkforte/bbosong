@@ -299,5 +299,4 @@
     </section>
     <!--top place end-->
 
-
  <%@include file="inc/bottom.jsp"%>
