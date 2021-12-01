@@ -94,6 +94,8 @@ public class AccountDAO {
 			String dbDigest = rs.getString("digest");
 			String salt = rs.getString("salt");
 			String inputDigest = hash.hashing(vo.getPw(), salt);
+			
+			System.out.println("inputPw    : " + vo.getPw());
 			System.out.println("salt       : " + salt);
 			System.out.println("dbDigest   : " + dbDigest);
 			System.out.println("inputDigest: " + inputDigest);
