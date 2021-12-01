@@ -50,8 +50,7 @@
 	
 	
 %>
-
-	<section>
+	<section class="section_padding">
 			<div class="divList container">
 				<h2>답변형게시판</h2>
 				<%
@@ -60,9 +59,9 @@
 				<%	} %>
 				
 			
-				<table class="box2"
+				<table class="table1"
 					 	summary="답변형게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
-					<caption>답변형게시판</caption>
+					<caption style="display:none;">답변형게시판</caption>
 					<colgroup>
 						<col style="width:10%;" />
 						<col style="width:50%;" />
@@ -82,24 +81,15 @@
 					<tbody>  
 					  <!--게시판 내용 반복문 시작  -->	
 					  <%
-					    /*for(int i=0;i<list.size();i++){
-							ReBoardVO vo=list.get(i);*/
-							
 					    for(int i=0;i<pageSize ;i++){
 					    	if(num<1) break;	
 					    
 							NoticeVO vo=list.get(curPos++);
 							num--;
 					   %>	
-						<tr  style="text-align:center">
+						<tr>
 							<td><%=vo.getNo() %></td>
-							<td style="text-align:left">
-								<%if(vo.getDelFlag().equals("Y")){ %>
-									<span style="color:gray">삭제된 글입니다.</span>
-								<%}else{ %>
-									<!-- 답변글인 경우 단계별로 이미지 보여주기 -->
-									<%=Utility.displayRe(vo.getStep()) %>
-									
+							<td>
 									<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
 									<%=Utility.displayFile(vo.getFileName()) %>
 									
@@ -110,7 +100,7 @@
 									
 									<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
 									<%=Utility.displayNew(vo.getRegdate()) %>
-								<%} %>	
+									
 							</td>
 							<td><%=vo.getTitle()%></td>
 							<td><%=sdf.format(vo.getRegdate()) %></td>
@@ -121,7 +111,7 @@
 					  </tbody>
 				</table>	   
 			
-				<div class="divPage">
+				<div class="divPage t_center mt20 mb20">
 					<!-- 페이지 번호 추가 -->		
 					<!-- 이전 블럭으로 이동 -->					
 					<%	if(firstPage>1){ %>
@@ -155,29 +145,32 @@
 					<%	}	%>					
 					<!--  페이지 번호 끝 -->	
 				</div>
-				<div class="divSearch">
+				<div class="divSearch t_center">
 				   	<form name="frmSearch" method="post" action='list.jsp'>
-				        <select name="searchCondition">
-				            <option value="title" 
-				            	<%if("title".equals(condition)){ %>
-				            		selected="selected"
-				            	<%} %>
-				            >제목</option>
-				            <option value="content" 
-				            	<%if("content".equals(condition)){ %>
-				            		selected="selected"
-				            	<%} %>
-				            >내용</option>
-				        </select>   
+				        <span class="select">
+					        <select name="searchCondition">
+					            <option value="title" 
+					            	<%if("title".equals(condition)){ %>
+					            		selected="selected"
+					            	<%} %>
+					            >제목</option>
+					            <option value="content" 
+					            	<%if("content".equals(condition)){ %>
+					            		selected="selected"
+					            	<%} %>
+					            >내용</option>
+					        </select>  
+				        </span> 
 				        <input type="text" name="searchKeyword" title="검색어 입력"
-				        	value="<%=keyword%>">   
-						<input type="submit" value="검색">
+				        	value="<%=keyword%>" class="t_input">   
+						<input type="submit" value="검색" class="mint_btn hover">
 				    </form>
 				</div>
 			
-				<div class="divBtn">
-				    <a href='write.jsp' >글쓰기</a>
+				<div class="divBtn t_right mt20 mb20">
+				    <a href='write.jsp' class="mint_btn a_btn hover">글쓰기</a>
 				</div>
+				
 			</div>
 	</section>
 <%@include file="../inc/bottom.jsp" %>

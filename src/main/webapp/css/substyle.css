@@ -10,6 +10,12 @@ a{color:#666666;}
 .t_right{text-align: right;}
 .t_center{text-align: center;}
 .dispb{display: block;}
+textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
+.mt50{margin-top:50px;}
+.mb50{margin-bottom:50px;}    
+.w100{width:100%;}
+.bord_n{border:none;}
+
 /*임의로 넣은 css*/
 .w900{width:900px;}
 .w1200{width:1200px;}
@@ -87,9 +93,9 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 /*상세페이지 (게시판)*/
 .divForm{width: 100%; border-top: 1px solid #aac3c3; border-bottom: 1px solid #aac3c3; padding: 20; padding: 20px;}
 .divForm ul{width:100%;}
-.divForm ul li{padding:10px 5px; border-bottom:1px solid #aac3c3;}
+.divForm ul li{padding:10px 5px; border-bottom:1px solid #aac3c3;display:flex;}
 .divForm ul li:last-child{border-bottom:0;}
-.divForm ul li .sp1{width:28%; display:inline-block;}
+.divForm ul li .sp1{width:28%; display:inline-block; display:inline-flex; align-content:space-around; align-items:stretch; flex-direction:column; flex-wrap:nowrap; justify-content:center;}
 .divForm ul li .sp2{width:68%; display:inline-block;}
 .c_mint{color:#aac3c3;}           
  
