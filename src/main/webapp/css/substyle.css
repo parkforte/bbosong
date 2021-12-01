@@ -3,13 +3,13 @@
 
 /*공통적인 부분*/
 *{border-collapse: collapse;list-style-type: none; box-sizing: border-box; margin:0; padding:0;}
+a{color:#666666;}
 .mt20{margin-top:20px;}
 .mb20{margin-bottom:20px;}
 .mb10{margin-bottom:10px;}
 .t_right{text-align: right;}
 .t_center{text-align: center;}
 .dispb{display: block;}
-
 /*임의로 넣은 css*/
 .w900{width:900px;}
 .w1200{width:1200px;}
@@ -19,6 +19,8 @@
 .mint_btn{background:#aac3c3;  height:40px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
 .hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
 .begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}
+/*a태그일때 버튼 style 입히고 싶은 경우*/
+.a_btn{display:inline-block; height:40px; line-height:40px;}
 
 /*select*/
 .select select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer;}
@@ -80,4 +82,14 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 .input_area .p_title{width:20%;}
 .input_area .p_input{width:80%;}
 .input_area .p_input2{width:100%;}
-.pwd_area p{margin:10px 0;}   
+.pwd_area p{margin:10px 0;}  
+
+/*상세페이지 (게시판)*/
+.divForm{width: 100%; border-top: 1px solid #aac3c3; border-bottom: 1px solid #aac3c3; padding: 20; padding: 20px;}
+.divForm ul{width:100%;}
+.divForm ul li{padding:10px 5px; border-bottom:1px solid #aac3c3;}
+.divForm ul li:last-child{border-bottom:0;}
+.divForm ul li .sp1{width:28%; display:inline-block;}
+.divForm ul li .sp2{width:68%; display:inline-block;}
+.c_mint{color:#aac3c3;}
+ 
