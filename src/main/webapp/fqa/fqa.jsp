@@ -27,26 +27,25 @@
    <!--accordion-->
     <h1 class="mt20 mb20">faq accordion</h1>
     <div id="accordion" class="w1200">
-        <h3>Section 1</h3>
+        <h3>세탁을 맡기면 얼마나 걸리나요?</h3>
         <div>
-          <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+          <p>선택하신 옵션과 옷의 종류에 따라 다르지만 보통 주문 후 2~3일이 소요됩니다.</p>
         </div>
-        <h3>Section 2</h3>
+        <h3>근처에 지점이 없으면 서비스를 이용할 수 없나요?</h3>
         <div>
-          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+          <p>현재는 강남점, 서초점, 동작점, 송파점에서만 서비스를 이용할 수 있으며 추후에 지점을 늘려갈 계획입니다.</p>
         </div>
-        <h3>Section 3</h3>
+        <h3>한번에 맡길 수 있는 옷 수량에 제한이 있나요?</h3>
         <div>
-          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
-          <ul>
-            <li>List item one</li>
-            <li>List item two</li>
-            <li>List item three</li>
-          </ul>
+          <p>옷 수량에는 제한을 두고 있지 않습니다.</p>
         </div>
-        <h3>Section 4</h3>
+        <h3>세탁 후 받은 옷에 문제가 생기면 어떻게 하나요?</h3>
         <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          <p>기존에 옷에 있던 문제가 아닌 세탁 후에 발생한 문제라는 것이 확인되면 그에 따른 보상을 진행합니다.</p><p>하지만 문제가 생기는 경우는 극히 드문 경우이니 안심하시고 이용하시기 바랍니다.</p>
+        </div>
+        <h3>주문 후 배송지를 변경하고 싶으면 어떻게 하나요?</h3>
+        <div>
+          <p>현재는 배송지 변경이 불가합니다. 주문 전 신중하게 작성해주시기 바랍니다.</p>
         </div>
     </div>
     <!--accordion-->

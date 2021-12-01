@@ -1,4 +1,4 @@
-<%@page import="model.NoticeDAO"%>
+<%@page import="model.TipBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp" %>
@@ -13,19 +13,9 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('form[name=admin_notice]').submit(function(){
-			$('.infobox').each(function(idx, item){
-				if($(this).val().length<1){
-					alert($(this).prev().html() + "을(를) 입력하세요");
-					$(this).focus();
-					event.preventDefault();
-					return false;  //each 탈출
-				}
-			});
-		});
 		
 		$('#btList').click(function(){
-			location.href='tiplist.jsp';	
+			location.href='list.jsp';	
 		});
 		
 	});
@@ -33,29 +23,31 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 
 <section class="section_padding">
 	<div class="container">
-	<h2 class="mb50">세탁정보 게시판</h2>
+	<h2 class="mb50">세탁정보</h2>
 		<fieldset>
-			<form name="admin_notice" action="" method="post">
+			<form name="admin_event" action="write_ok.jsp" method="post">
+				<input type="hidden" name="email" value="bbosong1001@dream.com">
 	            <div class="input_area">
 	                <div class="p_input">
-	                    <input type="text" name="title"  class="t_input w100 infobox">
+	                	<label for="title">제목</label>
+	                    <input type="text" id="title" name="title" class="t_input w100 infobox" placeholder="제목을 입력하세요">
 	                </div>
 	            </div>
-	            <div id="editor" name="content"></div>
 	            <script src="../ckeditor5/ckeditor.js"></script>
+	            <textarea name="content" id="content"></textarea>
 	            <script>
 	            	ClassicEditor
-	            		.create(document.querySelector('#editor'))
+	            		.create(document.querySelector('#content'))
 	            		.catch(error => {
 	            			console.error(error)
 	            		});
 	            </script>
+				<div class="btn_all t_center mt50">
+			        <input type="submit" class="mint_btn hover" id="btList" value="글등록" />
+			        <input type="button" id="btList" class="begie_btn hover" value="목록"/>
+		    	</div>
 	        </form>
 		</fieldset>
-		<div class="btn_all t_center mt50">
-	        <input type="submit" class="mint_btn hover" id="btList" value="글등록" />
-	        <input type="reset"class="begie_btn hover" value="취소"/>
-    	</div>
 	</div>
 </section>
 <%@include file="../inc/bottom.jsp" %>
