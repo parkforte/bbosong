@@ -1,40 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../inc/top.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <style type="text/css">
 	.valid { border: solid 2px green; }
-	/* .validText { color: green; } */
 	.invalid { border: solid 2px red; }
 	.invalidText { color: red; }
 </style>
 <meta charset="UTF-8">
-<title>회원가입</title>
-<link rel="stylesheet" href="../css/substyle.css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<title>회원가입</title>?
+<!-- <link rel="stylesheet" href="../css/substyle.css"> -->
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"> -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/daumPostCode.js"></script>
 <script type="text/javascript">
  	$(function() {
 		make_select();
+		var checkedEmail = false;
+		var checkedpw1 = false;
+		var checkedpw2 = false;
 		
-		$('#signinForm').submit(function() {
-			//모든 input에 대한 boolean 선언 후 submit시 검증
-			/* const year = $('#year option:selected').val();
-			const month = $('#month option:selected').val();
-			const day = $('#day option:selected').val();
-			$('#birth').html(); */
+		$('#signinForm').submit(function(e) {
+			if(!checkedEmail) {
+				alert('이메일을 확인해주세요');
+				$('#email').focus();
+				e.preventDefault();
+				e.stopPropagation()
+				return;
+			}
+			
+			if(!checkedpw1) {
+				alert('비밀번호를 확인해주세요');
+				$('#pw1').focus();
+				e.preventDefault();
+				e.stopPropagation();
+				return;
+			}
+			
+			if(!checkedpw2) {
+				alert('비밀번호를 확인해주세요');
+				$('#pw2').focus();
+				e.preventDefault();
+				e.stopPropagation();
+				return;
+			}
+			
+			$('#sample6_postcode').attr('disabled', false);
+			$('#sample6_address').attr('disabled', false);
+			console.log($('#sample6_postcode').attr('disabled'));
+			console.log($('#sample6_address').attr('disabled'));
 		});
 	
 		$('#email').on('blur', function() {
 			var valEmail = $('#email').val();	
-
+			if(!is_validate_email(valEmail)) {
+				$('#email').next().html('이메일 형식이 잘못되었습니다.');
+				changeInvalid($('#email'));
+				return;
+			}
+				
 			var request = $.ajax({
 			url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
-			method: "POST", //통신할 메서드 타입
-			data: { email : valEmail }, //전송할 데이타
+			method: "POST",
+			data: { email : valEmail }, //전송할 데이터
 			dataType: "json"
 		});	 
 		
@@ -42,10 +73,12 @@
 			if(data.result){
 				$('#email').next().html('사용할 수 없는 이메일 입니다.');
 				changeInvalid($('#email'));
+				checkedEmail = false;
 			} else{
 				changeValid($('#email'));
 				$('#emailNotice').removeClass('invalidText');
 				$('#emailNotice').addClass('validText');
+				checkedEmail = true;
 			}	
 		});	 
 		request.fail(function( jqXHR, textStatus ) {
@@ -57,8 +90,10 @@
 		if(!is_validate_pw($('#pw1').val())) {
 			changeInvalid($('#pw1'));
 			$('#pw1').next().html('비밀번호는 최소 1개의 영문자, 숫자, 특수문자가 포함되어야 합니다.');
+			checkedpw1 = false;
 		} else {
 			changeValid($('#pw1'));
+			checkedpw1 = true;
 		}
 		
 	});
@@ -67,8 +102,10 @@
 		if($('#pw1').val() !== $('#pw2').val()) {
 			changeInvalid($('#pw2'));
 			$('#pw2').next().html('비밀번호 확인이 일치하지 않습니다');
+			checkedpw2 = false;
 		} else {
 			changeValid($('#pw2'));
+			checkedpw2 = true;
 		}
 		
 	});
@@ -82,6 +119,11 @@
 	function changeInvalid(target) {
 		target.removeClass('valid');
 		target.addClass('invalid');
+	}
+	
+	function is_validate_email(email) {
+		const pattern = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
+		return pattern.test(email);
 	}
 	
 	function is_validate_pw(pw) {
@@ -115,32 +157,17 @@
 </script>
 </head>
 <body>
-<h1>회원가입</h1><br>
-<!-- form id="signinForm1" action="signup_ok.jsp" method="post">
-	<input id="email" type="text" name="email" placeholder="이메일" required="required"><p></p>
-	<input id="name" type="text" name="name" placeholder="이름" required="required"><br>
-	
-	<input id="pw1" type="password" name="pw1" placeholder="비밀번호" required="required"><p></p>
-	<input id="pw2" type="password" name="pw2" placeholder="비밀번호 확인" required="required"><p></p>
-	<input id="nickname" type="text" name="nickname" placeholder="닉네임" required="required"><br> 
-	<input id="sample6_postcode" type="text" name="postcode" placeholder="우편번호" required="required" disabled="disabled">
-	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	<input id="sample6_address" type="text" name="address_" placeholder="주소" required="required" disabled="disabled">
-	<input id="sample6_detailAddress" type="text" name="detailAddress" placeholder="상세주소" required="required"><br>
-	<input type="text" name="tel" placeholder="전화번호 ( - 생략)"><br>
-	
-	<input id="submit" type="submit" value="로그인">
-</form> -->
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">
+			<h2>회원가입</h2><br>
 		    <form id="signinForm" action="signup_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>이메일</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="email" type="email" name="email" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="email" type="email" name="email" class="t_input" placeholder="example@example.com" required="required"><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -214,3 +241,4 @@
 </section>
 </body>
 </html>
+<%@ include file="../inc/bottom.jsp" %>

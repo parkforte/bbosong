@@ -128,7 +128,7 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                             <a class="dropdown-item" href="#">로그인</a>
-                                            <a class="dropdown-item" href="#">회원가입</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
                                             <a class="dropdown-item" href="#">마이페이지</a>
                                             <a class="dropdown-item" href="#">회원탈퇴</a>
                                         </div>

@@ -43,13 +43,12 @@
 	vo.setTel(tel);
 	
 	AccountDAO dao = new AccountDAO();
-	boolean isSucceed = dao.insertUser(vo);
 	
-	if(isSucceed) {
+	if(dao.insertUser(vo)) {
 		session.setAttribute("email", vo.getEmail());%>
 		<script>location.href="verify_your_account.jsp";</script>
 	<%} else {%>
-		<script>alert("fatal error"); history.back();</script>
+		<script>alert('fatal error'); history.back();</script>
 	<%}
 %>
 </body>
