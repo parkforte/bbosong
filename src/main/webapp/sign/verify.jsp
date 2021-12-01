@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>email_verify</title>
-<link rel="stylesheet" href="../css/substyle.css">
+<title>이메일 인증</title>
 <%
 	String email = (String)session.getAttribute("email");
 	System.out.println("session: " + email);
@@ -20,14 +19,36 @@
 	
 	SendVerifyMail sendMail = new SendVerifyMail();
 %>
+<link rel="stylesheet" href="../css/substyle.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-	function send() {
-		<% 
-			System.out.println("Enter send()");
-			String verifyCode = sendMail.send(email);
-			session.setAttribute("verifyCode", verifyCode);
-		%>
-		getElementById(notice).innelHTML = <%=email%>로 인증메일을 보냈습니다.
+	$(function() {
+		function send() {
+			console.log('Enter send()');
+			var request = $.ajax({
+				url: "<%=request.getContextPath() %>/SendVerifyMail", //통신할 url
+				method: "POST",
+				data: { email : <%=email%> }, //전송할 데이터
+				dataType: "json"
+			});
+			
+			request.done(function( data ) {
+				if(data.result === "true"){
+					getElementById('notice').innelHTML = "<%=email%>로 인증메일을 전송했습니다.";
+				} else{
+					alert(data.result);
+				}	
+			});	 
+			
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+		}
+		
+		send = send;
+	});
+	function sendMail() {
+		send();
 	}
 	
 	function verify() {
@@ -48,14 +69,14 @@
 <section class="section_padding">
 	<div class="container">
 		<h3>회원 인증</h3><br>
-		<h3 id="notice"><%=email %>로 인증코드를 전송했습니다</h3>
+		<h3 id="notice"></h3>
 		<div class="input_area">
             <div class="p_title">
                 <label>인증코드</label>
             </div>
             <div class="p_input">
                 <input id="input" type="text" name="inputCode" class="t_input">
-                <button class="mint_btn hover" onclick="send();">인증코드 전송</button>
+                <button class="mint_btn hover" onclick="sendMail();">인증코드 전송</button>
             </div>
         </div>
         <div class="input_area">

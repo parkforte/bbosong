@@ -63,27 +63,28 @@
 			}
 				
 			var request = $.ajax({
-			url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
-			method: "POST",
-			data: { email : valEmail }, //전송할 데이터
-			dataType: "json"
-		});	 
+				url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
+				method: "POST",
+				data: { email : valEmail }, //전송할 데이터
+				dataType: "json"
+			});	 
 		
-		request.done(function( data ) {
-			if(data.result){
-				$('#email').next().html('사용할 수 없는 이메일 입니다.');
-				changeInvalid($('#email'));
-				checkedEmail = false;
-			} else{
-				changeValid($('#email'));
-				$('#emailNotice').removeClass('invalidText');
-				$('#emailNotice').addClass('validText');
-				checkedEmail = true;
-			}	
-		});	 
-		request.fail(function( jqXHR, textStatus ) {
-		  alert( "Request failed: " + textStatus );
-		});	
+			request.done(function( data ) {
+				if(data.result){
+					$('#email').next().html('사용할 수 없는 이메일 입니다.');
+					changeInvalid($('#email'));
+					checkedEmail = false;
+				} else{
+					changeValid($('#email'));
+					$('#emailNotice').removeClass('invalidText');
+					$('#emailNotice').addClass('validText');
+					checkedEmail = true;
+				}	
+			});	 
+			
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});	
 		});
 		
 	$('#pw1').on('blur', function() {

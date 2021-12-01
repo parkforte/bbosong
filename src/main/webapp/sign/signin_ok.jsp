@@ -18,8 +18,9 @@
 	vo.setPw(pw);
 	AccountDAO dao = new AccountDAO();
 	boolean isSucceed = dao.signin(vo);
-	if(isSucceed) {%>
-		<script>alert("로그인 성공"); location.href="main.jsp";</script>
+	if(isSucceed) {
+		session.setAttribute("email", vo.getEmail());%>
+		<script>location.href="<%=request.getContextPath()%>";</script>
 	<%} else {%>
 		<script>alert("로그인 실패"); history.back();</script>
 	<%}
