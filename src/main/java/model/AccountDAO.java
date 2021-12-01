@@ -133,4 +133,53 @@ public class AccountDAO {
 
 		return true;
 	}
+	
+	public boolean verifyAccount(String email) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		try {
+			con = pool.getConnection();
+
+			String sql = "update account set verified = 1 where email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			pool.dbClose(ps, con);
+		}
+
+		return true;
+	}
+	
+	public boolean idVerified(String email) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = pool.getConnection();
+
+			String sql = "select verified from account where email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			if(!rs.next())
+				return false;
+			
+			if(!rs.getString("verified").equals("1"))
+				return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			pool.dbClose(rs, ps, con);
+		}
+
+		return true;
+	}
 }

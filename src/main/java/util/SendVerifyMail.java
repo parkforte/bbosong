@@ -14,8 +14,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendVerifyMail {
-	String sender = "bbosong132@gmail.com";
-	String password = "Bbosong132@!";
+	private final String sender = "bbosong132@gmail.com";
+	private final String password = "Bbosong132@!";
 	
 	/**
 	 * @author YJ_Lee
