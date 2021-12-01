@@ -51,7 +51,7 @@
             <input type="text" id="email" name="email" />
         </div>
         <div>  
-        	<label for="content" class="sp1">내용</label>        
+        	<label for="content" class="sp1">내용입니다</label>        
  			<textarea id="content" name="content" rows="12" cols="40"></textarea>
         </div>
         <div class="center">
