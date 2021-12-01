@@ -37,34 +37,24 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 		<fieldset>
 			<form name="admin_notice" action="" method="post" enctype="multipart/form-data">
 	            <div class="input_area">
-	                <div class="p_title">
-	                    <label for="title">제목</label>
-	                </div>
 	                <div class="p_input">
 	                    <input type="text" name="title"  class="t_input w100 infobox">
 	                </div>
 	            </div>
-	            <div class="input_area">
-	                <div class="p_title">
-	                    <label for="content">내용</label>
-	                </div>
-	                <div class="p_input">
- 						<textarea id="content" name="content" rows="12" cols="40"></textarea>
-	                </div>
-	            </div>
-	            <div class="input_area">
-	                <div class="p_title">
-	                    <label for="upfile">첨부파일</label>
-	                </div>
-	                <div class="p_input">
-	                    <input type="file" name="upfile"  class="t_input bord_n " id="upfile">
-	                </div>
-	            </div>
+	            <div id="editor" name="content"></div>
+	            <script src="../ckeditor5/ckeditor.js"></script>
+	            <script>
+	            	ClassicEditor
+	            		.create(document.querySelector('#editor'))
+	            		.catch(error => {
+	            			console.error(error)
+	            		});
+	            </script>
 	        </form>
 		</fieldset>
 		<div class="btn_all t_center mt50">
-	        <button class="mint_btn hover" id="btList">글등록</button>
-	        <button class="begie_btn hover">취소</button>
+	        <input type="submit" class="mint_btn hover" id="btList" value="글등록" />
+	        <input type="reset"class="begie_btn hover" value="취소"/>
     	</div>
 	</div>
 </section>
