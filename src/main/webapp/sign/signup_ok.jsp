@@ -46,7 +46,7 @@
 	
 	if(dao.insertUser(vo)) {
 		session.setAttribute("email", vo.getEmail());%>
-		<script>location.href="verify_your_account.jsp";</script>
+		<script>location.href="verify.jsp";</script>
 	<%} else {%>
 		<script>alert('fatal error'); history.back();</script>
 	<%}
