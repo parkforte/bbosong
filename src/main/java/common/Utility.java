@@ -1,5 +1,7 @@
 package common;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Utility {
@@ -67,6 +69,38 @@ public class Utility {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * SimpleDateFormat 유틸
+	 * @param regdate
+	 * @return
+	 */
+	public static String changeFormat(Timestamp regdate) {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String newRegdate=sdf.format(regdate);
+		return newRegdate;
+	}
+	
+	/**
+	 * 이메일에서 지점명변경
+	 * @param email
+	 * @return
+	 */
+	public static String displayStoreName(String email) {
+		String storeName="";
+		if(email.equals("bbosong1001@dream.com")) {
+			storeName="강남지점";
+		}else if(email.equals("bbosong1002@dream.com")){
+			storeName="서초지점";
+		}else if(email.equals("bbosong1003@dream.com")){
+			storeName="동작지점";
+		}else if(email.equals("bbosong1004@dream.com")){
+			storeName="송파지점";
+		}else if(email.equals("bbosong1000@dream.com")){
+			storeName="고객센터";
+		}
+		return storeName;
 	}
 }
 
