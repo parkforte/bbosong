@@ -4,6 +4,14 @@
 <%@page import="java.sql.SQLClientInfoException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>write_ok.jsp</title>
+</head>
+<body>
 <%
 	//write.jsp에서 post방식으로 서브밋됨
 	request.setCharacterEncoding("utf-8");
@@ -20,14 +28,21 @@
 		vo.setTitle(title);
 		vo.setContent(content);
 		int result=dao.insertEvent(vo);	
-		if(result>0){
-			System.out.println("글등록 성공! result="+result+", 매개변수vo="+vo);
-		}else{
-			System.out.println("글등록 실패! result="+result+", 매개변수vo="+vo);
-		}
+		if(result>0){ %>
+			<script type="text/javascript">
+				alert('등록을 완료하였습니다.');
+				location.href="list.jsp";
+			</script>
+	<%	}else{	%>
+			<script type="text/javascript">
+				alert('등록을 실패하였습니다.');
+				history.back();
+			</script>
+	<%	}
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("list.jsp");
 %>
+</body>
+</html>

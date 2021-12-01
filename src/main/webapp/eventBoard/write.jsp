@@ -44,7 +44,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 	            </script>
 				<div class="btn_all t_center mt50">
 			        <input type="submit" class="mint_btn hover" id="btList" value="글등록" />
-			        <input type="reset"class="begie_btn hover" value="취소"/>
+			        <input type="button" id="btList" class="begie_btn hover" value="목록"/>
 		    	</div>
 	        </form>
 		</fieldset>
