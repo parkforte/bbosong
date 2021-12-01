@@ -1,4 +1,4 @@
-<%@page import="common.Utility"%>
+<%@page import="common.Utility"%>  
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.NoticeVO"%>

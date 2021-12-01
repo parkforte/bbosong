@@ -1,5 +1,5 @@
 <%@page import="model.NoticeVO"%>
-<%@page import="model.NoticeDAO"%>
+<%@page import="model.NoticeDAO"%>  
 <%@page import="common.Utility"%>
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

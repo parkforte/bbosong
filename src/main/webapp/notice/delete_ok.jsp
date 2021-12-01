@@ -1,4 +1,4 @@
-<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.SQLException"%>  
 <%@page import="model.NoticeVO"%>
 <%@page import="model.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

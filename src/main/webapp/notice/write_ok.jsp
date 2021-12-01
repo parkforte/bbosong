@@ -1,4 +1,4 @@
-<%@page import="java.io.IOException"%>
+<%@page import="java.io.IOException"%>  
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.io.File"%>
 <%@page import="model.NoticeVO"%>
