@@ -30,7 +30,7 @@
 .table1 tr{border:0; }
 .table1 tr{}
 .table1 tr th{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
-.table1 tr td{padding:10px 20px;text-align:center; border-bottom:1px solid #ccc;}
+.table1 tr td{padding:10px 20px;border-bottom:1px solid #ccc;}
 
 /*accordion*/
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover
