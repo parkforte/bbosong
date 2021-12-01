@@ -98,8 +98,5 @@ public class NoticeDAO {
 			pool.dbClose(rs, ps, con);
 		}
 	}
-=======
-public class NoticeDAO {
 
->>>>>>> branch 'master' of https://github.com/parkforte/bbosong
 }
