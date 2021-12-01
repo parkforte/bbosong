@@ -6,7 +6,7 @@
 <style>
 textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 .mt50{margin-top:50px;}
-.mb50{margin-bottom:50px;}
+.mb50{margin-bottom:50px;}    
 .w100{width:100%;}
 .bord_n{border:none;}
 </style>
