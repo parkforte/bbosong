@@ -75,8 +75,8 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 .p_cont2.p_on2{display: inherit; border:1px solid #ccc; border-radius: 5px;}
 
 /*회원가입 및 회원정보 수정 input 영역 */
-.input_area {border-top:1px solid #ccc; display: flex;flex-direction: row;justify-content: flex-start;align-items: center;  padding: 15px 5px;}
+.input_area {border-top:1px solid #ccc; display: flex;flex-direction: row;justify-content: flex-start;align-items: center;  padding: 15px 0;}
 .input_area:first-child{border-top:none;}
-.input_area .p_title{width:20%;}
-.input_area .p_input{width:80%;}
+/*.input_area .p_title{width:20%;}*/
+.input_area .p_input{width:100%;}
 .pwd_area p{margin:10px 0;}
