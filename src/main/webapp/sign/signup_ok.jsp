@@ -45,10 +45,11 @@
 	AccountDAO dao = new AccountDAO();
 	boolean isSucceed = dao.insertUser(vo);
 	
-	if(isSucceed) {%>
-		<script>alert("회원가입 성공"); location.href="main.jsp";</script>
+	if(isSucceed) {
+		session.setAttribute("email", vo.getEmail());%>
+		<script>location.href="verify_your_account.jsp";</script>
 	<%} else {%>
-		<script>alert("회원가입 실패"); history.back();</script>
+		<script>alert("fatal error"); history.back();</script>
 	<%}
 %>
 </body>

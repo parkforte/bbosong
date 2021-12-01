@@ -1,4 +1,4 @@
-package com.semiproject.board.model;
+package model;
 
 public class LaundryMenuVO {
 	private int laundryNo;

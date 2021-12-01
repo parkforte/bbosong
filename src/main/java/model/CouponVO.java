@@ -1,4 +1,4 @@
-package com.semiproject.board.model;
+package model;
 
 import java.sql.Timestamp;
 
