@@ -121,16 +121,29 @@
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            로그인
-                                        </a>
+                                  		  <%if(session.getAttribute("email") == null) { %>
+                                        		<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+		                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+		                                            aria-expanded="false">
+		                                            로그인
+                                      			</a>
+                                    	   	<%} else {%>
+                                    	   		<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+		                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+		                                            aria-expanded="false">
+		                                            마이페이지
+                                      			</a>
+                                      		<%}%>
+                                       
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="#">로그인</a>
-                                            <a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
-                                            <a class="dropdown-item" href="#">마이페이지</a>
-                                            <a class="dropdown-item" href="#">회원탈퇴</a>
+	                                        	<%if(session.getAttribute("email") == null) { %>
+	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signin.jsp">로그인</a>
+                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
+	                                        	<%} else {%>
+		                                        	<a class="dropdown-item" href="#">마이페이지</a>
+		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signout.jsp">로그아웃</a>
+		                                            <a class="dropdown-item" href="#">회원탈퇴</a>
+                                        		<%}%>
                                         </div>
                                     </li>
                                 </ul>

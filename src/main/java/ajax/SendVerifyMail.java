@@ -20,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -49,13 +50,13 @@ public class SendVerifyMail extends HttpServlet {
         prop.put("mail.smtp.ssl.enable", "true");
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-        Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
+        Session mailSession = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(sender, password);
             }
         });
         
-        MimeMessage message = new MimeMessage(session);
+        MimeMessage message = new MimeMessage(mailSession);
         
         byte[] randByte = new byte[256];
         new Random().nextBytes(randByte);
@@ -76,7 +77,7 @@ public class SendVerifyMail extends HttpServlet {
 			map.put("result", "메일 전송에 실패하였습니다.");
 		}
     	
-    	map.put("result", "true");
+    	map.put("result", verifyCode);
     	String result = gson.toJson(map);
     	writer.print(result);
 	}

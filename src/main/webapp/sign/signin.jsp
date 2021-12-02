@@ -11,7 +11,7 @@
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">
-			<h2>회원가입</h2><br>
+			<h2>로그인</h2><br>
 		    <form id="signinForm" action="signin_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
@@ -33,6 +33,9 @@
 			        <button type="submit" class="mint_btn hover">로그인</button>
 		   		</div>
 		    </form>
+		    <!-- <div class="btn_all t_center">
+				<a href="signup.jsp"><button type="submit" class="begie_btn hover">회원가입</button></a>
+	   		</div> -->
 		</div>	
 	</div>
 </section>

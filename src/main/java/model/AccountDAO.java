@@ -142,11 +142,12 @@ public class AccountDAO {
 
 		try {
 			con = pool.getConnection();
-
-			String sql = "update account set verified = 1 where email = ?";
+			System.out.println(email);
+			String sql = "update account set isverified = 1 where email = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, email);
-			ps.executeUpdate();
+			int cnt = ps.executeUpdate();
+			System.out.println(cnt + "행 업데이트");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -157,7 +158,7 @@ public class AccountDAO {
 		return true;
 	}
 	
-	public boolean idVerified(String email) throws SQLException {
+	public boolean isVerified(String email) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -165,7 +166,7 @@ public class AccountDAO {
 		try {
 			con = pool.getConnection();
 
-			String sql = "select verified from account where email = ?";
+			String sql = "select isverified from account where email = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -173,7 +174,7 @@ public class AccountDAO {
 			if(!rs.next())
 				return false;
 			
-			if(!rs.getString("verified").equals("1"))
+			if(!rs.getString("isverified").equals("1"))
 				return false;
 
 		} catch (SQLException e) {

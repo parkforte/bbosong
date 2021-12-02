@@ -12,21 +12,9 @@ public class AccountVO {
 	private int gradeNo;
 	private Timestamp joinDate;
 	private String pw;
-
-	public AccountVO() {}
+	private String isVerified;
 	
-	public AccountVO(String email, String name, String nickname, Timestamp birth, String address, String tel,
-			int gradeNo, Timestamp joinDate, String pw) {
-		this.email = email;
-		this.name = name;
-		this.nickname = nickname;
-		this.birth = birth;
-		this.address = address;
-		this.tel = tel;
-		this.gradeNo = gradeNo;
-		this.joinDate = joinDate;
-		this.pw = pw;
-	}
+	public AccountVO() {}
 
 	public String getEmail() {
 		return email;
@@ -100,11 +88,19 @@ public class AccountVO {
 		this.pw = pw;
 	}
 
+	public String getIsVerified() {
+		return isVerified;
+	}
+
+	public void setIsVerified(String isVerified) {
+		this.isVerified = isVerified;
+	}
+
 	@Override
 	public String toString() {
 		return "AccountVO [email=" + email + ", name=" + name + ", nickname=" + nickname + ", birth=" + birth
 				+ ", address=" + address + ", tel=" + tel + ", gradeNo=" + gradeNo + ", joinDate=" + joinDate + ", pw="
-				+ pw + "]";
+				+ pw + ", isVerified=" + isVerified + "]";
 	}
-
+	
 }

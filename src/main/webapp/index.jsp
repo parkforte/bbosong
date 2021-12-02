@@ -331,5 +331,6 @@
     </section>
     <!--top place end--> 
 
-<%System.out.println("Session email: " + session.getAttribute("email")); %>
+<%System.out.println("Session email    : " + session.getAttribute("email")); %>
+<%System.out.println("Session verified : " + session.getAttribute("verified")); %>
  <%@include file="inc/bottom.jsp"%>
