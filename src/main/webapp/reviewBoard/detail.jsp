@@ -1,5 +1,9 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="model.ReviewBoardVO"%>
+<%@page import="model.ReviewBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+  
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -38,19 +42,19 @@
 	<h2>글 상세보기</h2>
 	<div class="divForm">
 		<div class="firstDiv">
-			<span class="sp1">제목</span> <span class="sp2">후기 글 남깁니다</span>
+			<span class="sp1">제목</span> <span class="sp2">1</span>
 		</div>
 		<div>
-			<span class="sp1">작성자</span> <span class="sp2">오현택</span>
+			<span class="sp1">작성자</span> <span class="sp2">후기 글 남깁니다</span>
 		</div>
 		<div>
-			<span class="sp1">등록일</span> <span class="sp2">2021-11-29</span>
+			<span class="sp1">등록일</span> <span class="sp2">오현택</span>
 		</div>
 		<div>
-			<span class="sp1">조회수</span> <span class="sp2">3</span>
+			<span class="sp1">조회수</span> <span class="sp2">2021-11-29</span>
 		</div>
 		<div class="lastDiv">			
-			<p class="content">아끼는 옷에 음식을 쏟아서 많이 속상했는데 새것처럼 깔끔해졌어요 다음에도 또 이용할게요!</p>
+			<p class="content">너무 좋아요</p>
 		</div>
 		<div class="center">
 			<a href='edit.jsp'>수정</a>

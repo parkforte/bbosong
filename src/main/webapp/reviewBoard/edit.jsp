@@ -1,3 +1,6 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="model.ReviewBoardVO"%>
+<%@page import="model.ReviewBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -24,6 +27,8 @@
 </style>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/reviewboard/edit.css" />
+
+
 <script type="text/javascript">
 
 </script>
@@ -31,16 +36,17 @@
 </head>
 <body>
 <div class="divForm">
-<form name="frmEdit" method="post" action=""> 
+<form name="frmEdit" method="post" action="edit_ok.jsp"> 
+	<input type="hidden" name="no">
     <fieldset>
 	<legend>글수정</legend>
         <div class="firstDiv">
             <label for="title" class="sp1">제목</label>
-            <input type="text" id="title" name="title"  />
+            <input type="text" id="title" name="title" />
         </div>
         <div>
             <label for="name" class="sp1">작성자</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name"/>
         </div>
         <div>
             <label for="pwd" class="sp1">비밀번호</label>
@@ -48,10 +54,10 @@
         </div>
         <div>
             <label for="email" class="sp1">이메일</label>
-            <input type="text" id="email" name="email" />
+            <input type="text" id="email" name="email"/>
         </div>
         <div>  
-        	<label for="content" class="sp1">내용입니다</label>        
+        	<label for="content" class="sp1">내용</label>        
  			<textarea id="content" name="content" rows="12" cols="40"></textarea>
         </div>
         <div class="center">

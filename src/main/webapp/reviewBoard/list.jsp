@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="common.Utility"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="model.ReviewBoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ReviewBoardDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -87,6 +92,5 @@
 <div class="divBtn">
     <button class="mint_btn hover"><a href='write.jsp'>글쓰기</a></button>
 </div>
-
 </body>
 </html>
