@@ -55,14 +55,6 @@
 				            	<input type="text" id="title" name="title" value="<%=vo.getTitle() %>" class="t_input sp2" />
 				        	</li>
 					        <li>
-					            <label for="pwd" class="sp1">비밀번호</label>
-					            <input type="password" id="pwd" name="pwd"  class="t_input sp2"/>
-					        </li>
-					        <li>
-					            <label for="email" class="sp1">이메일</label>
-					            <input type="text" id="email" name="email" value="<%=email %>"  class="t_input sp2"/>
-					        </li>
-					        <li>
 					            <label for="upfile" class="sp1">첨부파일</label>
 					            <input type="file" id="upfile" name="upfile" />
 					        </li>

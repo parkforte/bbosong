@@ -14,7 +14,12 @@ import db.ConnectionPoolMgr;
 
 public class NoticeDAO {
 	ConnectionPoolMgr pool = new ConnectionPoolMgr();
-	
+	/**
+	 *글작성메서드
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int insertNotice(NoticeVO vo) throws SQLException{
 		Connection con=null;
 		PreparedStatement ps =null;
@@ -22,14 +27,17 @@ public class NoticeDAO {
 		try {
 			con=pool.getConnection();
 			
-			String sql="insert into eventboard (no, title, content, email)"
-					+" values(seq_notice.nextval,?,?,'bbosong1001@dream.com')";
+			String sql="insert into notice (no, title, content, email, filename, filesize, originalFilename)"
+					+" values(seq_notice.nextval,?,?,'bbosong1001@dream.com',?,?,?)";
 			ps=con.prepareStatement(sql);
 			
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getContent());
+			ps.setString(3, vo.getFileName());
+	        ps.setLong(4, vo.getFileSize());
+	        ps.setString(5, vo.getOriginalFileName());
 			
-			int cnt=ps.executeUpdate();
+	        int cnt=ps.executeUpdate();
 			System.out.println("글쓰기 결과 cnt="+cnt+", 매개변수 vo="+vo);
 			
 			return cnt;
@@ -56,7 +64,7 @@ public class NoticeDAO {
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
 				sql+= "	where " + condition +" like '%' || ? || '%'";
 			}
-			sql += " order by groupno desc, sortno";			
+			sql += " order by no desc";			
 			ps=con.prepareStatement(sql);
 			
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	
@@ -79,7 +87,7 @@ public class NoticeDAO {
 				int downcount=rs.getInt("downcount");
 				long fileSize=rs.getLong("fileSize");
 				
-				NoticeVO vo = new NoticeVO(no, title, content, email, readcount, fileName, fileSize, downcount, originalFileName, regdate, originalFileName);
+				NoticeVO vo = new NoticeVO(no, title, content, email, readcount, fileName, fileSize, downcount, originalFileName, regdate);
 						
 				list.add(vo);
 			}
@@ -159,7 +167,7 @@ public class NoticeDAO {
 			
 			//3
 			String sql="update notice";
-			sql+= " set title=?,pwd=?, email=?, content=?";
+			sql+= " set title=?, content=?";
 			
 			//파일이 첨부된 경우
 			if(vo.getFileName()!=null && !vo.getFileName().isEmpty()) { 
@@ -169,16 +177,15 @@ public class NoticeDAO {
 			
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
-			ps.setString(2, vo.getEmail());
-			ps.setString(3, vo.getContent());
+			ps.setString(2, vo.getContent());
 			
 			if(vo.getFileName()!=null && !vo.getFileName().isEmpty()) {
-				ps.setString(5, vo.getFileName());
-				ps.setLong(6, vo.getFileSize());
-				ps.setString(7, vo.getOriginalFileName());
-				ps.setInt(8, vo.getNo());				
+				ps.setString(3, vo.getFileName());
+				ps.setLong(4, vo.getFileSize());
+				ps.setString(5, vo.getOriginalFileName());
+				ps.setInt(6, vo.getNo());				
 			}else {			
-				ps.setInt(4, vo.getNo());
+				ps.setInt(3, vo.getNo());
 			}
 			
 			//4
@@ -210,7 +217,7 @@ public class NoticeDAO {
 			rs=ps.executeQuery();
 			if(rs.next()) {
 				String dbPwd=rs.getString(1);
-				if(dbPwd.equals(vo.getPwd())) {
+				if(dbPwd!=null) {
 					bool=true;
 				}
 			}
@@ -242,7 +249,7 @@ public class NoticeDAO {
 		}
 	}
 	
-	public void deletenotice(NoticeVO vo) throws SQLException {
+	public int deletenotice(int no) throws SQLException {
 		Connection con=null;
 		CallableStatement ps=null;
 		
@@ -251,17 +258,17 @@ public class NoticeDAO {
 			con=pool.getConnection();
 			
 			//3
-			String sql="delete from notice where no=?, step=?, groupno=?";
+			String sql="delete from notice where no=?";
 			ps=con.prepareCall(sql);
-			ps.setInt(1, vo.getNo());
-			ps.setInt(2, vo.getStep());
-			ps.setInt(3, vo.getGroupNo());
+			ps.setInt(1, no);
 			
 			//4
-			boolean bool=ps.execute();
-			System.out.println("글 삭제 bool="+ bool +", 매개변수 vo="+vo);			
+			int cnt=ps.executeUpdate();
+			System.out.println("글 삭제 cnt="+ cnt +", 매개변수 no="+no);	
+			return cnt;
 		}finally {
 			pool.dbClose(ps, con);
 		}
 	}
+	
 }

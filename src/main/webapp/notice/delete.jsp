@@ -13,8 +13,6 @@
 	<%	return;
 	}
 	
-	String step=request.getParameter("step");
-	String groupNo=request.getParameter("groupNo");
 	
 	//2
 	
@@ -24,15 +22,9 @@
 <script type="text/javascript">
 	$(function(){
 		$('form[name=frmDelete]').submit(function(){
-			if($('#pwd').val().length<1){
-				alert('비밀번호를 입력하세요');
-				$('#pwd').focus();
-				event.preventDefault();
-			}else{
 				if(!confirm('삭제하시겠습니까?')){
 					event.preventDefault();
 				}
-			}
 		});
 	});	
 </script>
@@ -42,16 +34,11 @@
 			<div class="divForm">
 				<form name="frmDelete" method="post" action="delete_ok.jsp" >
 					<input type="hidden" name="no" value="<%=no%>">
-					<input type="hidden" name="groupNo" value="<%=groupNo%>">
-					<input type="hidden" name="step" value="<%=step%>">
 							<ul>						
 						        <li>
 						        	<span class="sp"><%=no %>번 글을 삭제하시겠습니까?</span>                        
 						        </li>           
-						        <li>                      
-						            <label for="pwd">비밀번호</label>
-						            <input type="password" id="pwd" name="pwd" />   
-						        </li>           
+						             
 					        </ul>
 					        <div class="center">
 					            <input type ="submit"  value="삭제" />

@@ -10,9 +10,6 @@
 	
 		//1
 		String no=request.getParameter("no");
-		String pwd=request.getParameter("pwd");
-		String step=request.getParameter("step");
-		String groupNo=request.getParameter("groupNo");
 		
 		//2
 		NoticeDAO dao = new NoticeDAO();
@@ -20,11 +17,9 @@
 		try{
 			NoticeVO vo = new NoticeVO();
 			vo.setNo(Integer.parseInt(no));
-			vo.setStep(Integer.parseInt(step));
-			vo.setGroupNo(Integer.parseInt(groupNo));
 			
-			if(dao.checkPwd(vo)){
-				dao.deletenotice(vo);				
+			int cnt= dao.deletenotice(Integer.parseInt(no));
+			if(cnt>0){
 			%>
 				<script type="text/javascript">
 					alert("글 삭제되었습니다.");
@@ -32,7 +27,7 @@
 				</script>	
 		<%	}else{ %>
 				<script type="text/javascript">
-					alert("비밀번호가 일치하지 않습니다.");
+					alert("수정실패");
 					history.back();
 				</script>
 		<%	}

@@ -52,7 +52,7 @@
 %>
 	<section class="section_padding">
 			<div class="divList container">
-				<h2>답변형게시판</h2>
+				<h2>공지사항</h2>
 				<%
 					if(keyword!=null && !keyword.isEmpty()){ %>
 						<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
@@ -60,7 +60,7 @@
 				
 			
 				<table class="table1"
-					 	summary="답변형게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
+					 	summary="공지사항게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
 					<caption style="display:none;">답변형게시판</caption>
 					<colgroup>
 						<col style="width:10%;" />
@@ -170,7 +170,6 @@
 				<div class="divBtn t_right mt20 mb20">
 				    <a href='write.jsp' class="mint_btn a_btn hover">글쓰기</a>
 				</div>
-				
 			</div>
 	</section>
 <%@include file="../inc/bottom.jsp" %>

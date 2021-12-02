@@ -17,14 +17,13 @@ public class NoticeVO {
 	private int downcount;
 	private String originalFileName;
 	private Timestamp regdate;
-	private String pwd;
 	public NoticeVO() {
 		super();
 	}
 
 	public NoticeVO(int no, String title, String content, String email, int readcount,  
 			String fileName, long fileSize, int downcount, String originalFileName,
-			Timestamp regdate,String pwd) {
+			Timestamp regdate) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -36,7 +35,6 @@ public class NoticeVO {
 		this.downcount = downcount;
 		this.originalFileName = originalFileName;
 		this.regdate = regdate;
-		this.pwd = pwd;
 	}
 
 	public int getNo() {
@@ -152,20 +150,13 @@ public class NoticeVO {
 	}
 	
 
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
 
 	@Override
 	public String toString() {
 		return "NoticeVO [no=" + no + ", title=" + title + ", content=" + content + ", email=" + email + ", readcount="
 				+ readcount + ", groupNo=" + groupNo + ", step=" + step + ", sortNo=" + sortNo + ", delFlag=" + delFlag
 				+ ", fileName=" + fileName + ", fileSize=" + fileSize + ", downcount=" + downcount
-				+ ", originalFileName=" + originalFileName + ", regdate=" + regdate + ", pwd=" + pwd + "]";
+				+ ", originalFileName=" + originalFileName + ", regdate=" + regdate + "]";
 	}
 
 	

@@ -1,4 +1,4 @@
-<%@page import="java.io.File"%>  
+<%@page import="java.io.File"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="java.sql.SQLException"%>
@@ -6,7 +6,7 @@
 <%@page import="model.NoticeDAO"%>
 <%@page import="common.Utility"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//edit.jsp에서 post방식으로 서브밋됨
 	
@@ -51,45 +51,35 @@
 		vo.setContent(content);
 		vo.setEmail(email);
 		vo.setNo(Integer.parseInt(no));
-		vo.setPwd(pwd);
 		vo.setTitle(title);
 		vo.setFileName(fileName);
 		vo.setOriginalFileName(originalFName);
 		vo.setFileSize(fileSize);
-		
-		if(dao.checkPwd(vo)){		
-			int cnt=dao.updatenotice(vo);
-			
-			//3
-			if(cnt>0){ 
-				//새로 업로드한 경우-기존 파일이 존재하면 기존파일 삭제처리
-				if(fileName!=null){
-					if(oldFileName!=null && !oldFileName.isEmpty()){
-						File oldFile = new File(saveDir, oldFileName);
-						if(oldFile.exists()){
-							boolean bool=oldFile.delete();
-							System.out.println("기존파일 삭제 여부:"+bool);
-						}
-					}
-				}//if
+		int cnt = dao.updatenotice(vo);
+		if(cnt>0){
+		//새로 업로드한 경우-기존 a파일이 존재하면 기존파일 삭제처리
+		if(fileName!=null){
+			if(oldFileName!=null && !oldFileName.isEmpty()){
+				File oldFile = new File(saveDir, oldFileName);
+				if(oldFile.exists()){
+					boolean bool=oldFile.delete();
+					System.out.println("기존파일 삭제 여부:"+bool);
+				}
+			}
+		}//if
 		%>
-				<script type="text/javascript">
-					alert("글 수정되었습니다.");
-					location.href="detail.jsp?no=<%=no%>";
-				</script>	
+		<script type="text/javascript">
+			alert("글 수정되었습니다.");
+			location.href="detail.jsp?no=<%=no%>";
+		</script>
 		<%	}else{ %>
-				<script type="text/javascript">
-					alert("글 수정 실패!");
-					history.go(-1);				
-				</script>
+		<script type="text/javascript">
+			alert("글 수정 실패!");
+			history.go(-1);
+		</script>
 		<%	}
-		}else{  //비번 불일치 %>
-			<script type="text/javascript">
-				alert("비밀번호가 일치하지 않습니다.");
-				history.go(-1);				
-			</script>	
-	<%	}
-	}catch(SQLException e){
-		e.printStackTrace();
-	}
-%>
+				
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		%>

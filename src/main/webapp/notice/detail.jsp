@@ -42,16 +42,7 @@
 		downInfo="다운 : " + vo.getDowncount();
 	}
 %>  
-<style>
 
-.divForm{width: 100%; border-top: 1px solid #aac3c3; border-bottom: 1px solid #aac3c3; padding: 20; padding: 20px;}
-.divForm ul{width:100%;}
-.divForm ul li{padding:10px 5px; border-bottom:1px solid #aac3c3;display:flex;}
-.divForm ul li:last-child{border-bottom:0;}
-.divForm ul li .sp1{width:28%; display:inline-block; display:inline-flex; align-content:space-around; align-items:stretch; flex-direction:column; flex-wrap:nowrap; justify-content:center;}
-.divForm ul li .sp2{width:68%; display:inline-block;}
-.c_mint{color:#aac3c3;}   
-</style>
 	<section class="section_padding">
 		<div class="container">
 			<h2>글 상세보기</h2>
@@ -59,9 +50,6 @@
 				<ul class="mb50">
 					<li>
 						<span class="sp1">제목</span> <span class="sp2"><%=vo.getTitle() %></span>
-					</li>
-					<li>
-						<span class="sp1">작성자</span> <span class="sp2"><%=vo.getContent()%></span>
 					</li>
 					<li>
 						<span class="sp1">등록일</span> <span class="sp2"><%=vo.getRegdate() %></span>

@@ -9,7 +9,7 @@ public class Utility {
 	public static final String UPLOAD_PATH="pds_upload";
 	//테스트 경로
 	public static final String TEST_PATH
-="D:\\lecture\\workspace_list\\jsp_ws\\herbmall\\src\\main\\webapp\\pds_upload";
+="D:\\projects\\git\\bbosong\\src\\main\\webapp\\notice_upload";
 	
 	public static String displayRe(int step) {
 		//답변글인 경우 단계별로 이미지 보여주기
@@ -19,7 +19,7 @@ public class Utility {
 				result+= "&nbsp;";
 			}//for 
 			
-			result+= "<img src='../images/re.gif'>";	
+			result+= "<img src='../img/re.gif'>";	
 		}//if 
 		
 		return result;
@@ -43,7 +43,7 @@ public class Utility {
 		
 		String result="";
 		if(gap<24) {
-			result="<img src='../images/new.gif' alt='new이미지'>";
+			result="<img src='../img/new.gif' alt='new이미지'>";
 		}
 		
 		return result;
@@ -53,7 +53,7 @@ public class Utility {
 		//파일이 첨부된 경우 파일이미지 보여주기
 		String result="";
 		if(fileName!=null && !fileName.isEmpty()) {
-			result="<img src='../images/file.gif' alt='file이미지'>";
+			result="<img src='../img/file.gif' alt='file이미지'>";
 		}
 		
 		return result;
