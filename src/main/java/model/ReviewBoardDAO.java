@@ -67,15 +67,8 @@ public class ReviewBoardDAO {
 			
 			//3 ps
 			String sql="select * from review";
-			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
-				sql+= "	where " + condition +" like '%' || ? || '%'";
-			}
-			sql += " order by groupno desc, sortno";			
+		
 			ps=con.prepareStatement(sql);
-			
-			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	
-				ps.setString(1, keyword);
-			}
 			
 			//4 exec
 			rs=ps.executeQuery();
@@ -193,11 +186,89 @@ public class ReviewBoardDAO {
 			String sql="update review";
 			sql+= " set name=?,title=?, email=?, content=?";
 			
+			//파일이 첨부된 경우
+			if(vo.getFileName()!=null && !vo.getFileName().isEmpty()) { 
+				sql+=", filename=?, filesize=?, originalFilename=?";
+			}
+			sql+= " where no=?";
 			
+			ps=con.prepareStatement(sql);
+			ps.setString(1, vo.getName());
+			ps.setString(2, vo.getTitle());
+			ps.setString(3, vo.getEmail());
+			ps.setString(4, vo.getContent());
+			
+			if(vo.getFileName()!=null && !vo.getFileName().isEmpty()) {
+				ps.setString(5, vo.getFileName());
+				ps.setLong(6, vo.getFileSize());
+				ps.setString(7, vo.getOriginalFileName());
+				ps.setInt(8, vo.getNo());				
+			}else {			
+				ps.setInt(5, vo.getNo());
+			}
+			
+			//4
+			int cnt=ps.executeUpdate();
+			System.out.println("글 수정 결과 cnt="+cnt+", 매개변수 vo="+vo);
+			
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}	
+	
+	public boolean checkPwd(ReviewBoardVO vo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		boolean bool=false;
+		try {
+			//1,2
+			con=pool.getConnection();
+			
+			//3.
+			String sql="select pwd from review where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, vo.getNo());
+			
+			//4
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				String dbPwd=rs.getString(1);
+				if(dbPwd.equals(vo.getPwd())) {
+					bool=true;
+				}
+			}
+			System.out.println("비밀번호 체크 결과 bool="+bool+", 매개변수 vo="+vo);
+			
+			return bool;
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
+	}
+	
+	public void deleteReviewBoard(ReviewBoardVO vo) throws SQLException {
+		Connection con=null;
+		CallableStatement ps=null;
+		
+		try {
+			//1,2
+			con=pool.getConnection();
+			
+			//3
+			String sql="delete from review where no=?, step=?, groupno=?";
+			ps=con.prepareCall(sql);
+			ps.setInt(1, vo.getNo());
+			ps.setInt(2, vo.getStep());
+			ps.setInt(3, vo.getGroupNo());
+			
+			//4
+			boolean bool=ps.execute();
+			System.out.println("글 삭제 bool="+ bool +", 매개변수 vo="+vo);			
 		}finally {
 			pool.dbClose(ps, con);
 		}
 	}
 }
-
 
