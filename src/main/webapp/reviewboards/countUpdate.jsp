@@ -10,16 +10,12 @@
 </head>
 <body>
 <%
-	//list.jsp에서 [제목]클릭하면 get방식으로 이동
-	//1
 	String no=request.getParameter("no");
-	
-	//2
+
 	ReviewBoardDAO dao=new ReviewBoardDAO();
 	try{
 		int cnt=dao.updateReadCount(Integer.parseInt(no));
 		
-		//3
 		if(cnt>0){
 			response.sendRedirect("detail.jsp?no="+no);	
 		}else{ %>

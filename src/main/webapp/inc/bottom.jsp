@@ -16,6 +16,7 @@
                             <li><a href="#">이용방법</a></li>
                             <li><a href="#">이벤트</a></li>
                             <li><a href="#">공지사항</a></li>
+                            <li><a href="#">관리자접속</a></li>
                             <li><a href="#">FAQ</a></li>
                             <li><a href="#">Q&A</a></li>
                             <li><a href="#">세탁정보</a></li>

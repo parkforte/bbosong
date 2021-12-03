@@ -67,8 +67,15 @@ public class ReviewBoardDAO {
 			
 			//3 ps
 			String sql="select * from review";
-		
+			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
+				sql+= "	where " + condition +" like '%' || ? || '%'";
+			}
+			sql += " order by groupno desc, sortno";			
 			ps=con.prepareStatement(sql);
+			
+			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	
+				ps.setString(1, keyword);
+			}
 			
 			//4 exec
 			rs=ps.executeQuery();
@@ -81,6 +88,7 @@ public class ReviewBoardDAO {
 				String email=rs.getString("email");
 				String content=rs.getString("content");
 				Timestamp regdate=rs.getTimestamp("regdate");
+				int score=rs.getInt("score");
 				//답변형 추가
 				int groupNo=rs.getInt("groupno");
 				int step=rs.getInt("step");
@@ -93,9 +101,8 @@ public class ReviewBoardDAO {
 				long fileSize=rs.getLong("fileSize");
 				
 				ReviewBoardVO vo = new ReviewBoardVO(no, name, pwd, title, content, 
-						email, readcount, groupNo, step, sortNo, delFlag, 
-						fileName, fileSize, downCount, originalFileName, 
-						regdate, downCount);
+						email, readcount, groupNo, step, sortNo, delFlag, fileName, 
+						fileSize, downCount, originalFileName, regdate, score);
 				
 				list.add(vo);
 			}
@@ -174,7 +181,7 @@ public class ReviewBoardDAO {
 		}
 	}
 	
-	public int updateReBoard(ReviewBoardVO vo) throws SQLException {
+	public int updateReviewBoard(ReviewBoardVO vo) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
 		
@@ -217,6 +224,7 @@ public class ReviewBoardDAO {
 		}
 	}	
 	
+	
 	public boolean checkPwd(ReviewBoardVO vo) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
@@ -257,7 +265,7 @@ public class ReviewBoardDAO {
 			con=pool.getConnection();
 			
 			//3
-			String sql="delete from review where no=?, step=?, groupno=?";
+			String sql="call deleteReview(?,?,?)";
 			ps=con.prepareCall(sql);
 			ps.setInt(1, vo.getNo());
 			ps.setInt(2, vo.getStep());
@@ -266,6 +274,104 @@ public class ReviewBoardDAO {
 			//4
 			boolean bool=ps.execute();
 			System.out.println("글 삭제 bool="+ bool +", 매개변수 vo="+vo);			
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+	
+	public int updateReadCount(int no) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update review set readcount=readcount+1"					
+					+ " where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("조회수 증가 결과 cnt="+cnt+", 매개변수 no="+no);
+			
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+	
+	public int reply(ReviewBoardVO vo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		int cnt=0;
+		try {
+			//1,2 con
+			con=pool.getConnection();
+			
+			//transaction 시작
+			con.setAutoCommit(false);  //자동커밋 안되게 막는다
+			
+			//3. ps
+			//[1] update - sortNo를 1씩 증가시켜 자리확보
+			String sql="update review"
+					+ " set sortno=sortno+1"
+					+ " where groupno=? and sortno > ?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, vo.getGroupNo());
+			ps.setInt(2, vo.getSortNo());
+			
+			//4. exec
+			cnt=ps.executeUpdate();
+			System.out.println("답변달기 - update 결과 cnt="+cnt
+					+", 매개변수 vo="+vo);
+			
+			//[2] insert
+			sql="insert into review(no, name, pwd, title, email, content, "
+				+ "groupno, step, sortno)"
+				+ "values(reviewboard_seq.nextval, ?,?,?,?,?,?,?,?)";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, vo.getName());
+			ps.setString(2, vo.getPwd());
+			ps.setString(3, vo.getTitle());
+			ps.setString(4, vo.getEmail());
+			ps.setString(5, vo.getContent());
+			ps.setInt(6, vo.getGroupNo());
+			ps.setInt(7, vo.getStep()+1);
+			ps.setInt(8, vo.getSortNo()+1);
+			
+			
+			cnt=ps.executeUpdate();
+			System.out.println("답변하기 결과 cnt="+cnt);
+			
+			con.commit();
+		}catch(SQLException e) {
+			con.rollback();
+			e.printStackTrace();
+		}finally {			
+			con.setAutoCommit(true);
+			pool.dbClose(ps, con);
+		}
+		
+		return cnt;
+	}
+	
+	public int updateDownCount(int no) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update review set downcount=downcount+1"					
+					+ " where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("다운로드수 증가 결과 cnt="+cnt+", 매개변수 no="+no);
+			
+			return cnt;
 		}finally {
 			pool.dbClose(ps, con);
 		}
