@@ -1,4 +1,4 @@
-<%@page import="common.Utility"%>  
+<%@page import="common.TipUtil"%>  
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.TipBoardVO"%>
@@ -60,8 +60,8 @@
 				
 			
 				<table class="table1"
-					 	summary="공지사항게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
-					<caption style="display:none;">답변형게시판</caption>
+					 	summary="세탁정보게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
+					<caption style="display:none;">게시판</caption>
 					<colgroup>
 						<col style="width:10%;" />
 						<col style="width:50%;" />
@@ -91,15 +91,15 @@
 							<td><%=vo.getNo() %></td>
 							<td>
 									<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
-									<%=Utility.displayFile(vo.getFileName()) %>
+									<%=TipUtil.displayFile(vo.getFileName()) %>
 									
 									<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
 										<!-- 제목이 긴 경우 일부만 보여주기 -->
-										<%=Utility.cutString(vo.getTitle(), 35) %>
+										<%=TipUtil.cutString(vo.getTitle(), 35) %>
 									</a>
 									
 									<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
-									<%=Utility.displayNew(vo.getRegdate()) %>
+									<%=TipUtil.displayNew(vo.getRegdate()) %>
 									
 							</td>
 							<td><%=vo.getTitle()%></td>

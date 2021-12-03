@@ -19,77 +19,35 @@
 <body>
 <%
 	//write.jsp에서 post방식으로 서브밋됨
+	request.setCharacterEncoding("utf-8");
+
+	String title= request.getParameter("title");
+	String content= request.getParameter("content");
 	
-	//실제 물리적인 경로(절대 경로)
-	String saveDir=application.getRealPath(TipUtil.UPLOAD_PATH); //업로드 경로
-	saveDir=config.getServletContext().getRealPath(TipUtil.UPLOAD_PATH);
-	System.out.print(saveDir);
-	saveDir=TipUtil.TEST_PATH;
+	System.out.println(title);
+	System.out.println(content);
 	
-	int maxSize=4*1024*1024;  //업로드파일의 최대 크기, 2M
-	String encoding="utf-8";
-	
+	TipBoardDAO dao=new TipBoardDAO();
 	try{
-		MultipartRequest mr
-		=new MultipartRequest(request, saveDir, maxSize, encoding,
-				new DefaultFileRenamePolicy());
-		System.out.println("업로드 완료!");
-		
-		//업로드 파일의 정보 
-		String fileName=mr.getFilesystemName("upfile");
-		long fileSize=0;
-		String originalFName="";
-		if(fileName!=null){  //파일이 첨부된 경우만
-			File file=mr.getFile("upfile");
-			fileSize=file.length();
-			
-			originalFName=mr.getOriginalFileName("upfile");
-		}
-		
-		//1. 요청 파라미터 읽어오기
-		String title=mr.getParameter("title");
-		String name=mr.getParameter("name");
-		String pwd=mr.getParameter("pwd");
-		String email=mr.getParameter("email");
-		String content=mr.getParameter("content");
-		
-		//ip 읽어오기
-		String ip=request.getRemoteAddr();
-		String ip2=request.getRemoteHost();
-		System.out.println("ip="+ip+", ip2="+ip2);
-		
-		//2. db작업
-		TipBoardDAO dao = new TipBoardDAO();
-		TipBoardVO vo = new TipBoardVO();
-		vo.setContent(content);
+		TipBoardVO vo=new TipBoardVO();
 		vo.setTitle(title);
-		vo.setFileName(fileName);
-		vo.setOriginalFileName(originalFName);
-		vo.setFileSize(fileSize);
-		
-		int cnt=dao.insertTip(vo);
-		
-		//3. 결과 처리  
-		if(cnt>0){ %>
+		vo.setContent(content);
+		int result=dao.insertTip(vo);	
+		if(result>0){ %>
 			<script type="text/javascript">
-				alert("글쓰기 처리되었습니다.");
+				alert('등록을 완료하였습니다.');
 				location.href="list.jsp";
 			</script>
-	<%  }else{ %>
+	<%	}else{	%>
 			<script type="text/javascript">
-				alert("글쓰기 실패!");
+				alert('등록을 실패하였습니다.');
 				history.back();
-			</script>			
-	<%	}//if
+			</script>
+	<%	}
 	}catch(SQLException e){
 		e.printStackTrace();
-	}catch(IOException e){ %>
-		<script type="text/javascript">
-			alert("2M 이상의 파일은 업로드 불가!");
-			history.back();
-		</script>	
-	<%	e.printStackTrace();
-	}	
+	}
+	
 %>
 </body>
 </html>

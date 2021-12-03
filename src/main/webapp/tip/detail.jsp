@@ -1,6 +1,6 @@
 <%@page import="model.TipBoardVO"%>
 <%@page import="model.TipBoardDAO"%>  
-<%@page import="common.Utility"%>
+<%@page import="common.TipUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -38,7 +38,7 @@
 	
 	String fileInfo="", downInfo="";
 	if(vo.getFileName()!=null && !vo.getFileName().isEmpty()){
-		fileInfo=Utility.showFileInfo(vo.getOriginalFileName(), vo.getFileSize());
+		fileInfo=TipUtil.showFileInfo(vo.getOriginalFileName(), vo.getFileSize());
 		downInfo="다운 : " + vo.getDowncount();
 	}
 %>  
@@ -70,7 +70,7 @@
 				</ul>		
 				<div class="t_center">
 					<a href='edit.jsp?no=<%=no%>'>수정</a> <span class="c_mint">|</span>
-		        	<a href='delete.jsp?no=<%=no%>%>'>
+		        	<a href='delete.jsp?no=<%=no%>'>
 		        	삭제</a><span class="c_mint">|</span>
 		        	<a href='list.jsp'>목록</a>			
 				</div>

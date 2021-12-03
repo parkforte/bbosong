@@ -4,17 +4,17 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.TipBoardVO"%>
 <%@page import="model.TipBoardDAO"%>
-<%@page import="common.Utility"%>
+<%@page import="common.TipUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	//edit.jsp에서 post방식으로 서브밋됨
 	
 	//실제 물리적인 경로(절대 경로)
-	String saveDir=application.getRealPath(Utility.UPLOAD_PATH); //업로드 경로
-	saveDir=config.getServletContext().getRealPath(Utility.UPLOAD_PATH);
+	String saveDir=application.getRealPath(TipUtil.UPLOAD_PATH); //업로드 경로
+	saveDir=config.getServletContext().getRealPath(TipUtil.UPLOAD_PATH);
 	System.out.print(saveDir);
-	saveDir=Utility.TEST_PATH;
+	saveDir=TipUtil.TEST_PATH;
 	
 	int maxSize=2*1024*1024;  //업로드파일의 최대 크기, 2M
 	String encoding="utf-8";

@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ private ConnectionPoolMgr pool;
 		PreparedStatement ps=null;
 		try {
 			con=pool.getConnection();
-			String sql="insert into tipboard(no, title, pwd, content, email) "
+			String sql="insert into tipboard(no, title, content, email) "
 					+ " values(TipBoard_seq.nextval,?,?,'bbosong@dream.com')";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
@@ -207,7 +206,7 @@ private ConnectionPoolMgr pool;
 	
 	public int deleteTip(int no) throws SQLException {
 		Connection con=null;
-		CallableStatement ps=null;
+		PreparedStatement ps=null;
 		
 		try {
 			//1,2
@@ -215,7 +214,7 @@ private ConnectionPoolMgr pool;
 			
 			//3
 			String sql="delete from tipboard where no=?";
-			ps=con.prepareCall(sql);
+			ps=con.prepareStatement(sql);
 			ps.setInt(1, no);
 			
 			//4
@@ -226,4 +225,5 @@ private ConnectionPoolMgr pool;
 			pool.dbClose(ps, con);
 		}
 	}
+	
 }
