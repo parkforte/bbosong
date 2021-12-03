@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Utility {
+public class MypageUtil {
 	//자료실-업로드 경로
-	public static final String UPLOAD_PATH="pds_upload";
+	public static final String UPLOAD_PATH="notice_upload";
 	//테스트 경로
 	public static final String TEST_PATH
 ="D:\\projects\\git\\bbosong\\src\\main\\webapp\\notice_upload";

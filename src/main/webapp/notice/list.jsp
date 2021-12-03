@@ -1,4 +1,4 @@
-<%@page import="common.Utility"%>  
+<%@page import="common.MypageUtil"%>  
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.NoticeVO"%>
@@ -8,9 +8,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp" %>
 <%
-	
-	
-	//1
+//1
 	request.setCharacterEncoding("utf-8");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
@@ -47,16 +45,17 @@
    int lastPage=firstPage+blockSize-1;
    int totalPage=(int)Math.ceil((double)totalRecord/pageSize);
    int num=totalRecord-curPos;
-	
-	
 %>
 	<section class="section_padding">
 			<div class="divList container">
 				<h2>공지사항</h2>
 				<%
-					if(keyword!=null && !keyword.isEmpty()){ %>
-						<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
-				<%	} %>
+				if(keyword!=null && !keyword.isEmpty()){
+				%>
+						<p>검색어 : <%=keyword%>,  <%=list.size()%>건 검색되었습니다. </p>
+				<%
+				}
+				%>
 				
 			
 				<table class="table1"
@@ -81,25 +80,25 @@
 					<tbody>  
 					  <!--게시판 내용 반복문 시작  -->	
 					  <%
-					    for(int i=0;i<pageSize ;i++){
-					    	if(num<1) break;	
-					    
-							NoticeVO vo=list.get(curPos++);
-							num--;
-					   %>	
+						  for(int i=0;i<pageSize ;i++){
+		  			    	if(num<1) break;	
+		  			    
+		  					NoticeVO vo=list.get(curPos++);
+		  					num--;
+						  %>	
 						<tr>
-							<td><%=vo.getNo() %></td>
+							<td><%=vo.getNo()%></td>
 							<td>
 									<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
-									<%=Utility.displayFile(vo.getFileName()) %>
+									<%=MypageUtil.displayFile(vo.getFileName())%>
 									
 									<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
 										<!-- 제목이 긴 경우 일부만 보여주기 -->
-										<%=Utility.cutString(vo.getTitle(), 35) %>
+										<%=MypageUtil.cutString(vo.getTitle(), 35)%>
 									</a>
 									
 									<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
-									<%=Utility.displayNew(vo.getRegdate()) %>
+									<%=MypageUtil.displayNew(vo.getRegdate())%>
 									
 							</td>
 							<td><%=vo.getTitle()%></td>

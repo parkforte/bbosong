@@ -41,7 +41,7 @@
    <h2 class="mb50">공지사항</h2>
       <fieldset>
          <form name="admin_notice" action="write_ok.jsp" method="post" enctype="multipart/form-data">
-            <input type="text" id="email" name="email" value="bbosong1001@dream.com"> 
+            <input type="hidden" id="email" name="email" value="bbosong1001@dream.com"> 
                <!-- <div class="input_area">
                	   <div class="p_title">비밀번호</div>
                    <div class="p_input">
