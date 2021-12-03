@@ -74,7 +74,7 @@
 				<div class="page_cont">
 					<div class="line"></div>
 					<p>
-						<strong class="m_txt">Withdrawal / </strong> 주문내역
+						<strong class="m_txt"> info/ </strong> 내정보수정
 					</p>
 					<p>
 						고객님께서 주문하신 산품의 주문내역을 확인하실 수 있습니다.<br /> 비회원의 경우, 주문서의 주문번호와 비밀번호로
@@ -86,7 +86,7 @@
 				<div class="page_cont">
 					<div class="line"></div>
 					<p>
-						<strong class="m_txt">order / </strong> 쿠폰
+						<strong class="m_txt">coupon / </strong> 쿠폰
 					</p>
 					<p>
 						고객님께서 주문하신 산품의 주문내역을 확인하실 수 있습니다.<br /> 비회원의 경우, 주문서의 주문번호와 비밀번호로
@@ -98,7 +98,7 @@
 				<div class="page_cont">
 					<div class="line"></div>
 					<p>
-						<strong class="m_txt">order / </strong> 회원탈퇴
+						<strong class="m_txt">Withdrawal / </strong> 회원탈퇴
 					</p>
 					<p>
 						고객님께서 주문하신 산품의 주문내역을 확인하실 수 있습니다.<br /> 비회원의 경우, 주문서의 주문번호와 비밀번호로
