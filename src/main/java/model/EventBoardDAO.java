@@ -52,7 +52,7 @@ public class EventBoardDAO {
 		List<EventBoardVO> list=new ArrayList<EventBoardVO>();
 		try {
 			con=pool.getConnection();
-			String sql="select * from eventboard";
+			String sql="select * from eventboard order by no desc";
 			ps=con.prepareStatement(sql);
 			rs=ps.executeQuery();
 			while(rs.next()) {
@@ -71,6 +71,59 @@ public class EventBoardDAO {
 		}
 	}
 	
+	public int updateReadCount(int no) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update eventboard set readcount=readcount+1 "					
+					+ " where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("조회수 증가 cnt="+cnt+", 매개변수 no="+no);	
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+	
+	public EventBoardVO selectByNo(int no) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		EventBoardVO vo=new EventBoardVO();
+		try {
+			con=pool.getConnection();
+			String sql="select * from eventboard where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				int no1=rs.getInt("no");
+				String title=rs.getString("title");
+				String content=rs.getString("content");
+				String email=rs.getString("email");
+				int readcount=rs.getInt("readcount");
+				Timestamp regdate=rs.getTimestamp("regdate");
+				vo.setTitle(title);
+				vo.setContent(content);
+				vo.setNo(no1);
+				vo.setReadcount(readcount);
+				vo.setRegdate(regdate);
+				vo.setEmail(email);
+			}
+			System.out.println("매개변수 vo="+vo+", no="+no);
+			return vo;
+			
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
+		
+	}
 	
 	
 }
