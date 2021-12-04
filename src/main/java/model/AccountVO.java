@@ -14,7 +14,24 @@ public class AccountVO {
 	private String pw;
 	private String isVerified;
 	
-	public AccountVO() {}
+	public AccountVO() {
+		
+	}
+
+	public AccountVO(String email, String name, String nickname, Timestamp birth, String address, String tel,
+			int gradeNo, Timestamp joinDate, String pw, String isVerified) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.nickname = nickname;
+		this.birth = birth;
+		this.address = address;
+		this.tel = tel;
+		this.gradeNo = gradeNo;
+		this.joinDate = joinDate;
+		this.pw = pw;
+		this.isVerified = isVerified;
+	}
 
 	public String getEmail() {
 		return email;
