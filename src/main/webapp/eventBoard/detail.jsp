@@ -1,3 +1,4 @@
+<%@page import="common.MypageUtil"%>
 <%@page import="model.EventBoardVO"%>
 <%@page import="model.EventBoardDAO"%>
 <%@page import="java.sql.SQLException"%>
@@ -27,10 +28,10 @@
 						<span class="sp1">제목</span> <span class="sp2"><%=vo.getTitle() %></span>
 					</li>
 					<li>
-						<span class="sp1">등록일</span> <span class="sp2"><%=vo.getRegdate() %></span>
+						<span class="sp1">등록일</span> <span class="sp2"><%=MypageUtil.changeFormat(vo.getRegdate()) %></span>
 					</li>
 					<li>
-						<span class="sp1">작성자</span> <span class="sp2"><%=vo.getEmail()%></span>
+						<span class="sp1">작성자</span> <span class="sp2"><%=MypageUtil.displayStoreName(vo.getEmail())%></span>
 					</li>
 					<li>
 						<span class="sp1">조회수</span> <span class="sp2"><%=vo.getReadcount() %></span>

@@ -13,6 +13,7 @@
  	text-align: center;
  }
  
+
  #btn{
  	text-align: right;
  }
@@ -22,6 +23,8 @@
  }
 </style>
 <%
+
+	String keyword=request.getParameter("keyword");
 	EventBoardDAO dao= new EventBoardDAO();
 	List<EventBoardVO> list=null;
 	EventBoardVO vo=null;
@@ -30,6 +33,7 @@
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
+	
 %>
 <section class="section_padding">
    <div class="container">
@@ -80,7 +84,7 @@
     
     <div id="frm">
 	<form method="post" id="serchForm" action="list.jsp">
-	<input type="text" id="keyword" value="keyword">
+	<input type="text" id="keyword" value="">
 	<input type="submit" class="btn_all mint_btn hover" name="submit" value="검색">
     </form>
     </div>

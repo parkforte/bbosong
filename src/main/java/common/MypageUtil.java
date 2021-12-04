@@ -77,7 +77,7 @@ public class MypageUtil {
 	 * @return
 	 */
 	public static String changeFormat(Timestamp regdate) {
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		String newRegdate=sdf.format(regdate);
 		return newRegdate;
 	}
