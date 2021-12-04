@@ -32,7 +32,7 @@
 	}
 	
 	int totalRecord=list.size();
-	int pageSize=5; 
+	int pageSize=8; 
 	int totalPage=(int)Math.ceil((float)totalRecord/pageSize);
 	int blockSize=10;  
 	
@@ -133,7 +133,7 @@
 					
 					<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
 						<!-- 제목이 긴 경우 일부만 보여주기 -->
-						<%=ReviewUtil.cutString(vo.getTitle(), 35) %>
+						<%=ReviewUtil.cutString(vo.getTitle(), 19) %>
 					</a>					
 					<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
 					<%=ReviewUtil.displayNew(vo.getRegdate()) %>

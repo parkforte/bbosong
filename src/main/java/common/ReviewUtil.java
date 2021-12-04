@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReviewUtil {
 	//자료실-업로드 경로
 	public static final String UPLOAD_PATH="pds_upload";
-	//테스트 경로
+	//테스트 경로(각자의 컴퓨터에 맞게 경로를 바꿔야 함)
 	public static final String TEST_PATH
 ="D:\\lecture\\workspace_list\\jsp_ws\\herbmall\\src\\main\\webapp\\pds_upload";
 	
