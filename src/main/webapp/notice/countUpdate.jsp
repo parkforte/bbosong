@@ -2,7 +2,7 @@
 <%@ page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<%  
 	//list.jsp에서 [제목]클릭하면 get방식으로 이동
 	//=> http://localhost:9090/herbmall/reBoard/countUpdate.jsp?no=5
 	//1
