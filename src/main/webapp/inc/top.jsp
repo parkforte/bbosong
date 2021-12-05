@@ -148,7 +148,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="#" class="btn_1 d-none d-lg-block">주문</a>
+                            <a href="order/menuList.jsp" class="btn_1 d-none d-lg-block">주문</a>
                         </nav>
                     </div>
                 </div>

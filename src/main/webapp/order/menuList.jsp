@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../inc/top.jsp" %>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
  <!-- CSS here -->
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
@@ -19,9 +14,10 @@
         <link rel="stylesheet" href="../assets/css/slick.css">
         <link rel="stylesheet" href="../assets/css/nice-select.css">
         <link rel="stylesheet" href="../assets/css/style.css">
-</head>
 
-<body>
+<section>
+   <div class="container">
+
     <!--? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -45,7 +41,6 @@
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">의류</a>
                                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">이불/신발</a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">세탁용품</a>
                             </div>
                         </nav>
                         <!--End Nav Button  -->
@@ -62,84 +57,80 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular1.png" alt="">
+                                        <img src="../img/suits.jpg" alt="정장세트">
+                                        <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>정장세트</h3>
+                                        <span>8,000원</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular2.png" alt="">
+                                        <img src="../img/shirts.jpg" alt="와이셔츠">
+                                        <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>와이셔츠</h3>
+                                        <span>3,000원</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular3.png" alt="">
+                                        <img src="../img/unsplash.jpg" alt="스웨터">
+                                        <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="../product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>스웨터</h3>
+                                        <span>3,000원</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular4.png" alt="">
+                                        <img src="../img/jeans.jpg" alt="바지">
+                                       <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>바지</h3>
+                                        <span>3,000원</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular5.png" alt="">
+                                        <img src="../img/coat.jpg" alt="겨울코트">
+                                        <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular6.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>겨울코트</h3>
+                                        <span>8,000원</span>
                                     </div>
                                 </div>
                             </div>
@@ -151,180 +142,37 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular1.png" alt="">
+                                        <img src="../img/bedding.jpg" alt="이불류">
+                                         <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>이불류</h3>
+                                        <span>10,000원</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
                                     <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular2.png" alt="">
+                                        <img src="../img/shoes.jpg" alt="신발">
+                                        <a href="cart.jsp">
                                         <div class="img-cap">
                                             <span>장바구니에 담기</span>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular3.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular4.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular5.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular6.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                                        <h3>신발</h3>
+                                        <span>6,000원</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Card three -->
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular1.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular2.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular3.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="assets/img/gallery/popular4.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular5.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-popular-items mb-50 text-center">
-                                    <div class="popular-img">
-                                        <img src="../assets/img/gallery/popular6.png" alt="">
-                                        <div class="img-cap">
-                                            <span>장바구니에 담기</span>
-                                        </div>
-                                    </div>
-                                    <div class="popular-caption">
-                                        <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Nav Card -->
             </div>
         </section>
         <!-- Latest Products End -->
@@ -375,5 +223,8 @@
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
     
-</body>
-</html>
+   </div>
+</section>
+
+
+<%@ include file="../inc/bottom.jsp" %>
