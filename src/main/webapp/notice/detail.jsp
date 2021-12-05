@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp"%>
-<%
+<%  
 //countUpdate.jsp에서 조회수 증가 성공하면 get방식으로 이동
 	//=> http://localhost:9090/herbmall/reBoard/detail.jsp?no=3
 	//1

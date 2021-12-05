@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp"%>
-<%
+<%  
 		//delete.jsp에서 post방식으로 서브밋됨
 		request.setCharacterEncoding("utf-8");
 	

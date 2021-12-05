@@ -6,7 +6,7 @@
 <%@page import="model.NoticeDAO"%>
 <%@page import="common.MypageUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>  
 <%
 //edit.jsp에서 post방식으로 서브밋됨
 	

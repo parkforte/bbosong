@@ -1,3 +1,8 @@
+<%@page import="common.orderUtil"%>
+<%@page import="model.CartVO"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="model.CartDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
@@ -20,71 +25,108 @@
       <link rel="stylesheet" href="../assets/css/nice-select.css">
       <link rel="stylesheet" href="../assets/css/style.css">
  
+<%
+	String email=(String)session.getAttribute("email");
+	CartDAO dao=new CartDAO();
+	List<CartVO> list=null;
+	try{
+		list=dao.selectAll(email);
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	
+	CartVO vo=new CartVO();
+%>
+ 
   <main>
-      <!--================Cart Area =================-->
       <section class="cart_area section_padding">
         <div class="container">
           <div class="cart_inner">
             <div class="table-responsive">
               <table class="table">
                 <thead>
+                 <colgroup>
+                <col width="10%">
+                <col width="35%">
+                <col width="10%">
+                <col width="10%">
+                <col width="20%">
+                <col width="15%">
+            	</colgroup>
                   <tr>
+                    <th scope="col">번호</th>
                     <th scope="col">상품명</th>
                     <th scope="col">수량</th>
-                    <th scope="col">단가</th>
-                    <th scope="col">합계</th>
+                    <th scope="col">금액</th>
+                    <th scope="col">등록일</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
+                <%for(int i=0; i<list.size(); i++){ 
+                	vo=list.get(i);
+                    int totalPrice=0;
+                	%>
                   <tr>
+                    <td>
+                      <h5><%=vo.getCartNo() %></h5>
+                    </td>
                     <td>
                       <div class="media">
-                        <div class="d-flex">
-                          <img src="../assets/img/gallery/card1.png" alt="" />
-                        </div>
                         <div class="media-body">
-                          <p>상품명</p>
+                          <p><%=vo.getLaundryNo() %></p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h5>수량</h5>
+                      <h5><%=vo.getQty() %></h5>
                     </td>
                     <td>
-                      <h5>$360.00</h5>
+                      <h5><%=vo.getPrice()%></h5>
                     </td>
                     <td>
-                      <h5>$720.00</h5>
+                      <h5><%=vo.getRegdate() %></h5>
+                    </td>
+                    <td class="text-right">
+                      <h5><a class="mint_btn" href="deleteItem.jsp?cartNo=<%=vo.getCartNo()%>">삭제</a></h5>
                     </td>
                   </tr>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <h5>총합계</h5>
-                    </td>
-                    <td>EA</td>
-                    <td>
-                      <h5>$2160.00</h5>
-                    </td>
-                  </tr>
+                  <%	} %>
                   <tr class="bottom_button">
+                    <td></td>
+                    <td>총합계</td>
                     <td>
-                      <a class="btn_1" href="#">메뉴목록</a>
+                     <%int totalQty=0;
+		                 for(int i=0; i<list.size(); i++){ 
+		                	vo=list.get(i);
+		                    totalQty+=vo.getQty();%>
+		                    <% }%>
+		                     <%=totalQty%>
                     </td>
-                    <td></td>
-                    <td></td>
                     <td>
-                      <div class="cupon_text float-right">
-                        <a class="btn_1" href="#">Coupon</a>
-                      </div>
+		                  <%int totalPrice=0;
+		                 for(int i=0; i<list.size(); i++){ 
+		                	vo=list.get(i);
+		                   	totalPrice+=vo.getPrice();%>
+		                    <% }%>
+		                     <%=totalPrice%>
+                     </td>
+                    <td>
+                    <a class="mint_btn" href="menuList.jsp">메뉴목록</a>
+                    </td>
+                    <td class="text-right">
+                      <a class="mint_btn" href="deleteCart.jsp">전체비우기</a>
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <form method=post action="checkout.jsp">
+              <input type="hidden" name="totalQty" value="<%=totalQty%>">
+              <input type="hidden" name="totalPrice" value="<%=totalPrice%>">
               <div class="checkout_btn_inner float-right">
-                <a class="btn_1" href="menuList.jsp">메뉴목록</a>
-                <a class="btn_1 checkout_btn_1" href="checkout.jsp">수거요청</a>
+                <input type="submit" class="mint_btn" value="수거요청">
               </div>
+              </form>
             </div>
           </div>
       </section>
