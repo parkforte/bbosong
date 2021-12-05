@@ -32,6 +32,31 @@ public class AccountVO {
 		this.pw = pw;
 		this.isVerified = isVerified;
 	}
+	
+	
+	/**
+	 * checkout.jsp용
+	 * @param email
+	 * @param name
+	 * @param nickname
+	 * @param birth
+	 * @param address
+	 * @param tel
+	 * @param gradeNo
+	 * @param joinDate
+	 */
+	public AccountVO(String email, String name, String nickname, Timestamp birth, String address, String tel,
+			int gradeNo, Timestamp joinDate) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.nickname = nickname;
+		this.birth = birth;
+		this.address = address;
+		this.tel = tel;
+		this.gradeNo = gradeNo;
+		this.joinDate = joinDate;
+	}
 
 	public String getEmail() {
 		return email;

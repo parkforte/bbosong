@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import db.ConnectionPoolMgr;
 import util.HashingUtil;
@@ -184,5 +185,40 @@ public class AccountDAO {
 		}
 
 		return true;
+	}
+	
+	/**
+	 * checkout.jsp용
+	 * @param email
+	 * @return
+	 * @throws SQLException
+	 */
+	public AccountVO selectAll(String email) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			con=pool.getConnection();
+			String sql="select * from account where email=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs=ps.executeQuery();
+			AccountVO vo=null;
+			if(rs.next()){
+				String Email=rs.getString("email");
+				String name=rs.getString("name");
+				String nickname=rs.getString("nickname");
+				Timestamp birth=rs.getTimestamp("birth");
+				String address=rs.getString("address");
+				String tel=rs.getString("tel");
+				int gradeNo=rs.getInt("gradeNo");
+				Timestamp joindate=rs.getTimestamp("joindate");
+				vo=new AccountVO(Email, name, nickname, birth, address, tel, gradeNo, joindate);
+			}
+			System.out.println(vo);
+			return vo;
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
 	}
 }
