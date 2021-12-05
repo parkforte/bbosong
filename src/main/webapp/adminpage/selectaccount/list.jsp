@@ -1,21 +1,20 @@
 <%@page import="common.ReviewUtil"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="model.ReviewBoardVO"%>
+<%@page import="model.SelectAccountVO"%>
 <%@page import="java.util.List"%>
-<%@page import="model.ReviewBoardDAO"%>
+<%@page import="model.SelectAccountDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../inc/top.jsp" %>
 <%
 	request.setCharacterEncoding("utf-8");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
 
-	ReviewBoardDAO dao = new ReviewBoardDAO();
+	SelectAccountDAO dao = new SelectAccountDAO();
 	
-	List<ReviewBoardVO> list=null;
+	List<SelectAccountVO> list=null;
 	try{
 		list=dao.selectAll(condition, keyword);
 	}catch(SQLException e){
@@ -84,29 +83,27 @@
 </style>
 </head>	
 <body>
-<h2>주문내역확인</h2>
+<h2>회원목록조회</h2>
 <%
 	if(keyword!=null && !keyword.isEmpty()){ %>
 		<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
 <%	} %>
 <div class="mt20 tb_area">
 <table class="table1"
-		summary="주문내역 입니다.">
-	<caption>후기 게시판</caption>
+		summary="회원목록조회 입니다">
+	<caption>회원목록조회</caption>
 	<colgroup>
-		<col style="width:10%;" />
-		<col style="width:50%;" />
+		<col style="width:40%;" />
 		<col style="width:15%;" />
-		<col style="width:15%;" />
-		<col style="width:10%;" />		
+		<col style="width:30%;" />
+		<col style="width:25%;" />		
 	</colgroup>
 	<thead>
-	  <tr>
-	    <th scope="col">번호</th>
-	    <th scope="col">제목</th>
-	    <th scope="col">작성자</th>
-	    <th scope="col">작성일</th>
-	    <th scope="col">조회수</th>
+	  <tr style="text-align:center">
+	    <th scope="col">계정</th>
+	    <th scope="col">이름</th>
+	    <th scope="col">HP</th>
+	    <th scope="col">가입일</th>
 	  </tr>
 	</thead> 
 	<tbody>  
@@ -116,38 +113,24 @@
 	    for(int i=0;i<pageSize ;i++){
 	    	if(num<1) break;	
 	    
-			ReviewBoardVO vo=list.get(curPos++);
+	    	SelectAccountVO vo=list.get(curPos++);
 			num--;
 	   %>	
-		<tr  style="text-align:center">
-			<td><%=vo.getNo() %></td>
-			<td style="text-align:left">
-				<%if(vo.getDelFlag().equals("Y")){ %>
-					<span style="color:gray">삭제된 글입니다.</span>
-				<%}else{ %>
-					<!-- 답변글인 경우 단계별로 이미지 보여주기 -->
-					<%=ReviewUtil.displayRe(vo.getStep()) %>
-					
-					<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
-					<%=ReviewUtil.displayFile(vo.getFileName()) %>
-					
-					<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
-						<!-- 제목이 긴 경우 일부만 보여주기 -->
-						<%=ReviewUtil.cutString(vo.getTitle(), 19) %>
-					</a>					
-					<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
-					<%=ReviewUtil.displayNew(vo.getRegdate()) %>
-				<%} %>	
+		<tr style="text-align:center">
+			<td><%=vo.getEmail() %></td>
+			<td style="text-align:center">
+			<%=vo.getName() %>
 			</td>
-			<td><%=vo.getName() %></td>
-			<td><%=sdf.format(vo.getRegdate()) %></td>
-			<td><%=vo.getReadcount() %></td>		
+			<td style="text-align:center"><%=sdf.format(vo.getTel()) %></td>
+			<td style="text-align:center"><%=vo.getJoinDate() %></td>		
 		</tr> 
 	  <%}//for %>
 	  <!--반복처리 끝  -->
 	  </tbody>
 </table>	   
 </div>
+
+
 <div class="divPage">
 	<!-- 페이지 번호 추가 -->		
 	<!-- 이전 블럭으로 이동 -->					
@@ -180,24 +163,26 @@
 	<%	}	%>					
 	<!--  페이지 번호 끝 -->	
 </div>
+
+
 <div class="divSearch">
    	<form name="frmSearch" method="post" action='list.jsp'>
         <select name="searchCondition">
-            <option value="title" 
-            	<%if("title".equals(condition)){ %>
+            <option value="email" 
+            	<%if("email".equals(condition)){ %>
             		selected="selected"
             	<%} %>
-            >제목</option>
-            <option value="content" 
-            	<%if("content".equals(condition)){ %>
-            		selected="selected"
-            	<%} %>
-            >내용</option>
+            >계정</option>
             <option value="name" 
             	<%if("name".equals(condition)){ %>
             		selected="selected"
             	<%} %>
-            >작성자</option>
+            >이름</option>
+            <option value="tel" 
+            	<%if("tel".equals(condition)){ %>
+            		selected="selected"
+            	<%} %>
+            >hp</option>
         </select>   
         <input type="text" name="searchKeyword" title="검색어 입력"
         	value="<%=keyword%>">   
@@ -205,5 +190,4 @@
     </form>
 </div>
 
-</section>
-<%@include file="../inc/bottom.jsp" %>
+<%@include file="../../inc/bottom.jsp" %>

@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.ReviewBoardVO;
+
 import db.ConnectionPoolMgr2;
 
 public class ReviewBoardDAO {
@@ -374,6 +376,46 @@ public class ReviewBoardDAO {
 			return cnt;
 		}finally {
 			pool.dbClose(ps, con);
+		}
+	}
+	
+	public List<ReviewBoardVO> selectMainNotice() throws SQLException {
+		/*select no,title
+		from
+		(
+		    select no,title from board order by no desc
+		)
+		where rownum<=6*/
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		List<ReviewBoardVO> list=new ArrayList<ReviewBoardVO>();
+		try {
+			con=pool.getConnection();
+			
+			String sql="select no, content"
+					+ " from"
+					+ " ("
+					+ "     select no, content from review order by no desc"
+					+ " )"
+					+ " where rownum<=6";
+			ps=con.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				int no=rs.getInt(1);
+				String content=rs.getString(2);
+				
+				ReviewBoardVO vo = new ReviewBoardVO();
+				vo.setNo(no);
+				vo.setContent(content);
+				list.add(vo);
+			}
+			System.out.println("메인 공지사항 결과 list.size="+list.size());
+			return list;
+		}finally {
+			pool.dbClose(rs, ps, con);
 		}
 	}
 }
