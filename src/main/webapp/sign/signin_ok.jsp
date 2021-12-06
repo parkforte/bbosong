@@ -11,6 +11,7 @@
 	vo.setPw(pw);
 	AccountDAO dao = new AccountDAO();
 	
+	
 	if(dao.isVerified(email))
 		session.setAttribute("verified", true);
 	

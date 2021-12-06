@@ -10,9 +10,7 @@
 	.invalidText { color: red; }
 </style>
 <meta charset="UTF-8">
-<title>회원가입</title>?
-<!-- <link rel="stylesheet" href="../css/substyle.css"> -->
-<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"> -->
+<title>회원가입</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/daumPostCode.js"></script>

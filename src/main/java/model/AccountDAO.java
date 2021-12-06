@@ -5,12 +5,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
-import db.ConnectionPoolMgr;
+import db.ConnectionPoolMgr2;
 import util.HashingUtil;
 
 public class AccountDAO {
-	ConnectionPoolMgr pool = new ConnectionPoolMgr();
+	private ConnectionPoolMgr2 pool;
+	
+	public AccountDAO() {
+		pool=ConnectionPoolMgr2.getInstance();
+	}
 	
 	public boolean insertUser(AccountVO vo) throws SQLException {
 		HashingUtil hash = new HashingUtil();
@@ -184,5 +191,86 @@ public class AccountDAO {
 		}
 
 		return true;
+	}
+	
+	/**
+	 * checkout.jsp용
+	 * @param email
+	 * @return
+	 * @throws SQLException
+	 */
+	public AccountVO selectAll(String email) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			con=pool.getConnection();
+			String sql="select * from account where email=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs=ps.executeQuery();
+			AccountVO vo=null;
+			if(rs.next()){
+				String Email=rs.getString("email");
+				String name=rs.getString("name");
+				String nickname=rs.getString("nickname");
+				Timestamp birth=rs.getTimestamp("birth");
+				String address=rs.getString("address");
+				String tel=rs.getString("tel");
+				int gradeNo=rs.getInt("gradeNo");
+				Timestamp joindate=rs.getTimestamp("joindate");
+				vo=new AccountVO(Email, name, nickname, birth, address, tel, gradeNo, joindate);
+			}
+			System.out.println(vo);
+			return vo;
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
+}
+	// 회원목록조회에 대한 추가
+	
+	public List<AccountVO> selectAll(String condition, String keyword) 
+			throws SQLException {
+		
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		List<AccountVO> list=new ArrayList<AccountVO>();
+		try {
+			//1,2 con
+			con=pool.getConnection();
+			
+			//3 ps
+			String sql="select email, name, tel, joindate from account";
+			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
+				sql+= "	where " + condition +" like '%' || ? || '%'";
+			}
+			sql += " order by groupno desc, sortno";			
+			ps=con.prepareStatement(sql);
+			
+			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	
+				ps.setString(1, keyword);
+			}
+			
+			//4 exec
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				String email=rs.getString("email");
+				String name=rs.getString("name");
+				String tel=rs.getString("tel");
+				Timestamp joindate=rs.getTimestamp("joindate");
+				
+				AccountVO vo = new AccountVO(email, name, tel, joindate);
+				
+				list.add(vo);
+			}
+			System.out.println("글목록 결과 list.size="+list.size()
+				+", keyword="+keyword+", condition="+condition);
+			
+			return list;
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
 	}
 }
