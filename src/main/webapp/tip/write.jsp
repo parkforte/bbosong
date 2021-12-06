@@ -17,6 +17,9 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 		$('#btList').click(function(){
 			location.href='list.jsp';	
 		});
+		$('#btList2').click(function(){
+			location.href='list.jsp';	
+		});
 		
 	});
 </script>
@@ -26,7 +29,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 	<h2 class="mb50">세탁정보</h2>
 		<fieldset>
 			<form name="admin_event" action="write_ok.jsp" method="post">
-				<input type="hidden" name="email" value="bbosong@dream.com">
+				<input type="hidden" name="email" value="bbosong1001@dream.com">
 	            <div class="input_area">
 	                <div class="p_input">
 	                	<label for="title">제목</label>
@@ -44,7 +47,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 	            </script>
 				<div class="btn_all t_center mt50">
 			        <input type="submit" class="mint_btn hover" id="btList" value="글등록" />
-			        <input type="button" id="btList" class="begie_btn hover" value="목록"/>
+			        <input type="button" id="btList2" class="begie_btn hover" value="목록"/>
 		    	</div>
 	        </form>
 		</fieldset>
