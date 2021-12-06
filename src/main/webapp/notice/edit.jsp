@@ -18,26 +18,26 @@
 		</script>
 		
 		<%
-				return;
-							}
-							
-							//2
-							NoticeDAO dao = new NoticeDAO();
-							
-							NoticeVO vo=null;
-							try{
-								vo=dao.selectByNo(Integer.parseInt(no));
-							}catch(SQLException e){
-								e.printStackTrace();
-							}
-							
-							String content=vo.getContent();
-							String email=vo.getEmail();
-							String oldFileName=vo.getFileName();
-							
-							if(content==null) content="";
-							if(email==null) email="";
-							if(oldFileName==null) oldFileName="";
+		return;
+		}
+		
+		//2
+		NoticeDAO dao = new NoticeDAO();
+		
+		NoticeVO vo=null;
+		try{
+			vo=dao.selectByNo(Integer.parseInt(no));
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		String content=vo.getContent();
+		String email=vo.getEmail();
+		String oldFileName=vo.getFileName();
+		
+		if(content==null) content="";
+		if(email==null) email="";
+		if(oldFileName==null) oldFileName="";
 				%>
 	<section class="section_padding">
 		<div class="container">

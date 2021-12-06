@@ -6,10 +6,10 @@
 <%@page import="model.OrderDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../inc/top.jsp" %>    
+<%@ include file="../inc/top.jsp"%>
 <%
+	String email =(String)session.getAttribute("email");
 	request.setCharacterEncoding("utf-8");
-	
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
 	OrderInfoDAO dao= new OrderInfoDAO();
@@ -17,7 +17,7 @@
 	List<OrderVO> list=null;
 	
 	try{
-	list=dao.selectAll(condition, keyword);
+	list=dao.selectAll(condition, keyword, email);
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
@@ -85,21 +85,18 @@
 			}
 		%>
 		<div>
-           <table class="table1" summary="주문번호, 이메일, 지점번호, 세탁번호, 결제금액, 주문일자, 수거일자, 배송현황, 발급번호로 구성되어있는 주문내역확인테이블 입니다.">
+           <table class="table1" summary="주문번호, 지점번호, 세탁번호, 결제금액, 주문일자, 수거일자, 배송현황, 발급번호로 구성되어있는 주문내역확인테이블 입니다.">
                <colgroup>
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-               </colgroup>
+                   <col width="10%" />
+                   <col width="14%" />
+                   <col width="14%" />
+                   <col width="18%" />
+                   <col width="14%" />
+                   <col width="14%" />
+                   <col width="14%" />
                <thead>
 	               <tr>
 	                   <th scope="col">주문번호</th>
-	                   <th scope="col">이메일</th>
 	                   <th scope="col">지점번호</th>
 	                   <th scope="col">결제금액</th>
 	                   <th scope="col">주문날짜</th>
@@ -109,12 +106,11 @@
 	               </tr>
                </thead>
                <tbody>
-               		<tr>
-	                   <td colspan="9" class="t_center">주문한 내역이 없습니다.</td>
-	               </tr>
+               		
 	               <!--게시판 내용 반복문 시작  -->	
 					  <%
-						  for(int i=0;i<pageSize ;i++){
+						if(email!=null){  
+					  	for(int i=0;i<pageSize ;i++){
 		  			    	if(num<1) break;	
 		  			    
 		  					OrderVO vo=list.get(curPos++);
@@ -122,14 +118,18 @@
 					%>	
 	               <tr>
 	                   <td><%=vo.getOrderNo() %></td>
-	                   <td><%=vo.getEmail() %></td>
 	                   <td><%=vo.getStoreNo() %></td>
-	                   <td><%=vo.getLaundryNo() %></td>
+	                   <%-- <td><%=vo.getLaundryNo() %></td> --%>
 	                   <td><%=vo.getQty() %></td>
-	                   <td><%=vo.getOrderDate() %></td>
+	                   <td><%=sdf.format(vo.getOrderDate()) %></td>
 	                   <td><%=vo.getPickupDate() %></td>
 	                   <td><%=vo.getOrderState() %></td>
 	                   <td><%=vo.getSerialNo() %></td>
+	               </tr>
+	               <%}
+	               }else{%>
+	               	<tr>
+	                   <td colspan="8" class="t_center">주문한 내역이 없습니다.</td>
 	               </tr>
 	               <%}%>
 	               <!-- 반복처리 끝 -->

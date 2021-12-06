@@ -4,7 +4,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
-
+<%
+	String email =(String)session.getAttribute("email");
+	AccountVO vo = null;
+	InfoEditDAO dao = new InfoEditDAO();
+	try{
+	vo=dao.selectByEmail(email);
+	
+	email=vo.getEmail();
+	String name=vo.getName();
+	
+	
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	
+	
+%>
 <style>
 .valid { border: solid 2px green; }
 .invalid { border: solid 2px red; }
@@ -14,12 +30,7 @@
 <script type="text/javascript" src="../js/daumPostCode.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
-	$(function (){
-		$('#editemail').hide();
-		$('#email_edit').click(function(){
-			$('#editemail').slideToggle('slow');
-		});
-	});
+
 	
 </script>
 <script type="text/javascript">
@@ -30,6 +41,11 @@
 		var checkedpw2 = false;
 		
 		$('#signinForm').submit(function(e) {
+			$('#infoedit_btn').click(function(){
+				location.href="mypageMain.jsp";	
+				
+			});
+			}
 			if(!checkedEmail) {
 				alert('이메일을 확인해주세요');
 				$('#email').focus();
@@ -85,7 +101,7 @@
 				$('#emailNotice').removeClass('invalidText');
 				$('#emailNotice').addClass('validText');
 				checkedEmail = true;
-			}	
+			}
 		});	 
 		request.fail(function( jqXHR, textStatus ) {
 		  alert( "Request failed: " + textStatus );
@@ -160,29 +176,22 @@
 	 		$("#day > option[value="+day+"]").attr("selected", "true");
 		}
 	});
+ 	
+ 	
 </script>
 
-<%
-	String name=(String)session.getAttribute("name");
-	AccountVO vo = null;
-	InfoEditDAO dao = new InfoEditDAO();
-	try{
-	vo=dao.selectByName(name);
-	}catch(SQLException e){
-		e.printStackTrace();
-	}
-%>
+
 <section class="section_padding">
 	<div class="container">
 		<h2>내정보 수정</h2>
 		<div>
-            <form id="signinForm" action="signup_ok.jsp" method="post">
+            <form id="signinForm" name="update" action="mypageMain.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>이름</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="name" type="text" name="name" placeholder="<%=session.getAttribute("name")%>" class="t_input" required="required">
+		                <input id="name" type="text" name="name" placeholder="<%=vo.getName()%>" class="t_input" required="required" disabled="disabled">
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -190,7 +199,7 @@
 		                <label>이메일</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=session.getAttribute("email") %>" required="required"><span class="invalidText"></span>
+		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=session.getAttribute("email") %>" required="required" disabled="disabled"><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        
@@ -235,7 +244,7 @@
 		            <div class="p_input">
 		                <input id="sample6_postcode" type="text" name="postcode" class="t_input" placeholder="우편번호" required="required" disabled="disabled">
 						<input type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input id="sample6_address" type="text" name="address_" placeholder="주소" required="required" disabled="disabled">
+						<input id="sample6_address" type="text" name="address_" placeholder="<%=vo.getAddress() %>" required="required" disabled="disabled">
 						<input id="sample6_detailAddress" type="text" name="detailAddress" placeholder="상세주소" required="required">
 		            </div>
 		        </div>
@@ -247,14 +256,11 @@
 		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" required="required">
 		            </div>
 		        </div>
-		        <div class="btn_all t_center">
-			        <button type="submit" class="mint_btn hover">회원가입</button>
-			        <button type="reset" class="begie_btn hover">취소</button>
-		   		</div>
+		        
 		    </form>
             <div class="btn_all t_center">
-                <button type="" class="mint_btn hover" >회원정보 수정</button>
-                <button type="" class="begie_btn hover">취소</button>
+                <button type="submit" class="mint_btn hover" id="infoedit_btn">회원정보 수정</button>
+                <button type="button" class="begie_btn hover">취소</button>
             </div>
         </div>
 	</div>
