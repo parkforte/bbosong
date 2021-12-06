@@ -4,7 +4,7 @@
 
 <style type="text/css">
     
-	html, body{overflow-y:hidden}
+	html, body{overflow-y: initial;}
 	ul, ol{list-style:none}
 	.content{}
 	.content div{position:relative}
@@ -68,14 +68,14 @@
 	            if(moveIndex < 3){
 	                moveIndex += 1;
 	                moving(moveIndex);
-	            }else if(moveIndex >=3){
+	            }else if(moveIndex==3){
 	            	moveIndex =0;
 	            };
 	        }else{
 	            if(moveIndex > 0){
 	                moveIndex -= 1;
 	                moving(moveIndex);
-	            }else if(moveIndex <= 0){
+	            }else if(moveIndex == 0){
 	            	moveIndex =3;
 	            };
 	        };

@@ -1,118 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<style>
+html {
+    overflow: hidden;
+}
 
-<style type="text/css">
- *{
-    margin:0;
-    padding: 0;
+html, body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    
 }
-.nav{
-    position: fixed;  
-    top: 0px;
-    left:0px; 
-    height: 60px; 
-    width: 100%;                 //맨상단에 고정시키고 크기 지정
-    background: rgba(0, 0, 0, 0.219);    //투명도 주기
-    text-align: center;
-    font-size: 15px;
-    font-weight: bolder;
-}
-.nav ul {
-    list-style:none;
-    margin-top:20px;
 
+.section {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
-.nav li{
-    display: inline;
-    margin-right: 25px;
-}
-.nav li a{
-    text-decoration: none;
-    color : rgb(255, 255, 255);    //글자색
-}
-.nav li a:hover{
-    color:rgb(228, 133, 25);      //커서를 올렸을때 주황색으로 지정
-}
-.wrap{
+
+.section h2{
+    position:absolute;
+    top:50%;
+    margin-top:-40px;
+    margin-left:10px;
+    text-align:left;
     width:100%;
-    height: auto;
-    margin:0 auto;
-    margin-top:80px;
+    font-size:75px;
+    font-weight:bold;
 }
-.page1{
-    width: 100%;
-    height: 1000px;
-    background: url(../img/gallery/gallery_1.png) no-repeat center center fixed; //이미지 반복하지않고 가운데 고정
-    background-size: cover;   //사진을 화면사이즈에 맞게 조절
+
+.section p{
+	position:absolute;
+	top:62%;
+	margin-left:10px;
+	width:100%;
+	font-size:35px;
+	font-weight:bold;
 }
-.page2{
-    width: 100%;
-    height: 1000px;
-    background: url(../img/forest.jpg) no-repeat center center fixed; 
-    background-size: cover;
+
+#section1 {
+    background: url(../img/dryclean.jpg) no-repeat; background-size: cover;;
 }
-.page3{
-    width: 100%;
-    height: 1000px;
-    background: url(../img/sky.jpg) no-repeat center center fixed;
-    background-size: cover;
+
+#section2 {
+    background: url(../img/pillows.jpg) no-repeat; background-size: cover;;
 }
-.page4{
-    width: 100%;
-    height: 1000px;
-    background: url(../img/city.jpg) no-repeat center center fixed;
-    background-size: cover;
+
+#section3 {
+    background: url(../img/drying.jpg) no-repeat; background-size: cover;;
 }
-.ex{
-    width: 70%;
-    font-size: 50px;
-    font-weight: bolder;
-    text-align: center;
-    margin:auto;
-    padding-top: 400px;
-    color: white;
-}
+
 </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-var flag = false;
-$("html, body").on('mousewheel DOMMouseScroll', function(e) { 
-	var E = e.originalEvent; eventValues = 0; 
-	if (E.detail) { eventValues = E.detail * -40; 
-	}else{ 
-		eventValues = E.wheelDelta; }; 
-		var scmove = $(this).height() - $(".l-header-pc").height(); 
+window.addEventListener("wheel", function(e){
+    e.preventDefault();
+},{passive : false});
+var mHtml = $("html");
+var page = 1;
 
-if(eventValues == -120 && !flag){ 
-	flag = true; $('html, body').animate( { 
-		scrollTop : '+='+scmove }, 2000 ,function(){ flag = false; }); }; 
-		if(eventValues == 120 && !flag){
-			flag = true; $('html, body').animate( { 
-				scrollTop : '-='+scmove }, 2000 ,function(){ flag = false; }); }; });
 
+mHtml.animate({scrollTop : 0},10);
+$(window).on("wheel", function(e) {
+    if(mHtml.is(":animated")) return;
+    if(e.originalEvent.deltaY > 0) {
+        if(page == 4) return;
+        page++;
+    } else if(e.originalEvent.deltaY < 0) {
+        if(page == 1) return;
+        page--;
+    }
+    var posTop =(page-1) * $(window).height();
+    mHtml.animate({scrollTop : posTop});
+});
 </script>
-
-<section class="section_padding">
-   <div class="container">
-   		<section class="section-fisrt effect-fade" >
-
-		</section>
-
-		
-
-		<section class="section-second effect-fade">
-
-		</section>
-
-		
-
-		<section class="section-third effect-fade">
-
-		</section>
-
-   </div>
-</section>
-
-
+<body>
+    <div class="section" id="section1">
+        <h2 class="h_01" style="text-align: left; left:10%; color:darkblue;">비대면 세탁 서비스</h2>
+		<p style="text-align: left; left:10%; color:darkblue;">비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
+    </div>
+    <div class="section" id="section2">
+    	<h2 class="h_02" style="text-align: right; right:10%; color:darkgray;">친환경 세재</h2>
+		<p style="text-align: right; right:10%; color:darkgray;">친환경 세재를 사용하여 피부를 보호하고<br><br>환경을 보호하며 세탁 퀄리티를 높입니다.</p>
+	</div>
+    <div class="section" id="section3">
+    	<h2 class="h_03" style="text-align: left; left:10%; color:lightblue;">배송</h2>
+		<p style="text-align: left; left:10%; color:lightblue;">수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
+    </div>
+</body>
 <%@ include file="../inc/bottom.jsp" %>
