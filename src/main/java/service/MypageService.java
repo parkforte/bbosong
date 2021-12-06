@@ -35,5 +35,9 @@ public class MypageService {
 		return infodao.selectByName(name);
 
 	}
+	public AccountVO selectByEmail(String email) throws SQLException {
+		return infodao.selectByEmail(email);
+
+	}
 
 }

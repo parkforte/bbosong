@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp"%>
+
 <style>
 .valid { border: solid 2px green; }
 .invalid { border: solid 2px red; }
@@ -181,7 +182,7 @@
 		                <label>이름</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="name" type="text" name="name" value="<%=vo.getName() %>" class="t_input" required="required">
+		                <input id="name" type="text" name="name" placeholder="<%=session.getAttribute("name")%>" class="t_input" required="required">
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -189,18 +190,10 @@
 		                <label>이메일</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=vo.getEmail() %>" required="required"><span class="invalidText"></span>
+		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=session.getAttribute("email") %>" required="required"><span class="invalidText"></span>
 		            </div>
 		        </div>
-		        <div class="input_area">
-		            <div class="p_title">
-		                <label>이메일 변경</label>
-		            </div>
-		            <div class="p_input">
-		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=vo.getEmail() %>" required="required">
-		                <button type="button" class="mint_btn hover" >확인</button>
-		            </div>
-		        </div>
+		        
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>비밀번호</label>

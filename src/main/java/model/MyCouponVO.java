@@ -2,17 +2,15 @@ package model;
 
 public class MyCouponVO {
 	private int serialNo;
-	private int couponNo;
 	private String email;
 	
 	public MyCouponVO() {
 		super();
 	}
 
-	public MyCouponVO(int serialNo, int couponNo, String email) {
+	public MyCouponVO(int serialNo, String email) {
 		super();
 		this.serialNo = serialNo;
-		this.couponNo = couponNo;
 		this.email = email;
 	}
 
@@ -22,14 +20,6 @@ public class MyCouponVO {
 
 	public void setSerialNo(int serialNo) {
 		this.serialNo = serialNo;
-	}
-
-	public int getCouponNo() {
-		return couponNo;
-	}
-
-	public void setCouponNo(int couponNo) {
-		this.couponNo = couponNo;
 	}
 
 	public String getEmail() {
@@ -42,8 +32,9 @@ public class MyCouponVO {
 
 	@Override
 	public String toString() {
-		return "MyCouponVO [serialNo=" + serialNo + ", couponNo=" + couponNo + ", email=" + email + "]";
+		return "MyCouponVO [serialNo=" + serialNo + ", email=" + email + "]";
 	}
+
 	
 	
 }
