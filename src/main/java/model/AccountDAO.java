@@ -221,6 +221,7 @@ public class AccountDAO {
 			pool.dbClose(rs, ps, con);
 		}
 	}
+	// 회원목록조회에 대한 추가
 	
 	public List<AccountVO> selectAll(String condition, String keyword) 
 			throws SQLException {
@@ -239,7 +240,7 @@ public class AccountDAO {
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
 				sql+= "	where " + condition +" like '%' || ? || '%'";
 			}
-			sql += " order by groupno desc, sortno";			
+			sql += " order by email";			
 			ps=con.prepareStatement(sql);
 			
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	

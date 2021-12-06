@@ -10,16 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.ReviewBoardVO;
-
+import db.ConnectionPoolMgr;
 import db.ConnectionPoolMgr2;
 
 public class ReviewBoardDAO {
-	private ConnectionPoolMgr2 pool;
-	
-	public ReviewBoardDAO() {
-		pool=ConnectionPoolMgr2.getInstance();
-	}
-	
+	ConnectionPoolMgr pool = new ConnectionPoolMgr();	
 
 	public int insertReviewBoard(ReviewBoardVO vo) throws SQLException {
 		Connection con=null;
@@ -394,10 +389,10 @@ public class ReviewBoardDAO {
 		try {
 			con=pool.getConnection();
 			
-			String sql="select no, content"
+			String sql="select no, title, name, content"
 					+ " from"
 					+ " ("
-					+ "     select no, content from review order by no desc"
+					+ "     select no, title, name, content from review order by no desc"
 					+ " )"
 					+ " where rownum<=6";
 			ps=con.prepareStatement(sql);
@@ -405,10 +400,14 @@ public class ReviewBoardDAO {
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				int no=rs.getInt(1);
-				String content=rs.getString(2);
+				String title=rs.getString(2);
+				String name=rs.getString(3);
+				String content=rs.getString(4);
 				
 				ReviewBoardVO vo = new ReviewBoardVO();
 				vo.setNo(no);
+				vo.setTitle(title);
+				vo.setName(name);
 				vo.setContent(content);
 				list.add(vo);
 			}

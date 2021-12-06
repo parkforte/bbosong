@@ -1,9 +1,8 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="model.OrderInfoDAO"%>
-<%@page import="model.OrderVO"%>
+<%@page import="model.AccountDAO"%>
+<%@page import="model.AccountVO"%>
 <%@page import="java.util.List"%>
-<%@page import="model.OrderDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp" %>    
@@ -12,9 +11,9 @@
 	
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
-	OrderInfoDAO dao= new OrderInfoDAO();
+	AccountDAO dao= new AccountDAO();
 	
-	List<OrderVO> list=null;
+	List<AccountVO> list=null;
 	
 	try{
 	list=dao.selectAll(condition, keyword);
@@ -76,7 +75,7 @@
 
 <section class="section_padding">
 	<div class="container">
-		<h2>주문내역확인</h2>
+		<h2>회원목록조회</h2>
 		<%
 			if(keyword!=null && !keyword.isEmpty()){
 			%>
@@ -85,12 +84,8 @@
 			}
 		%>
 		<div>
-           <table class="table1" summary="주문번호, 이메일, 지점번호, 세탁번호, 결제금액, 주문일자, 수거일자, 배송현황, 발급번호로 구성되어있는 주문내역확인테이블 입니다.">
+           <table class="table1" summary="회원들을 목록을 확인하는 테이블 입니다.">
                <colgroup>
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
-                   <col width="12.5%" />
                    <col width="12.5%" />
                    <col width="12.5%" />
                    <col width="12.5%" />
@@ -98,38 +93,26 @@
                </colgroup>
                <thead>
 	               <tr>
-	                   <th scope="col">주문번호</th>
 	                   <th scope="col">이메일</th>
-	                   <th scope="col">지점번호</th>
-	                   <th scope="col">결제금액</th>
-	                   <th scope="col">주문날짜</th>
-	                   <th scope="col">수거날짜</th>
-	                   <th scope="col">주문상태</th>
-	                   <th scope="col">발급번호</th>
+	                   <th scope="col">이름</th>
+	                   <th scope="col">연락처</th>
+	                   <th scope="col">가입일</th>
 	               </tr>
                </thead>
                <tbody>
-               		<tr>
-	                   <td colspan="9" class="t_center">주문한 내역이 없습니다.</td>
-	               </tr>
 	               <!--게시판 내용 반복문 시작  -->	
 					  <%
 						  for(int i=0;i<pageSize ;i++){
 		  			    	if(num<1) break;	
 		  			    
-		  					OrderVO vo=list.get(curPos++);
+		  					AccountVO vo=list.get(curPos++);
 		  					num--;
 					%>	
 	               <tr>
-	                   <td><%=vo.getOrderNo() %></td>
 	                   <td><%=vo.getEmail() %></td>
-	                   <td><%=vo.getStoreNo() %></td>
-	                   <td><%=vo.getLaundryNo() %></td>
-	                   <td><%=vo.getQty() %></td>
-	                   <td><%=vo.getOrderDate() %></td>
-	                   <td><%=vo.getPickupDate() %></td>
-	                   <td><%=vo.getOrderState() %></td>
-	                   <td><%=vo.getSerialNo() %></td>
+	                   <td><%=vo.getName() %></td>
+	                   <td><%=vo.getTel() %></td>
+	                   <td><%=vo.getJoinDate() %></td>
 	               </tr>
 	               <%}%>
 	               <!-- 반복처리 끝 -->
@@ -155,7 +138,7 @@
 									<%=i %></span>
 							<%}else{ %>
 								<a href
-				="list.jsp?currentPage=<%=i%>&searchCondition=<%=condition%>&searchKeyword=<%=keyword%>">
+				="account_view.jsp?currentPage=<%=i%>&searchCondition=<%=condition%>&searchKeyword="> <!-- 원래 값 < %=keyword%> 있음 -->
 									[<%=i %>]</a>			
 							<%}//if %>
 					<%	}//for 	%>
@@ -173,16 +156,26 @@
 				   	<form name="frmSearch" method="post" action='list.jsp'>
 				        <span class="select">
 					        <select name="searchCondition">
-					            <option value="title" 
-					            	<%if("title".equals(condition)){ %>
+					            <option value="name" 
+					            	<%if("name".equals(condition)){ %>
 					            		selected="selected"
 					            	<%} %>
-					            >제목</option>
-					            <option value="content" 
-					            	<%if("content".equals(condition)){ %>
+					            >이름</option>
+					            <option value="email" 
+					            	<%if("email".equals(condition)){ %>
 					            		selected="selected"
 					            	<%} %>
-					            >내용</option>
+					            >이메일</option>
+					            <option value="tel" 
+					            	<%if("tel".equals(condition)){ %>
+					            		selected="selected"
+					            	<%} %>
+					            >tel</option>
+					            <option value="joindate" 
+					            	<%if("joindate".equals(condition)){ %>
+					            		selected="selected"
+					            	<%} %>
+					            >가입일</option>
 					        </select>  
 				        </span> 
 				        <input type="text" name="searchKeyword" title="검색어 입력"

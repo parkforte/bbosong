@@ -1,7 +1,7 @@
 <%@page import="java.sql.SQLException"%>
-<%@page import="model.ReviewBoardService"%>
-<%@page import="java.util.List"%>
 <%@page import="model.ReviewBoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ReviewBoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp" %>
@@ -21,22 +21,9 @@
             </div>
         </div>
     </section>
-    <style>
- <!--top place start-->
-    .client_review .single_review_slider {
-  background-color: #f2ebde;
-  padding: 30px;
-  height  : 310px !important;
-}
-
-.client_review .single_review_slider p {
-  display: block;
-  color: black;
-  margin: 9px 0 18px;
-}
-    </style>
     
-  <%
+ <!--top place start-->
+ <%
 	//1	
 	//2
 	ReviewBoardService boardService=new ReviewBoardService();
@@ -58,27 +45,18 @@
                     </div>
                 </div>
             </div>
-            <style>
-            .place_review p{
-            font-size: 18px;
-            font-weight: 600;
-            }
-            </style>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 ">
                     <div class="client_review_slider owl-carousel">
-                            <% for(ReviewBoardVO vo : list){ %>
-                            
+                        <% for(ReviewBoardVO vo : list){ %>
                         <div class="single_review_slider">
-                        	<div class="place_review">
-                            <p><%=vo.getTitle() %></p>                            
-                            </div>
-                            <div class="inside">                            
-                            <p><a href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent() %></a></p> 
-                            </div>
-                            <h5> <%=vo.getName() %></h5>
+                        	<h3><%=vo.getTitle() %></h3>
+                            <a href	="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>">
+                            <h4><%=vo.getContent() %></h4>
+                            <%=vo.getName() %>
+                            </a>
                         </div>
-						<%} %> 
+						<%} %>
                     </div>
                 </div>
             </div>

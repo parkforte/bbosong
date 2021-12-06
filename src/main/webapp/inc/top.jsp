@@ -117,7 +117,7 @@
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/fqa/fqa.jsp">FAQ</a>
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/qna/list.jsp">Q&A</a>
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/tip/list.jsp">세탁정보</a>
-                                            <a class="dropdown-item" href="#">이용후기</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/reviewboards/list.jsp"">이용후기</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
