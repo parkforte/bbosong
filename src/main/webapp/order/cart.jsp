@@ -1,4 +1,5 @@
-<%@page import="common.orderUtil"%>
+<%@page import="common.MypageUtil"%>
+<%@page import="util.OrderUtil"%>
 <%@page import="model.CartVO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.SQLException"%>
@@ -12,18 +13,23 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
-  <!-- CSS here -->
-      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="../assets/css/flaticon.css">
-      <link rel="stylesheet" href="../assets/css/slicknav.css">
-      <link rel="stylesheet" href="../assets/css/animate.min.css">
-      <link rel="stylesheet" href="../assets/css/magnific-popup.css">
-      <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
-      <link rel="stylesheet" href="../assets/css/themify-icons.css">
-      <link rel="stylesheet" href="../assets/css/slick.css">
-      <link rel="stylesheet" href="../assets/css/nice-select.css">
-      <link rel="stylesheet" href="../assets/css/style.css">
+<!-- CSS here -->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../assets/css/flaticon.css">
+<link rel="stylesheet" href="../assets/css/slicknav.css">
+<link rel="stylesheet" href="../assets/css/animate.min.css">
+<link rel="stylesheet" href="../assets/css/magnific-popup.css">
+<link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/slick.css">
+<link rel="stylesheet" href="../assets/css/nice-select.css">
+
+<!-- newStyle css -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
+<!-- subStyle css -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/substyle.css">
+      
  
 <%
 	String email=(String)session.getAttribute("email");
@@ -69,12 +75,12 @@
                 	%>
                   <tr>
                     <td>
-                      <h5><%=vo.getCartNo() %></h5>
+                      <h5><%= vo.getCartNo() %></h5>
                     </td>
                     <td>
                       <div class="media">
                         <div class="media-body">
-                          <p><%=vo.getLaundryNo() %></p>
+                          <p><%=OrderUtil.displayLaundryName(vo.getLaundryNo()) %></p>
                         </div>
                       </div>
                     </td>
@@ -82,10 +88,10 @@
                       <h5><%=vo.getQty() %></h5>
                     </td>
                     <td>
-                      <h5><%=vo.getPrice()%></h5>
+                      <h5><%=OrderUtil.changeDecimalFormat(vo.getPrice())%></h5>
                     </td>
                     <td>
-                      <h5><%=vo.getRegdate() %></h5>
+                      <h5><%=MypageUtil.changeFormat(vo.getRegdate()) %></h5>
                     </td>
                     <td class="text-right">
                       <h5><a class="mint_btn" href="deleteItem.jsp?cartNo=<%=vo.getCartNo()%>">삭제</a></h5>
@@ -109,7 +115,7 @@
 		                	vo=list.get(i);
 		                   	totalPrice+=vo.getPrice();%>
 		                    <% }%>
-		                     <%=totalPrice%>
+		                     <%=OrderUtil.changeDecimalFormat(totalPrice)%>
                      </td>
                     <td>
                     <a class="mint_btn" href="menuList.jsp">메뉴목록</a>

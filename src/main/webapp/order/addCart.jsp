@@ -1,4 +1,4 @@
-<%@page import="common.orderUtil"%>
+<%@page import="util.OrderUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.CartVO"%>
 <%@page import="model.CartDAO"%>
@@ -18,7 +18,7 @@
 	String laundryNo=request.getParameter("laundryNo");
 	int parseLaundryNo=Integer.parseInt(laundryNo);
 	String qty="1";
-	String price=orderUtil.displayPrice(parseLaundryNo);
+	String price=OrderUtil.displayPrice(parseLaundryNo);
 	CartDAO dao = new CartDAO();
 	try {
 		CartVO vo = new CartVO();

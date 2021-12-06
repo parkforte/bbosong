@@ -14,8 +14,17 @@
 <link rel="stylesheet" href="../assets/css/slick.css">
 <link rel="stylesheet" href="../assets/css/nice-select.css">
 <link rel="stylesheet" href="../assets/css/style.css">
+<!-- newStyle css -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
+<!-- subStyle css -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/substyle.css">
 
+<style>
 
+</style>
+<%
+	String email=(String)session.getAttribute("email");
+%>
 
 <section>
 	<div class="container">
@@ -81,12 +90,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/shirts.jpg" alt="와이셔츠"> <a
-												href="cart.jsp">
+											<img src="../img/shirts.jpg" alt="와이셔츠"> 
+												<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="2">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>
 										</div>
 										<div class="popular-caption">
 											<h3>와이셔츠</h3>
@@ -97,12 +107,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/unsplash.jpg" alt="스웨터"> <a
-												href="cart.jsp">
+											<img src="../img/unsplash.jpg" alt="스웨터">
+											<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="5">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>
 										</div>
 										<div class="popular-caption">
 											<h3>스웨터</h3>
@@ -113,12 +124,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/jeans.jpg" alt="바지"> <a
-												href="cart.jsp">
+											<img src="../img/jeans.jpg" alt="바지">
+											<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="4">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>											
 										</div>
 										<div class="popular-caption">
 											<h3>바지</h3>
@@ -129,12 +141,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/coat.jpg" alt="겨울코트"> <a
-												href="cart.jsp">
+											<img src="../img/coat.jpg" alt="겨울코트">
+											<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="6">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>
 										</div>
 										<div class="popular-caption">
 											<h3>겨울코트</h3>
@@ -144,15 +157,6 @@
 								</div>
 							</div>
 						</div>
-						<%
-                    String email=(String)session.getAttribute("email");
-                    %>
-						<form method="post" action="cart.jsp">
-							<input type="hidden" name="email" value="<%=email%>">
-							<div class="checkout_btn_inner float-right">
-								<input type="submit" class="btn_1" value="장바구니">
-							</div>
-						</form>
 						<!-- Card two -->
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel"
 							aria-labelledby="nav-profile-tab">
@@ -160,12 +164,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/bedding.jpg" alt="이불류"> <a
-												href="cart.jsp">
+											<img src="../img/bedding.jpg" alt="이불류"> 
+												<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="11">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>
 										</div>
 										<div class="popular-caption">
 											<h3>이불류</h3>
@@ -176,12 +181,13 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/shoes.jpg" alt="신발"> <a
-												href="cart.jsp">
+											<img src="../img/shoes.jpg" alt="신발"> 
+												<form method="post" action="addCart.jsp">
+												<input type="hidden" name="laundryNo" value="12">
 												<div class="img-cap">
-													<span>장바구니에 담기</span>
+													<input type="submit" class="mint_btn" value="장바구니에 담기">
 												</div>
-											</a>
+											</form>
 										</div>
 										<div class="popular-caption">
 											<h3>신발</h3>
@@ -191,22 +197,17 @@
 								</div>
 							</div>
 						</div>
+						<form method="post" action="cart.jsp">
+							<input type="hidden" name="email" value="<%=email%>">
+							<div class="checkout_btn_inner float-right">
+								<input type="submit" class="btn_1 d-none d-lg-block" value="장바구니">
+							</div>
+						</form>
 					</div>
 				</div>
 			</section>
-			<!-- Latest Products End -->
 		</main>
-		<!--? Search model Begin -->
-		<div class="search-model-box">
-			<div class="h-100 d-flex align-items-center justify-content-center">
-				<div class="search-close-btn">+</div>
-				<form class="search-model-form">
-					<input type="text" id="search-input"
-						placeholder="Searching key.....">
-				</form>
-			</div>
-		</div>
-		<!-- Search model end -->
+		
 
 		<!-- JS here -->
 		<!-- All JS Custom Plugins Link Here here -->

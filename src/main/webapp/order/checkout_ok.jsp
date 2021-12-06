@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="model.CartDAO"%>
 <%@page import="model.OrderVO"%>
 <%@page import="java.sql.SQLException"%>
@@ -19,8 +20,9 @@
 	String totalQty=request.getParameter("totalQty");
 	String totalPrice=request.getParameter("totalPrice");
 	//null...
-	Timestamp pickupDate=(Timestamp)session.getAttribute("pickupDate");
-	System.out.println(pickupDate);
+	Timestamp PickupDate = (Timestamp)request.getParameter("pickupDate");
+	/* String regdate = PickupDate;
+    Timestamp pickupDate = Timestamp.valueOf(regdate); */
 	OrderDAO dao=new OrderDAO();
 	CartDAO cartDao=new CartDAO();
 	
@@ -30,7 +32,7 @@
 		vo.setStoreNo(Integer.parseInt(storeNo));
 		vo.setTotalPrice(Integer.parseInt(totalPrice));
 		vo.setTotalQty(Integer.parseInt(totalQty));
-		vo.setPickupDate(pickupDate);
+		vo.setPickupDate(PickupDate);
 		int cnt=dao.insertOrder(vo, email);
 		if(cnt>0){%>
 			<script type="text/javascript">
