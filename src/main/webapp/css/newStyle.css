@@ -93,12 +93,13 @@
 .client_review .single_review_slider {
   background-color: #f2ebde;
   padding: 30px;
+  height  : 310px !important;
 }
 
 .client_review .single_review_slider p {
-  display: inline-block;
+  display: block;
   color: black;
-  margin: 26px 0 32px;
+  margin: 9px 0 18px;
 }
 
 /* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_event_part.scss */
