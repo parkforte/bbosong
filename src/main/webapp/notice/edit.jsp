@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp"%>
-<%
+<%  
 //detail.jsp에서 [수정]링크 클릭하면 get방식으로 이동
 	//1
 	String no=request.getParameter("no");

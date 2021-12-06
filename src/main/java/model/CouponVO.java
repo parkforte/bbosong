@@ -1,39 +1,64 @@
 package model;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 
 public class CouponVO {
-	private int couponNo;
-	private String couponName;
+	private int serialno;
+	private String email;
+	private String couponname;
 	private int discount;
-	private Timestamp expire;
+	private Timestamp expire; 
 	
 	public CouponVO() {
 		super();
 	}
-
-	public CouponVO(int couponNo, String couponName, int discount, Timestamp expire) {
+	
+	public CouponVO(int serialno, String email) {
 		super();
-		this.couponNo = couponNo;
-		this.couponName = couponName;
+		this.serialno = serialno;
+		this.email = email;
+	}
+
+	public CouponVO(int serialno, String email, String couponname, int discount, Timestamp expire) {
+		super();
+		this.serialno = serialno;
+		this.email = email;
+		this.couponname = couponname;
 		this.discount = discount;
 		this.expire = expire;
 	}
 
-	public int getCouponNo() {
-		return couponNo;
+	public CouponVO(int serialno, String couponname, int discount, Timestamp expire) {
+		super();
+		this.serialno = serialno;
+		this.couponname = couponname;
+		this.discount = discount;
+		this.expire = expire;
 	}
 
-	public void setCouponNo(int couponNo) {
-		this.couponNo = couponNo;
+	public int getSerialno() {
+		return serialno;
 	}
 
-	public String getCouponName() {
-		return couponName;
+	public void setSerialno(int serialno) {
+		this.serialno = serialno;
 	}
 
-	public void setCouponName(String couponName) {
-		this.couponName = couponName;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCouponname() {
+		return couponname;
+	}
+
+	public void setCouponname(String couponname) {
+		this.couponname = couponname;
 	}
 
 	public int getDiscount() {
@@ -54,9 +79,8 @@ public class CouponVO {
 
 	@Override
 	public String toString() {
-		return "CouponVO [couponNo=" + couponNo + ", couponName=" + couponName + ", discount=" + discount + ", expire="
-				+ expire + "]";
+		return "CouponVO [serialno=" + serialno + ", email=" + email + ", couponname=" + couponname + ", discount="
+				+ discount + ", expire=" + expire + "]";
 	}
-	
-	
+
 }

@@ -190,10 +190,6 @@
 						<input type="submit" value="검색" class="mint_btn hover">
 				    </form>
 				</div>
-			
-				<div class="divBtn t_right mt20 mb20">
-				    <a href='write.jsp' class="mint_btn a_btn hover">글쓰기</a>
-				</div>
          </div>
         </div>
 	</div>
