@@ -52,7 +52,7 @@
 %>
 	<section class="section_padding">
 			<div class="divList container">
-				<h2>공지사항</h2>
+				<h2>세탁정보</h2>
 				<%
 					if(keyword!=null && !keyword.isEmpty()){ %>
 						<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
@@ -102,7 +102,7 @@
 									<%=TipUtil.displayNew(vo.getRegdate()) %>
 									
 							</td>
-							<td><%=vo.getTitle()%></td>
+							<td><%=TipUtil.displayStoreName(vo.getEmail()) %></td>
 							<td><%=sdf.format(vo.getRegdate()) %></td>
 							<td><%=vo.getReadcount() %></td>		
 						</tr> 

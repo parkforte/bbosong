@@ -58,17 +58,6 @@
 					            <input type="file" id="upfile" name="upfile" />
 					        </li>
 					        <li>
-					            <span class="sp1">첨부파일목록</span>
-					            <%if(vo.getFileName()!=null && !vo.getFileName().isEmpty() ){ %>
-						            <div>
-						            	<p class="sp2"><%=TipUtil.showFileInfo(vo.getOriginalFileName(), vo.getFileSize()) %>
-						            	</p>
-						            	<p class="sp2" style="color:green;font-weight: bold">
-						            		첨부파일을 새로 지정할 경우 기존 파일은 삭제됩니다.</p>
-						            </div>
-					            <%} %>
-					        </li>
-					        <li>
 					        	<label for="content" class="sp1">내용</label>        
 					 			<textarea id="content" name="content" rows="12" cols="40" class="sp2"><%=content %></textarea>
 					        </li>

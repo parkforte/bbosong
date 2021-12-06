@@ -23,7 +23,7 @@ private ConnectionPoolMgr pool;
 		try {
 			con=pool.getConnection();
 			String sql="insert into tipboard(no, title, content, email) "
-					+ " values(TipBoard_seq.nextval,?,?,'bbosong@dream.com')";
+					+ " values(TipBoard_seq.nextval,?,?,'bbosong1001@dream.com')";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getContent());

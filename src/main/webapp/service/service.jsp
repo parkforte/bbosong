@@ -45,7 +45,7 @@ html, body {
 }
 
 #section1 {
-    background: url(../img/dryclean.jpg) no-repeat; background-size: cover;;
+    background: url(../img/door1.jpg) no-repeat; background-size: cover;;
 }
 
 #section2 {
@@ -53,7 +53,7 @@ html, body {
 }
 
 #section3 {
-    background: url(../img/drying.jpg) no-repeat; background-size: cover;;
+    background: url(../img/box1.jpg) no-repeat; background-size: cover;;
 }
 
 </style>
@@ -83,16 +83,16 @@ $(window).on("wheel", function(e) {
 </script>
 <body>
     <div class="section" id="section1">
-        <h2 class="h_01" style="text-align: left; left:10%; color:darkblue;">비대면 세탁 서비스</h2>
-		<p style="text-align: left; left:10%; color:darkblue;">비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
+        <h2 class="h_01" style="text-align: left; left:10%; color:darkslateblue;">비대면 세탁 서비스</h2>
+		<p style="text-align: left; left:10%; color:darkslateblue;">비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
     </div>
     <div class="section" id="section2">
     	<h2 class="h_02" style="text-align: right; right:10%; color:darkgray;">친환경 세재</h2>
 		<p style="text-align: right; right:10%; color:darkgray;">친환경 세재를 사용하여 피부를 보호하고<br><br>환경을 보호하며 세탁 퀄리티를 높입니다.</p>
 	</div>
     <div class="section" id="section3">
-    	<h2 class="h_03" style="text-align: left; left:10%; color:lightblue;">배송</h2>
-		<p style="text-align: left; left:10%; color:lightblue;">수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
+    	<h2 class="h_03" style="text-align: left; left:10%; color:lightslategrey;">배송</h2>
+		<p style="text-align: left; left:10%; color:lightslategrey;">수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
     </div>
 </body>
 <%@ include file="../inc/bottom.jsp" %>
