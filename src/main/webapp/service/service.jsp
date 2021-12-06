@@ -3,17 +3,17 @@
 <%@ include file="../inc/top.jsp" %>
 
 <style type="text/css">
-    *{margin:0;padding:0;}
+    
 	html, body{overflow-y:hidden}
 	ul, ol{list-style:none}
 	.content{}
 	.content div{position:relative}
-	.content div h2{position:absolute;top:50%;margin-top:-40px;margin-left:10px;text-align:left;width:100%;font-size:75px;font-weight:bold;color:#fff}
-	.content div p{position:absolute;top:62%;margin-left:10px;text-align:left;width:100%;font-size:30px;font-weight:bold;color:#fff}
+	.content div h2{position:absolute;top:50%;margin-top:-40px;margin-left:10px;text-align:left;width:100%;font-size:75px;font-weight:bold;}
+	.content div p{position:absolute;top:62%;margin-left:10px;width:100%;font-size:35px;font-weight:bold;}
 	
-	.content .cnt01{background: url(../img/gallery/gallery_1.png)}
-	.content .cnt02{background: url(../img/pillows.jpg)}
-	.content .cnt03{background: url(../img/gallery/gallery_3.png)}
+	.content .cnt01{background: url(../img/gallery/gallery_1.png) no-repeat; background-size: cover;}
+	.content .cnt02{background: url(../img/pillows.jpg) no-repeat; background-size: cover;}
+	.content .cnt03{background: url(../img/gallery/gallery_1.png) no-repeat; background-size: cover;}
 </style>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -96,16 +96,16 @@ scroll();
    <div class="container">
    		<div class="content">
 		    <div class="cnt01">
-		    	<h2>비대면 세탁 서비스</h2>
-		    	<p>비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
+		    	<h2 class="h_01" style="text-align: left; left:10%; color:darkblue;">비대면 세탁 서비스</h2>
+		    	<p style="text-align: left; left:10%; color:darkblue;">비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
 		    </div>
 		    <div class="cnt02">
-		    	<h2>친환경 세재</h2>
-		    	<p>친환경 세재를 사용하여 피부를 보호하고<br><br>환경을 보호하며 세탁 퀄리티를 높입니다.</p>
+		    	<h2 class="h_02" style="text-align: right; right:10%; color:darkgray;">친환경 세재</h2>
+		    	<p style="text-align: right; right:10%; color:darkgray;">친환경 세재를 사용하여 피부를 보호하고<br><br>환경을 보호하며 세탁 퀄리티를 높입니다.</p>
 		    </div>
 		    <div class="cnt03">
-		    	<h2>배송</h2>
-		    	<p>수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
+		    	<h2 class="h_03" style="text-align: left; left:10%; color:lightblue;">배송</h2>
+		    	<p style="text-align: left; left:10%; color:lightblue;">수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
 		    </div>
 		</div>
    </div>
