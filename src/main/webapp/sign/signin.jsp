@@ -6,7 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="preload" href="data:text/javascript;base64,PHNjcmlwdD5hbGVydCgpOzwvc2NyaXB0Pg==" as="script">
+<style type="text/css">
+	#signin { width: 185px; border-radius: 7px; }
+	
+	#kakao { background: none; border: none; }
+	
+</style>
 </head>
 <body>
 <script src="data:text/javascript;base64,PHNjcmlwdD5hbGVydCgpOzwvc2NyaXB0Pg=="></script>
@@ -32,7 +37,10 @@
 		            </div>
 		        </div>
 		        <div class="btn_all t_center">
-			        <button type="submit" class="mint_btn hover">로그인</button>
+			        <button id="signin" type="submit" class="mint_btn hover">로그인</button>
+		   		</div>
+		   		<div class="btn_all t_center">
+			        <button id="kakao"><img src="../img/kakao_login_medium_narrow.png"></button>
 		   		</div>
 		    </form>
 		    <!-- <div class="btn_all t_center">

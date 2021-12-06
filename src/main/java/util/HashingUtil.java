@@ -12,7 +12,6 @@ public class HashingUtil {
 	private final String HASH_ALGORITHM = "SHA-256";
 			
 	public String makeNewSalt() {
-		StringBuffer sb = new StringBuffer();
 		SecureRandom rand = new SecureRandom();
 
 		byte[] temp = new byte[SALT_SIZE];

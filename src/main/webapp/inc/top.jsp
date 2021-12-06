@@ -115,7 +115,7 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="#">FAQ</a>
-                                            <a class="dropdown-item" href="#">Q&A</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/qna/list.jsp">Q&A</a>
                                             <a class="dropdown-item" href="#">세탁정보</a>
                                             <a class="dropdown-item" href="#">이용후기</a>
                                         </div>
