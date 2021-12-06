@@ -44,46 +44,6 @@
 	int num=totalRecord-curPos;
 %>
 
-
-<link rel="stylesheet" type="text/css" href="../css/reviewboard/list.css" />
-<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">	
-	$(function(){
-		$('.divList .box2 tbody tr').hover(function(){
-			$(this).css('background','skyblue');
-		}, function(){
-			$(this).css('background','');
-		});
-	});
-</script>
-<style type="text/css">
-	body{
-		padding:5px;
-		margin:5px;
-	 }	
-</style>	
-<style>
-     *{border-collapse: collapse;list-style-type: none; box-sizing: border-box; margin:0; padding:0;}
-     .mt20{margin-top:10px;}
-     .t_right{text-align: right;}
-     
-      /*button*/
-    .btn_all{margin-bottom:20px;}
-    .mint_btn{background:#aac3c3;  height:30px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
-    .hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
-    .begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}    
-	.section_padding {
-	    padding: 130px 0px;
-	}     
-     /*table*/
-    .tb_area{width:1000px;}
-    .table1{border-spacing: 0;border: 0;}
-    .table1 tr{border:0; }
-    .table1 tr th{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
-    .table1 tr td{padding:10px 20px;text-align:center; border-bottom:1px solid #ccc;}
-</style>
-</head>	
-<body>
 <section class="section_padding">
       <div class="divList container">
 		<h2>후기 게시판</h2>
@@ -91,10 +51,9 @@
 			if(keyword!=null && !keyword.isEmpty()){ %>
 				<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
 		<%	} %>
-		<div class="mt20 tb_area">
+		
 		<table class="table1"
 				summary="후기게시판은 이용하신 고객님들이 자유롭게 작성 가능 합니다.">
-			<caption>후기 게시판</caption>
 			<colgroup>
 				<col style="width:10%;" />
 				<col style="width:50%;" />
@@ -149,8 +108,8 @@
 			  <!--반복처리 끝  -->
 			  </tbody>
 		</table>	   
-		</div>
-		<div class="divPage">
+		
+		<div class="divPage t_center mt20 mb20">
 			<!-- 페이지 번호 추가 -->		
 			<!-- 이전 블럭으로 이동 -->					
 			<%	if(firstPage>1){ %>
@@ -182,9 +141,10 @@
 			<%	}	%>					
 			<!--  페이지 번호 끝 -->	
 		</div>
-		<div class="divSearch">
+		<div class="divSearch t_center">
 		   	<form name="frmSearch" method="post" action='list.jsp'>
-		        <select name="searchCondition">
+				<span class="select">
+		       	 <select name="searchCondition">
 		            <option value="title" 
 		            	<%if("title".equals(condition)){ %>
 		            		selected="selected"
@@ -200,15 +160,16 @@
 		            		selected="selected"
 		            	<%} %>
 		            >작성자</option>
-		        </select>   
+		        </select> 
+		        </span>  
 		        <input type="text" name="searchKeyword" title="검색어 입력"
-		        	value="<%=keyword%>">   
-				<input type="submit" value="검색">
+		        	value="<%=keyword%>" class="t_input">   
+				<input type="submit" value="검색" class="mint_btn hover">
 		    </form>
 		</div>
 		
-		<div class="divBtn">
-		    <button class="mint_btn hover"><a href='write.jsp'>글쓰기</a></button>
+		<div class="divBtn t_right mt20 mb20">
+			<a href='write.jsp' class="mint_btn a_btn hover">글쓰기</a>
 		</div>
       </div>
 </section>

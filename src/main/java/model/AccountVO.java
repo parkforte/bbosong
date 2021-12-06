@@ -58,12 +58,12 @@ public class AccountVO {
 		this.joinDate = joinDate;
 	}
 
-	public AccountVO(String email2, String name2, String tel2, Timestamp joinDate2) {
+	public AccountVO(String email, String name, String tel, Timestamp joinDate) {
 		super();
-		this.email = email2;
-		this.name = name2;
-		this.tel = tel2;
-		this.joinDate = joinDate2;
+		this.email = email;
+		this.name = name;
+		this.tel = tel;
+		this.joinDate = joinDate;
 	}
 
 	public String getEmail() {

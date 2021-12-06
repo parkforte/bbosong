@@ -9,14 +9,14 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.ConnectionPoolMgr2;
+import db.ConnectionPoolMgr;
 import util.HashingUtil;
 
 public class AccountDAO {
-	private ConnectionPoolMgr2 pool;
+	private ConnectionPoolMgr pool;
 	
 	public AccountDAO() {
-		pool=ConnectionPoolMgr2.getInstance();
+		pool = new ConnectionPoolMgr();
 	}
 	
 	public boolean insertUser(AccountVO vo) throws SQLException {
@@ -193,12 +193,6 @@ public class AccountDAO {
 		return true;
 	}
 	
-	/**
-	 * checkout.jsp용
-	 * @param email
-	 * @return
-	 * @throws SQLException
-	 */
 	public AccountVO selectAll(String email) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
@@ -226,7 +220,7 @@ public class AccountDAO {
 		}finally {
 			pool.dbClose(rs, ps, con);
 		}
-}
+	}
 	// 회원목록조회에 대한 추가
 	
 	public List<AccountVO> selectAll(String condition, String keyword) 
@@ -246,7 +240,7 @@ public class AccountDAO {
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우				
 				sql+= "	where " + condition +" like '%' || ? || '%'";
 			}
-			sql += " order by groupno desc, sortno";			
+			sql += " order by email";			
 			ps=con.prepareStatement(sql);
 			
 			if(keyword!=null && !keyword.isEmpty()) {  //검색의 경우	

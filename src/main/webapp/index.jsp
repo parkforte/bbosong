@@ -1,3 +1,7 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="model.ReviewBoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ReviewBoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp" %>
@@ -19,6 +23,33 @@
     </section>
     
  <!--top place start-->
+<style>
+    .client_review .single_review_slider {
+  background-color: #f2ebde;
+  padding: 30px;
+  height  : 310px !important;
+}
+
+.client_review .single_review_slider p {
+  display: block;
+  color: black;
+  margin: 9px 0 18px;
+}
+    </style>
+    
+  <%
+	//1	
+	//2
+	ReviewBoardService boardService=new ReviewBoardService();
+	List<ReviewBoardVO> list=null;
+	try{
+		list=boardService.selectMainNotice();	
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	
+	//3
+ %>
     <section class="client_review section_padding">
         <div class="container">
             <div class="row ">
@@ -28,64 +59,27 @@
                     </div>
                 </div>
             </div>
+            <style>
+            .place_review p{
+            font-size: 18px;
+            font-weight: 600;
+            }
+            </style>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="client_review_slider owl-carousel">
+                            <% for(ReviewBoardVO vo : list){ %>
+                            
                         <div class="single_review_slider">
-                            <div class="place_review">
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
+                        	<div class="place_review">
+                            <p><%=vo.getTitle() %></p>                            
                             </div>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales grass is fish whales winged night yielding land creeping that seed </p>
-                            <h5> - Allen Miller</h5>
-                        </div>
-                        <div class="single_review_slider">
-                            <div class="place_review">
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
+                            <div class="inside">                            
+                            <p><a href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent() %></a></p> 
                             </div>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales grass is fish whales winged night yielding land creeping that seed </p>
-                            <h5> - Allen Miller</h5>
+                            <h5> <%=vo.getName() %></h5>
                         </div>
-                        <div class="single_review_slider">
-                            <div class="place_review">
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                            </div>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales grass is fish whales winged night yielding land creeping that seed </p>
-                            <h5> - Allen Miller</h5>
-                        </div>
-                        <div class="single_review_slider">
-                            <div class="place_review">
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                            </div>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales grass is fish whales winged night yielding land creeping that seed </p>
-                            <h5> - Allen Miller</h5>
-                        </div>
-                        <div class="single_review_slider">
-                            <div class="place_review">
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                                <a href="#"><i class="fas fa-star"></i></a>
-                            </div>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales grass is fish whales winged night yielding land creeping that seed </p>
-                            <h5> - Allen Miller</h5>
-                        </div>
+						<%} %> 
                     </div>
                 </div>
             </div>

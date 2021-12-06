@@ -104,14 +104,8 @@ h2{
 }
 
 /* 표 css */
-.divList, .divPage, .divRight, .divList table{
-	width:1000px;
-}	
 .divSearch{
 	width:900px;
-}
-.divList{
-	margin:10px 0;
 }
 caption{
 	visibility:hidden;
@@ -121,14 +115,8 @@ caption{
 	text-align:center;		
 	padding:2px 0;
 }	
-.divSearch{
-	text-align:center;		
-	padding:10px 0 10px 0;
-	width:780px;
-}	
 .divBtn{
-	text-align:right;	
-	width:780px;
+	text-align:right;
 }
 .divBtn a{
 	font-size:1.0em;

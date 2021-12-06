@@ -1,9 +1,11 @@
+<%@page import="common.ReviewUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.ReviewBoardVO"%>
 <%@page import="java.util.List"%>
 <%@page import="model.ReviewBoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="inc/top.jsp" %>    
 <%
 	//1	
 	//2
@@ -14,7 +16,6 @@
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
-	
 	//3
 %>
 <div class="divNotice">
@@ -48,4 +49,5 @@
 			</tbody>
 		</table>
 	</div>
-</div>	
+</div>
+<%@ include file="inc/bottom.jsp" %> 	

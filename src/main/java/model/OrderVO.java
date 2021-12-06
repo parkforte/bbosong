@@ -72,6 +72,27 @@ public class OrderVO {
 
 
 
+	public OrderVO(String email, String name, String tel, Timestamp joindate) {
+		super();
+	}
+
+
+
+
+	public OrderVO(int orderNo, String email, int storeNo, int qty, Timestamp pickupDate, String orderState,
+			int serialNo2) {
+		super();
+		this.orderNo = orderNo;
+		this.email = email;
+		this.storeNo = storeNo;
+		this.qty = qty;
+		this.pickupDate = pickupDate;
+		this.orderState = orderState;
+	}
+
+
+
+
 	public int getOrderNo() {
 		return orderNo;
 	}
