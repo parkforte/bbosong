@@ -14,6 +14,7 @@
 	.content .cnt01{background: url(../img/gallery/gallery_1.png) no-repeat; background-size: cover;}
 	.content .cnt02{background: url(../img/pillows.jpg) no-repeat; background-size: cover;}
 	.content .cnt03{background: url(../img/gallery/gallery_1.png) no-repeat; background-size: cover;}
+	
 </style>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -54,7 +55,8 @@
 	            }
 	        });
 	    };
-	        
+	    
+	      
 	    var winResize = function(){
 	        winH = $(window).height();
 	        $cnt.children("div").height(winH);
@@ -66,11 +68,15 @@
 	            if(moveIndex < 3){
 	                moveIndex += 1;
 	                moving(moveIndex);
+	            }else if(moveIndex >=3){
+	            	moveIndex =0;
 	            };
 	        }else{
 	            if(moveIndex > 0){
 	                moveIndex -= 1;
 	                moving(moveIndex);
+	            }else if(moveIndex <= 0){
+	            	moveIndex =3;
 	            };
 	        };
 	    };
@@ -87,14 +93,22 @@
 	        $nav.parent("li").eq(index).addClass("on").siblings().removeClass("on");
 	    };
 	    
+	    $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+
+
 	};
 
 scroll();
 </script>
 
-<section class="section_padding">
-   <div class="container">
-   		<div class="content">
+<section>
+   <div>
+   		<div id = "top" class="content">
 		    <div class="cnt01">
 		    	<h2 class="h_01" style="text-align: left; left:10%; color:darkblue;">비대면 세탁 서비스</h2>
 		    	<p style="text-align: left; left:10%; color:darkblue;">비대면 세탁 수거함을 통해 세탁에서의 자유로움을 느껴보세요.</p>
@@ -107,9 +121,9 @@ scroll();
 		    	<h2 class="h_03" style="text-align: left; left:10%; color:lightblue;">배송</h2>
 		    	<p style="text-align: left; left:10%; color:lightblue;">수거 후 최대 2~3일 소요되며 문 앞 세탁함에 배송됩니다.</p>
 		    </div>
+		    	<!-- <a href="#" id="MOVE_TOP_BTN" class="ScrollButton" style="position:fixed; bottom:30px; right:30px"><img src="../img/top.png"></a> -->
+		    	<a style="display:scroll;position:fixed;bottom:20px;right:20px;" href="#" title="맨위로"><img src="../img/top.png"></a>
 		</div>
    </div>
 </section>
-
-
 <%@ include file="../inc/bottom.jsp" %>
