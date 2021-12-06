@@ -90,7 +90,7 @@
                                             회사소개
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">회사정보</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/company/introduce.jsp">회사정보</a>
                                             <a class="dropdown-item" href="#">지점정보</a>
                                         </div>
                                     </li>
