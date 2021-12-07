@@ -7,16 +7,16 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../inc/top.jsp"%>
 <%
 	request.setCharacterEncoding("utf-8");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
-
 	OrderInfoDAO dao = new OrderInfoDAO();
 	
 	List<OrderVO> list=null;
 	try{
-		list=dao.selectAccount(condition, keyword);
+		list=dao.selectAll(condition, keyword, email);
 	}catch(SQLException e){
 		e.printStackTrace();		
 	}
