@@ -77,7 +77,7 @@
                             <div class="inside">                            
                             <p><a href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent() %></a></p> 
                             </div>
-                            <h5> <%=vo.getName() %></h5>
+                            <p> <%=vo.getName() %></p>
                         </div>
 						<%} %> 
                     </div>

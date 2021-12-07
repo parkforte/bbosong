@@ -112,7 +112,7 @@
 	                   <td><%=vo.getEmail() %></td>
 	                   <td><%=vo.getName() %></td>
 	                   <td><%=vo.getTel() %></td>
-	                   <td><%=vo.getJoinDate() %></td>
+	                   <td><%=sdf.format(vo.getJoinDate()) %></td>
 	               </tr>
 	               <%}%>
 	               <!-- 반복처리 끝 -->
