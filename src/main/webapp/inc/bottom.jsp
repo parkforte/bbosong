@@ -9,20 +9,19 @@
                     <div class="single-footer-widget">
                         <h4>site map</h4>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">회사소개</a></li>
+                            <li><a href="<%=request.getContextPath()%>/index.jsp">Home</a></li>
+                            <li><a href="<%=request.getContextPath()%>/company/introduce.jsp">회사소개</a></li>
                             <li><a href="#">지점소개</a></li>
-                            <li><a href="#">서비스소개</a></li>
-                            <li><a href="#">이용방법</a></li>
-                            <li><a href="#">이벤트</a></li>
-                            <li><a href="#">공지사항</a></li>
+                            <li><a href="<%=request.getContextPath()%>/service/service.jsp">서비스소개</a></li>
+                            <li><a href="<%=request.getContextPath()%>/eventBoard/list.jsp">이벤트</a></li>
+                            <li><a href="<%=request.getContextPath()%>/notice/list.jsp">공지사항</a></li>
                             <li><a href="<%=request.getContextPath()%>/adminsign/signin.jsp">관리자접속</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Q&A</a></li>
-                            <li><a href="#">세탁정보</a></li>
-                            <li><a href="#">이용후기</a></li>
+                            <li><a href="<%=request.getContextPath()%>/fqa/fqa.jsp">FAQ</a></li>
+                            <li><a href="<%=request.getContextPath()%>/qna/list.jsp">Q&A</a></li>
+                            <li><a href="<%=request.getContextPath()%>/tip/list.jsp">세탁정보</a></li>
+                            <li><a href="<%=request.getContextPath()%>/reviewboards/list.jsp">이용후기</a></li>
                             <li><a href="#">마이페이지</a></li>
-                            <li><a href="#">회원가입</a></li>
+                            <li><a href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a></li>
                             <li><a href="#">회원탈퇴</a></li>
                         </ul>
 

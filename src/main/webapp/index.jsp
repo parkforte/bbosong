@@ -14,7 +14,7 @@
 					<div class="banner_text_iner">
 						<h1>뽀송Dream</h1>
 						<p>Let’s start your laundry with us, your dream will come true</p>
-						<a href="#" class="btn_1">자세히 알아보기</a>
+						<a href="<%=request.getContextPath()%>/service/service.jsp" class="btn_1">자세히 알아보기</a>
 					</div>
 				</div>
 			</div>
@@ -38,18 +38,18 @@
 </style>
 
 <%
-	//1	
-	//2
-	ReviewBoardService boardService=new ReviewBoardService();
-	List<ReviewBoardVO> list=null;
-	try{
-		list=boardService.selectMainNotice();	
-	}catch(SQLException e){
-		e.printStackTrace();
-	}
-	
-	//3
- %>
+//1	
+//2
+ReviewBoardService boardService = new ReviewBoardService();
+List<ReviewBoardVO> list = null;
+try {
+	list = boardService.selectMainNotice();
+} catch (SQLException e) {
+	e.printStackTrace();
+}
+
+//3
+%>
 <section class="client_review section_padding">
 	<div class="container">
 		<div class="row ">
@@ -68,22 +68,30 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="client_review_slider owl-carousel">
-					<% for(ReviewBoardVO vo : list){ %>
+					<%
+					for (ReviewBoardVO vo : list) {
+					%>
 
 					<div class="single_review_slider">
 						<div class="place_review">
-							<p><%=vo.getTitle() %></p>
+							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
+							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+								class="fas fa-star"></i></a>
+							<p><%=vo.getTitle()%></p>
 						</div>
 						<div class="inside">
 							<p>
 								<a
-									href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent() %></a>
+									href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent()%></a>
 							</p>
 						</div>
 						<p>
-							<%=vo.getName() %></p>
+							<%=vo.getName()%></p>
 					</div>
-					<%} %>
+					<%
+					}
+					%>
 				</div>
 			</div>
 		</div>
@@ -251,19 +259,19 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-									<h5>뽀송Dream</h5>
+										<h5>뽀송Dream</h5>
 										<div class="popular-caption">
 											<h3>정장세트</h3>
 											<span>8,000원</span>
 										</div>
 										<div class="popular-img">
 											<img src="img/suits.jpg" alt="정장세트">
-											<form method="post" action="<%=request.getContextPath()%>/order/addCart.jsp">
+											<form method="post"
+												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
 												<div class="img-cap">
-													<br>
-													<input type="submit" class="btn_all mint_btn hover"
-														value="장바구니에 담기">
+													<br> <input type="submit"
+														class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -277,19 +285,19 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-									<h5>뽀송Dream</h5>
+										<h5>뽀송Dream</h5>
 										<div class="popular-caption">
 											<h3>겨울코트</h3>
 											<span>8,000원</span>
 										</div>
 										<div class="popular-img">
 											<img src="img/coat.jpg" alt="겨울코트">
-											<form method="post" action="<%=request.getContextPath()%>/order/addCart.jsp">
+											<form method="post"
+												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="6">
 												<div class="img-cap">
-													<br>
-													<input type="submit" class="btn_all mint_btn hover"
-														value="장바구니에 담기">
+													<br> <input type="submit"
+														class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -303,19 +311,19 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-									<h5>뽀송Dream</h5>
+										<h5>뽀송Dream</h5>
 										<div class="popular-caption">
 											<h3>이불류</h3>
 											<span>10,000원</span>
 										</div>
 										<div class="popular-img">
 											<img src="img/bedding.jpg" alt="이불류">
-											<form method="post" action="<%=request.getContextPath()%>/order/addCart.jsp">
+											<form method="post"
+												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="11">
 												<div class="img-cap">
-													<br>
-													<input type="submit" class="btn_all mint_btn hover"
-														value="장바구니에 담기">
+													<br> <input type="submit"
+														class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -331,6 +339,10 @@
 </section>
 <!--top place end-->
 
-<%System.out.println("Session email    : " + session.getAttribute("email")); %>
-<%System.out.println("Session verified : " + session.getAttribute("verified")); %>
+<%
+System.out.println("Session email    : " + session.getAttribute("email"));
+%>
+<%
+System.out.println("Session verified : " + session.getAttribute("verified"));
+%>
 <%@include file="inc/bottom.jsp"%>
