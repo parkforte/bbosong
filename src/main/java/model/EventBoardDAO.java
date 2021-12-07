@@ -29,10 +29,11 @@ public class EventBoardDAO {
 		try {
 			con=pool.getConnection();
 			String sql="insert into eventboard (no, title, content,email,readcount) "
-					+ " values(SEQ_EVENTBOARD.nextval,?,?,'bbosong1001@dream.com',0)";
+					+ " values(SEQ_EVENTBOARD.nextval,?,?,?,0)";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getContent());
+			ps.setString(3, vo.getEmail());
 			int result=ps.executeUpdate();
 			if(result>0) {
 				System.out.println("글등록 성공! result="+result);
@@ -45,15 +46,23 @@ public class EventBoardDAO {
 		}
 	}
 	
-	public List<EventBoardVO> selectAll() throws SQLException {
+	public List<EventBoardVO> selectAll(String condition, String keyword) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		List<EventBoardVO> list=new ArrayList<EventBoardVO>();
 		try {
 			con=pool.getConnection();
-			String sql="select * from eventboard order by no desc";
+			String sql="select * from eventboard";
+			if(keyword!=null && !keyword.isEmpty()) { 				
+				sql+= "	where " + condition +" like '%' || ? || '%'";
+			}
+			sql += " order by no desc";			
 			ps=con.prepareStatement(sql);
+			
+			if(keyword!=null && !keyword.isEmpty()) { 	
+				ps.setString(1, keyword);
+			}
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				int no=rs.getInt("no");

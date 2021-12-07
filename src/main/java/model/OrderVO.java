@@ -9,7 +9,7 @@ public class OrderVO {
 	private int laundryNo;
 	private int qty;
 	private Timestamp orderDate;
-	private Timestamp pickupDate;
+	private String pickupDate;
 	private String orderState;
 	private int serialNo;
 	private int totalQty;
@@ -23,7 +23,7 @@ public class OrderVO {
 	
 
 	public OrderVO(int orderNo, String email, int storeNo, int laundryNo, int qty, Timestamp orderDate,
-			Timestamp pickupDate, String orderState, int serialNo, int totalQty, int totalPrice) {
+			String pickupDate, String orderState, int serialNo, int totalQty, int totalPrice) {
 		super();
 		this.orderNo = orderNo;
 		this.email = email;
@@ -40,7 +40,7 @@ public class OrderVO {
 
 
 	public OrderVO(int orderNo, String email, int storeNo, int laundryNo, int qty, Timestamp orderDate,
-			Timestamp pickupDate, String orderState, int serialNo) {
+			String pickupDate, String orderState, int serialNo) {
 		super();
 		this.orderNo = orderNo;
 		this.email = email;
@@ -56,7 +56,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, String email, int storeNo, Timestamp orderDate, Timestamp pickupDate, String orderState,
+	public OrderVO(int orderNo, String email, int storeNo, Timestamp orderDate, String pickupDate, String orderState,
 			int totalQty, int totalPrice) {
 		super();
 		this.orderNo = orderNo;
@@ -79,7 +79,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, String email, int storeNo, int qty, Timestamp pickupDate, String orderState,
+	public OrderVO(int orderNo, String email, int storeNo, int qty, String pickupDate, String orderState,
 			int serialNo2) {
 		super();
 		this.orderNo = orderNo;
@@ -177,14 +177,14 @@ public class OrderVO {
 
 
 
-	public Timestamp getPickupDate() {
+	public String getPickupDate() {
 		return pickupDate;
 	}
 
 
 
 
-	public void setPickupDate(Timestamp pickupDate) {
+	public void setPickupDate(String pickupDate) {
 		this.pickupDate = pickupDate;
 	}
 

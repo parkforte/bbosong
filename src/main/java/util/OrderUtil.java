@@ -1,10 +1,10 @@
 package util;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 public class OrderUtil {
 	
+	public static final double DISCOUNT_RATE=0.2;
 	/**
 	 * 메뉴번호
 	 * @param laundryNo
@@ -57,6 +57,12 @@ public class OrderUtil {
 	
 	
 	public static String changeDecimalFormat(int price) {
+		DecimalFormat df=new DecimalFormat("#,###원");
+		String cdf=df.format(price);
+		return cdf;
+	}
+	
+	public static String changeDecimalFormat(double price) {
 		DecimalFormat df=new DecimalFormat("#,###원");
 		String cdf=df.format(price);
 		return cdf;

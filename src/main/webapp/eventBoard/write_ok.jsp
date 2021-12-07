@@ -18,6 +18,7 @@
 
 	String title= request.getParameter("title");
 	String content= request.getParameter("content");
+	String email=(String)session.getAttribute("email");
 	
 	System.out.println(title);
 	System.out.println(content);
@@ -27,6 +28,7 @@
 		EventBoardVO vo=new EventBoardVO();
 		vo.setTitle(title);
 		vo.setContent(content);
+		vo.setEmail(email);
 		int result=dao.insertEvent(vo);	
 		if(result>0){ %>
 			<script type="text/javascript">
