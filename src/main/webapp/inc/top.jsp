@@ -91,7 +91,7 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/company/introduce.jsp">회사정보</a>
-                                            <a class="dropdown-item" href="#">지점정보</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/store/store_info.jsp">지점정보</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">

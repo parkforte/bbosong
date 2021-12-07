@@ -12,9 +12,14 @@
 	#kakao { background: none; border: none; }
 	
 </style>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('28f1ff4d42e7380c65ecb41d603da956');
+
+        console.log(Kakao.isInitialized());
+</script>
 </head>
 <body>
-<script src="data:text/javascript;base64,PHNjcmlwdD5hbGVydCgpOzwvc2NyaXB0Pg=="></script>
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">

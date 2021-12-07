@@ -1,3 +1,6 @@
+<%@page import="model.CouponDAO"%>
+<%@page import="model.MyCouponVO"%>
+<%@page import="model.MyCouponDAO"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.sql.Timestamp"%>
@@ -24,7 +27,7 @@
 	cal.set(yy, mm-1, dd);
 	
 	Timestamp birth = new Timestamp(cal.getTimeInMillis());
-	String address = postcode + " " + address_ + " " + detailAddress;
+	String address = postcode + "|" + address_ + "|" + detailAddress;
 	
 	AccountVO vo = new AccountVO();
 	vo.setEmail(email);
@@ -38,7 +41,13 @@
 	AccountDAO dao = new AccountDAO();
 	
 	if(dao.insertUser(vo)) {
-		session.setAttribute("email", vo.getEmail());%>
+		session.setAttribute("email", vo.getEmail());
+		
+		CouponDAO couponDao = new CouponDAO();
+		MyCouponVO myCouponVo = new MyCouponVO();
+		myCouponVo.setSerialNo(11232); // 회원가입 쿠폰 번호
+		couponDao.insertCoupon(myCouponVo, email);
+		%>
 		<script>location.href="verify.jsp";</script>
 	<%} else {%>
 		<script>alert('fatal error'); history.back();</script>
