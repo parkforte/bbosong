@@ -41,10 +41,14 @@ public class MypageService {
 	}
 
 	public int deleteAccount(String email, String pw) throws SQLException, NoSuchAlgorithmException {
-		return wdao.deleteAccount(email, pw);
+		return wdao.deleteAccount(email);
 		
 	}
-	public int loginCheck(String email, String pw) throws SQLException {
+	public int loginCheck(String email, String pw) throws SQLException, NoSuchAlgorithmException {
 	      return wdao.loginCheck(email, pw);
 	   }
+	
+	public int deletePW(String pw) throws SQLException, NoSuchAlgorithmException {
+		return wdao.deletePW(pw);
+	}
 }

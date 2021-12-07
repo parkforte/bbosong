@@ -41,8 +41,8 @@
 						             
 					        </ul>
 					        <div class="center">
-					            <input type ="submit"  value="삭제" />
-					            <input type = "Button" value="글목록" 
+					            <input type ="submit" class="mint_btn hover" value="삭제" />
+					            <input type = "Button" class="begie_btn hover" value="글목록" 
 				                	OnClick="location.href='list.jsp'" />
 					        </div>
 				    </form>

@@ -101,7 +101,7 @@
 									<%=MypageUtil.displayNew(vo.getRegdate())%>
 									
 							</td>
-							<td><%=vo.getTitle()%></td>
+							<td>뽀송드림</td>
 							<td><%=sdf.format(vo.getRegdate()) %></td>
 							<td><%=vo.getReadcount() %></td>		
 						</tr> 

@@ -46,8 +46,12 @@
 			vo2.setTel(tel);
 			
 			vo2.setEmail(email);
-			dao.updateInfo(vo2);	
-		}else{%>
+			dao.updateInfo(vo2);%>
+			<script>
+				alert('정보수정을 완료했습니다.');
+				location.href="infoList.jsp";
+			</script>
+		<%}else{%>
 			<script>
 			alert('정보수정을 실패했습니다.');
 			</script>

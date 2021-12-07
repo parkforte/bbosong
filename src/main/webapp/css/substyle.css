@@ -136,7 +136,7 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 /*상세페이지 (게시판)*/
 .divForm{width: 100%; border-top: 1px solid #aac3c3; border-bottom: 1px solid #aac3c3; padding: 20; padding: 20px;}
 .divForm ul{width:100%;}
-.divForm ul li{padding:10px 5px; border-bottom:1px solid #aac3c3;display:flex;}
+.divForm ul li{padding:15px 5px; border-bottom:1px solid #aac3c3;display:flex;}
 .divForm ul li:last-child{border-bottom:0;}
 .divForm ul li .sp1{width:28%; display:inline-block; display:inline-flex; align-content:space-around; align-items:stretch; flex-direction:column; flex-wrap:nowrap; justify-content:center;}
 .divForm ul li .sp2{width:68%; display:inline-block;}
@@ -153,3 +153,9 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 .page_cont{ padding:50px; border:1px solid #ccc;}
 .page_cont:hover{border: 2px solid #000; /*transition: all 0.4s ease-out;*/}           
  
+ /*회원탈퇴*/
+ .p_5{padding:3rem 0;}
+.w_text{font-weight:600; float:left; margin-top:4px;font-size:14px;}
+.ckarea{display:inline-block; float:right; font-size:14px;}
+.p_box{padding:0 !important; height:40px; line-height:40px; }
+.pd_side150{padding:0 150px;}

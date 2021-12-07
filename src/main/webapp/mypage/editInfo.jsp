@@ -12,15 +12,16 @@
 	vo=dao.selectByEmail(email);
 	
 	email=vo.getEmail();
-	String name=vo.getName();  
+	String name=vo.getName();
 	
 	
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
-	
 	String [] addressSp = vo.getAddress().split("\\|");
-	
+	String asArr1 = addressSp[0];
+	String asArr2 = addressSp[1];
+	String asArr3 = addressSp[2];
 		// 비로그인시 메인으로 리다이렉트
 %>
 <style>
@@ -31,6 +32,10 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/daumPostCode.js"></script>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
+<script>
+
+	
+</script>
 <script type="text/javascript">
  	$(function() {
 		make_select();
@@ -39,7 +44,6 @@
 		var checkedpw2 = false;
 		
 		$('#editform').submit(function(e) {
-			console.log('Enter submit()');
 			/* if(!checkedEmail) {
 				alert('이메일을 확인해주세요');
 				$('#email').focus();
@@ -48,7 +52,7 @@
 				return;
 			}
 			 */
-			if(!checkedpw1) {
+			/* if(!checkedpw1) {
 				alert('비밀번호를 확인해주세요');
 				$('#pw1').focus();
 				e.preventDefault();
@@ -62,44 +66,45 @@
 				e.preventDefault();
 				e.stopPropagation();
 				return;
-			}
+			} */
 			
 			$('#sample6_postcode').attr('disabled', false);
 			$('#sample6_address').attr('disabled', false);
+			console.log($('#sample6_postcode').attr('disabled'));
+			console.log($('#sample6_address').attr('disabled'));
 		});
 	
-		<%-- $('#email').on('blur', function() {
+		<%-- <%-- $('#email').on('blur', function() {
 			var valEmail = $('#email').val();	
 			if(!is_validate_email(valEmail)) {
 				$('#email').next().html('이메일 형식이 잘못되었습니다.');
 				changeInvalid($('#email'));
 				return;
-			}
+			} 
 				
-			 var request = $.ajax({
+			var request = $.ajax({
 			url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
 			method: "POST",
 			data: { email : valEmail }, //전송할 데이타
 			dataType: "json"
-			});	 
+		});	 --%> 
 		
-		 	request.done(function( data ) {
-				if(data.result){
-					$('#email').next().html('사용할 수 없는 이메일 입니다.');
-					changeInvalid($('#email'));
-					checkedEmail = false;
-				} else{
-					changeValid($('#email'));
-					$('#emailNotice').removeClass('invalidText');
-					$('#emailNotice').addClass('validText');
-					checkedEmail = true;
-				}	
-			});
-		 	
-			request.fail(function( jqXHR, textStatus ) {
-			  alert( "Request failed: " + textStatus );
-			});	
-		}); --%>
+		 /* request.done(function( data ) {
+			if(data.result){
+				$('#email').next().html('사용할 수 없는 이메일 입니다.');
+				changeInvalid($('#email'));
+				checkedEmail = false;
+			} else{
+				changeValid($('#email'));
+				$('#emailNotice').removeClass('invalidText');
+				$('#emailNotice').addClass('validText');
+				checkedEmail = true;
+			}	
+		});	 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});	
+		}); */
 		
 	$('#pw1').on('blur', function() {
 		if(!is_validate_pw($('#pw1').val())) {
@@ -215,7 +220,7 @@
 		                <label>닉네임</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="nickname" type="text" name="nickname" value="<%=vo.getNickname() %>" class="t_input" required="required">
+		                <input id="nickname" type="text" name="nickname" placeholder="<%=vo.getNickname() %>" class="t_input" required="required">
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -233,10 +238,10 @@
 		                <label>주소</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=addressSp[0] %>" required="required" disabled="disabled">
+		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=asArr1 %>" required="required" disabled="disabled">
 						<button type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()">우편번호찾기</button><br>
-						<input id="sample6_address" type="text" name="address_1" value="<%=addressSp[1] %>" required="required" disabled="disabled">
-						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="상세주소" value="<%=addressSp[2] %>">
+						<input id="sample6_address" type="text" name="address_1" value="<%=asArr2 %>" required="required" disabled="disabled" class="t_input mt20">
+						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="<%=asArr3 %>" required="required" class="t_input mt20">
 		            </div>
 		        </div>
 		        <div class="input_area">
