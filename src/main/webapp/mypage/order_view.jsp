@@ -171,7 +171,7 @@
 					<!--  페이지 번호 끝 -->	
 				</div>
 				<div class="divSearch t_center">
-				   	<form name="frmSearch" method="post" action='list.jsp'>
+				   	<div>
 				        <span class="select">
 					        <select name="searchCondition">
 					            <option value="title" 
@@ -189,8 +189,11 @@
 				        <input type="text" name="searchKeyword" title="검색어 입력"
 				        	value="<%=keyword%>" class="t_input">   
 						<input type="submit" value="검색" class="mint_btn hover">
-				    </form>
+				    </div>
 				</div>
+         </div>
+         <div class="t_center mt50">
+         	<a href="mypageMain.jsp" class="btn_1">마이페이지</a>
          </div>
         </div>
 	</div>

@@ -40,11 +40,11 @@ public class OrderInfoDAO {
 				int storeNo=rs.getInt("storeNo");
 				int laundryNo=rs.getInt("laundryNo");
 				int qty=rs.getInt("qty");
-				Timestamp orderDate=rs.getTimestamp("orderDate");
-				Timestamp pickupDate=rs.getTimestamp("pickupDate");
+				String orderDate=rs.getString("orderDate");
+				String pickupDate=rs.getString("pickupDate");
 				String orderState=rs.getString("orderState");
 				int serialNo=rs.getInt("serialNo");
-				OrderVO vo = new OrderVO(orderNo, email, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo);
+				OrderVO vo = new OrderVO(orderNo, orderDate, storeNo, qty, pickupDate, orderState, serialNo);
 				list.add(vo);
 			}
 			System.out.println("글목록 결과 list.size="+list.size()
@@ -83,11 +83,11 @@ public class OrderInfoDAO {
 				int storeNo=rs.getInt("storeNo");
 				int laundryNo=rs.getInt("laundryNo");
 				int qty=rs.getInt("qty");
-				Timestamp orderDate=rs.getTimestamp("orderDate");
-				Timestamp pickupDate=rs.getTimestamp("pickupDate");
+				String orderDate=rs.getString("orderDate");
+				String pickupDate=rs.getString("pickupDate");
 				String orderState=rs.getString("orderState");
 				int serialNo=rs.getInt("serialNo");
-				OrderVO vo = new OrderVO(orderNo, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo);
+				OrderVO vo = new OrderVO(orderNo, orderDate, storeNo, qty, pickupDate, orderState, serialNo);
 				list.add(vo);
 			}
 			System.out.println("글목록 결과 list.size="+list.size()

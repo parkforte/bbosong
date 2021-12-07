@@ -178,7 +178,7 @@
 			<div class="col-lg-12">
 				<div class="event_slider owl-carousel">
 					<div class="single_event_slider">
-						<div class="row justify-content-end">
+						<div class="row jc">
 							<div class="col-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
@@ -204,7 +204,7 @@
 						</div>
 					</div>
 					<div class="single_event_slider">
-						<div class="row justify-content-end">
+						<div class="row jc">
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
@@ -230,7 +230,7 @@
 						</div>
 					</div>
 					<div class="single_event_slider">
-						<div class="row justify-content-end">
+						<div class="row jc">
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">

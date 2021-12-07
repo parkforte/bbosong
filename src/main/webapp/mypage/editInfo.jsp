@@ -175,7 +175,11 @@
 		}
 	});
 </script>
-
+<script>
+function back(){
+	history.back(-1);
+}
+</script>
 
 <section class="section_padding">
 	<div class="container">
@@ -256,7 +260,7 @@
 		    
             <div class="btn_all t_center">
                 <button type="submit" class="mint_btn hover" id="infoedit_btn">회원정보 수정</button>
-                <button type="button" class="begie_btn hover">취소</button>
+                <button type="button" class="begie_btn hover" onclick="back()">취소</button>
             </div>
             </form>
         </div>

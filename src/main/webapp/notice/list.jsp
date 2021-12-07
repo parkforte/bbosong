@@ -12,6 +12,7 @@
 	request.setCharacterEncoding("utf-8");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
+	
 		
 	//2
 	NoticeDAO dao = new NoticeDAO();

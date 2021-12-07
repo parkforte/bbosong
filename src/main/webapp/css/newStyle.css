@@ -121,6 +121,14 @@
   color: #fff !important;
 }
 
+.event_part .owl-nav button{
+	left:0 !important;
+}
+.event_part .owl-nav .owl-next{
+	right:0 !important;
+}
+
+.jc{justify-content: space-evenly;}
 /* 지점정보 */
 
 .section_tittle h2 {
