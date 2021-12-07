@@ -16,7 +16,7 @@
 	
 	List<OrderVO> list=null;
 	try{
-		list=dao.selectAll(condition, keyword, email);
+		list=dao.selectAllAcc(condition, keyword);
 	}catch(SQLException e){
 		e.printStackTrace();		
 	}
@@ -43,70 +43,31 @@
 	int num=totalRecord-curPos;
 %>
 
-
-<link rel="stylesheet" type="text/css" href="../css/reviewboard/list.css" />
 <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">	
-	$(function(){
-		$('.divList .box2 tbody tr').hover(function(){
-			$(this).css('background','skyblue');
-		}, function(){
-			$(this).css('background','');
-		});
-	});
-</script>
-<style type="text/css">
-	body{
-		padding:5px;
-		margin:5px;
-	 }	
-</style>	
-<style>
-     *{border-collapse: collapse;list-style-type: none; box-sizing: border-box; margin:0; padding:0;}
-     .mt20{margin-top:10px;}
-     .t_right{text-align: right;}
-     
-      /*button*/
-    .btn_all{margin-bottom:20px;}
-    .mint_btn{background:#aac3c3;  height:30px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
-    .hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
-    .begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}    
-	.section_padding {
-	    padding: 130px 0px;
-	}     
-     /*table*/
-    .tb_area{width:1000px;}
-    .table1{border-spacing: 0;border: 0;}
-    .table1 tr{border:0; }
-    .table1 tr th{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
-    .table1 tr td{padding:10px 20px;text-align:center; border-bottom:1px solid #ccc;}
-</style>
-</head>	
-<body>
+<section class="section_padding">
+	<div class="container">
 <h2>주문내역확인</h2>
 <%
 	if(keyword!=null && !keyword.isEmpty()){ %>
 		<p>검색어 : <%=keyword %>,  <%=list.size() %>건 검색되었습니다. </p>
 <%	} %>
-<div class="mt20 tb_area">
+	<div>
 <table class="table1"
 		summary="주문내역 입니다.">
-	<caption>후기 게시판</caption>
 	<colgroup>
 		<col style="width:10%;" />
-		<col style="width:30%;" />
+		<col style="width:15%;" />
+		<col style="width:15%;" />
+		<col style="width:20%;" />
+		<col style="width:15%;" />	
 		<col style="width:10%;" />
-		<col style="width:10%;" />
-		<col style="width:20%;" />	
-		<col style="width:10%;" />
-		<col style="width:10%;" />		
-	</colgroup>
+		<col style="width:15%;" />	
 	<thead>
 	  <tr>
 	    <th scope="col">주문번호</th>
-	    <th scope="col">이메일</th>
 	    <th scope="col">지점번호</th>
-	    <th scope="col">수량</th>
+	    <th scope="col">결제금액</th>
+	    <th scope="col">주문날짜</th>
 	    <th scope="col">수거날짜</th>
 	    <th scope="col">주문상태</th>
 	    <th scope="col">발급번호</th>
@@ -124,14 +85,14 @@
 	   %>	
 	               <tr>
 	                   <td><%=vo.getOrderNo() %></td>
-	                   <td><%=vo.getEmail() %></td>
 	                   <td><%=vo.getStoreNo() %></td>
 	                   <td><%=vo.getQty() %></td>
+	                   <td><%=sdf.format(vo.getOrderDate()) %></td>
 	                   <td><%=vo.getPickupDate() %></td>
 	                   <td><%=vo.getOrderState() %></td>
 	                   <td><%=vo.getSerialNo() %></td>
 	               </tr>
-	               <%}%>
+	               <%}%>	               
 	               <!-- 반복처리 끝 -->
                </tbody>
            </table>
@@ -174,25 +135,15 @@
 				        <span class="select">
 					        <select name="searchCondition">
 					            <option value="orderNo" 
-					            	<%if("orderNo".equals(condition)){ %>
+									            	<%if("title".equals(condition)){ %>
 					            		selected="selected"
 					            	<%} %>
-					            >주문번호</option>
-					            <option value="email" 
-					            	<%if("email".equals(condition)){ %>
+					            >제목</option>
+					            <option value="content" 
+					            	<%if("content".equals(condition)){ %>
 					            		selected="selected"
 					            	<%} %>
-					            >이메일</option>
-					            <option value="storeNo" 
-					            	<%if("storeNo".equals(condition)){ %>
-					            		selected="selected"
-					            	<%} %>
-					            >지점번호</option>
-					            <option value="serialNo" 
-					            	<%if("serialNo".equals(condition)){ %>
-					            		selected="selected"
-					            	<%} %>
-					            >발급번호</option>
+					            >내용</option>
 					        </select>  
 				        </span> 
 				        <input type="text" name="searchKeyword" title="검색어 입력"

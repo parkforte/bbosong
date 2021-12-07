@@ -11,7 +11,6 @@ import java.util.List;
 
 import model.ReviewBoardVO;
 import db.ConnectionPoolMgr;
-import db.ConnectionPoolMgr2;
 
 public class ReviewBoardDAO {
 	ConnectionPoolMgr pool = new ConnectionPoolMgr();	
