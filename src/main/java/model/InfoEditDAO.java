@@ -26,10 +26,9 @@ public class InfoEditDAO {
 			ps=con.prepareStatement(sql);
 			
 			ps.setString(1, vo.getNickname());
-			ps.setTimestamp(2, vo.getBirth());
-			ps.setString(3, vo.getAddress());
-			ps.setString(4, vo.getTel());
-			ps.setString(5, vo.getEmail());
+			ps.setString(2, vo.getAddress());
+			ps.setString(3, vo.getTel());
+			ps.setString(4, vo.getEmail());
 			
 			int cnt = ps.executeUpdate();
 			System.out.println("글 수정 결과 cnt="+cnt+"매개변수 vo="+vo);

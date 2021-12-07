@@ -19,6 +19,11 @@
 		e.printStackTrace();
 	}
 	
+	String [] addressSp = vo.getAddress().split(" ");
+	String asArr1 = addressSp[0];
+	String asArr2 = addressSp[1];
+	String asArr3 = addressSp[2];
+	
 		// 비로그인시 메인으로 리다이렉트
 %>
 <style>
@@ -28,7 +33,7 @@
 </style>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/daumPostCode.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <script>
 
 	
@@ -40,20 +45,15 @@
 		var checkedpw1 = false;
 		var checkedpw2 = false;
 		
-		$('#signinForm').submit(function(e) {
-			$('#infoedit_btn').click(function(){
-				location.href="mypageMain.jsp";	
-				
-			});
-			}
-			if(!checkedEmail) {
+		$('#editform').submit(function(e) {
+			/* if(!checkedEmail) {
 				alert('이메일을 확인해주세요');
 				$('#email').focus();
 				e.preventDefault();
 				e.stopPropagation()
 				return;
 			}
-			
+			 */
 			if(!checkedpw1) {
 				alert('비밀번호를 확인해주세요');
 				$('#pw1').focus();
@@ -77,12 +77,12 @@
 		});
 	
 		$('#email').on('blur', function() {
-			var valEmail = $('#email').val();	
+			/*var valEmail = $('#email').val();	
 			if(!is_validate_email(valEmail)) {
 				$('#email').next().html('이메일 형식이 잘못되었습니다.');
 				changeInvalid($('#email'));
 				return;
-			}
+			} */
 				
 			var request = $.ajax({
 			url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
@@ -91,8 +91,8 @@
 			dataType: "json"
 		});	 
 		
-		request.done(function( data ) {
-			if(data.result){
+		 request.done(function( data ) {
+			/*if(data.result){
 				$('#email').next().html('사용할 수 없는 이메일 입니다.');
 				changeInvalid($('#email'));
 				checkedEmail = false;
@@ -101,8 +101,8 @@
 				$('#emailNotice').removeClass('invalidText');
 				$('#emailNotice').addClass('validText');
 				checkedEmail = true;
-			}
-		});	 
+			}	
+		});	 */ 
 		request.fail(function( jqXHR, textStatus ) {
 		  alert( "Request failed: " + textStatus );
 		});	
@@ -143,10 +143,10 @@
 		target.addClass('invalid');
 	}
 	
-	function is_validate_email(email) {
+	/* function is_validate_email(email) {
 		const pattern = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
 		return pattern.test(email);
-	}
+	} */
 	
 	function is_validate_pw(pw) {
 		const pattern = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[\da-zA-Z$@$!%*#?&]{8,}/g);
@@ -176,8 +176,6 @@
 	 		$("#day > option[value="+day+"]").attr("selected", "true");
 		}
 	});
- 	
- 	
 </script>
 
 
@@ -185,7 +183,7 @@
 	<div class="container">
 		<h2>내정보 수정</h2>
 		<div>
-            <form id="signinForm" name="update" action="editInfo_ok.jsp" method="post">
+            <form id="editform" name="update" action="editInfo_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>이름</label>
@@ -242,10 +240,10 @@
 		                <label>주소</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="sample6_postcode" type="text" name="postcode" class="t_input" placeholder="우편번호" required="required" disabled="disabled">
-						<input type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input id="sample6_address" type="text" name="address_" placeholder="<%=vo.getAddress() %>" required="required" disabled="disabled">
-						<input id="sample6_detailAddress" type="text" name="detailAddress" placeholder="상세주소" required="required">
+		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=vo.getAddress() %>" required="required" disabled="disabled">
+						<button type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()">우편번호찾기</button><br>
+						<input id="sample6_address" type="text" name="address_1" value="<%=vo.getAddress() %>" required="required" disabled="disabled">
+						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="상세주소" required="required">
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -257,11 +255,12 @@
 		            </div>
 		        </div>
 		        
-		    </form>
+		    
             <div class="btn_all t_center">
                 <button type="submit" class="mint_btn hover" id="infoedit_btn">회원정보 수정</button>
                 <button type="button" class="begie_btn hover">취소</button>
             </div>
+            </form>
         </div>
 	</div>
 </section>
