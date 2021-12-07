@@ -89,6 +89,9 @@ public class CartDAO {
 		}
 	}
 	
+	
+	
+	
 	public int deleteItem(int cartNo, String email) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
