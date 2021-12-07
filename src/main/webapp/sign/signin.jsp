@@ -14,7 +14,6 @@
 </style>
 </head>
 <body>
-<script src="data:text/javascript;base64,PHNjcmlwdD5hbGVydCgpOzwvc2NyaXB0Pg=="></script>
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">

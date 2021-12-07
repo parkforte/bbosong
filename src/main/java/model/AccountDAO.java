@@ -61,9 +61,6 @@ public class AccountDAO {
 
 			cnt = ps.executeUpdate();
 			
-			myCouponVo.setSerialNo(11232);
-			couponDao.insertCoupon(myCouponVo, vo.getEmail());
-			
 			// -----------------------------------------
 
 			con.commit();
