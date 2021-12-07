@@ -12,6 +12,17 @@
 	String pw=request.getParameter("pw");
 	String msg="회원탈퇴실패" , url="Withdrawal.jsp";
 	WithdrawalDAO dao = new WithdrawalDAO();
+	
+	
+	
+	// 비밀번호 다를 떄 뒤로가기
+	//loginCheck()
+	
+	
+	
+	
+	
+	
 	try{
 		int result=dao.deleteAccount(email, pw);
 		System.out.println(result);

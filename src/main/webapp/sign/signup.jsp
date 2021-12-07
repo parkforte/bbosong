@@ -22,6 +22,7 @@
 		var checkedpw2 = false;
 		
 		$('#signinForm').submit(function(e) {
+			console.log('Enter submit()');
 			if(!checkedEmail) {
 				alert('이메일을 확인해주세요');
 				$('#email').focus();
@@ -48,8 +49,6 @@
 			
 			$('#sample6_postcode').attr('disabled', false);
 			$('#sample6_address').attr('disabled', false);
-			console.log($('#sample6_postcode').attr('disabled'));
-			console.log($('#sample6_address').attr('disabled'));
 		});
 	
 		$('#email').on('blur', function() {
