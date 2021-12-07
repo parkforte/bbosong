@@ -93,7 +93,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, int storeNo, int laundryNo, int qty, Timestamp orderDate, Timestamp pickupDate,
+	public OrderVO(int orderNo, int storeNo, int laundryNo, int qty, Timestamp orderDate, String pickupDate,
 			String orderState, int serialNo) {
 		super();
 		this.orderNo = orderNo;
