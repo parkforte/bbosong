@@ -21,6 +21,8 @@ public class AccountDAO {
 	
 	public boolean insertUser(AccountVO vo) throws SQLException {
 		HashingUtil hash = new HashingUtil();
+		CouponDAO couponDao = new CouponDAO();
+		MyCouponVO myCouponVo = new MyCouponVO();
 		Connection con = null;
 		PreparedStatement ps = null;
 		int cnt = 0;
@@ -58,6 +60,7 @@ public class AccountDAO {
 			ps.setString(3, salt);
 
 			cnt = ps.executeUpdate();
+			
 			// -----------------------------------------
 
 			con.commit();

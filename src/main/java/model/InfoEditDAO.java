@@ -14,27 +14,21 @@ import util.HashingUtil;
 
 public class InfoEditDAO {
 	ConnectionPoolMgr pool = new ConnectionPoolMgr();
-	public int updateInfo(AccountVO vo) throws SQLException, NoSuchAlgorithmException {
+	public int updateInfo(AccountVO vo) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps=null;
-		HashingUtil hash = new HashingUtil();
-		boolean isSucceed = false;
 		try {
 			con=pool.getConnection();
-			con.setAutoCommit(false);
 			String sql="update account";
 			sql+=" set nickname=?, address=?, tel=? ";
 			sql+=" where email=?";
 			
 			ps=con.prepareStatement(sql);
 			
-			String salt = hash.makeNewSalt();
-			String digest = hash.hashing(vo.getPw(), salt);
 			ps.setString(1, vo.getNickname());
-			ps.setTimestamp(2, vo.getBirth());
-			ps.setString(3, vo.getAddress());
-			ps.setString(4, vo.getTel());
-			ps.setString(5, vo.getEmail());
+			ps.setString(2, vo.getAddress());
+			ps.setString(3, vo.getTel());
+			ps.setString(4, vo.getEmail());
 			
 			int cnt = ps.executeUpdate();
 			System.out.println("글 수정 결과 cnt="+cnt+"매개변수 vo="+vo);
@@ -44,6 +38,32 @@ public class InfoEditDAO {
 			pool.dbClose(ps, con);
 		}
 
+	}
+	  
+	public int updatePw(AccountVO vo) throws SQLException, NoSuchAlgorithmException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		HashingUtil hash = new HashingUtil();
+		boolean isSucceed = false;
+		
+		try {
+			con = pool.getConnection();
+			String inputPw = vo.getPw();
+			String salt = hash.makeNewSalt();
+			String digest = hash.hashing(inputPw, salt);
+			
+			String sql = "update hash set digest=?, salt=? where email=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, digest);
+			ps.setString(2, salt);
+			ps.setString(3, vo.getEmail());
+			
+			int cnt = ps.executeUpdate();
+			
+			return cnt;
+		}finally{
+			pool.dbClose(ps, con);
+		}
 	}
 	
 	public AccountVO selectByName(String name) throws SQLException {
