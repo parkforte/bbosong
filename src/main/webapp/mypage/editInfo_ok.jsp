@@ -9,12 +9,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>  
 <%
 	request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
 	String pw = request.getParameter("pw1");
-	String nickname=request.getParameter("nickname");
+	String nickname=request.getParameter("nickname");  
 	String tel=request.getParameter("tel");
 	String postcode = request.getParameter("postcode1");
 	String address_ = request.getParameter("address_1");

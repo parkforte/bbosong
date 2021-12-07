@@ -12,13 +12,13 @@
 	vo=dao.selectByEmail(email);
 	
 	email=vo.getEmail();
-	String name=vo.getName();
+	String name=vo.getName();  
 	
 	
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
-	
+	     
 	String [] addressSp = vo.getAddress().split(" ");
 	String asArr1 = addressSp[0];
 	String asArr2 = addressSp[1];
