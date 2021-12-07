@@ -13,10 +13,31 @@
 	
 </style>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-        Kakao.init('28f1ff4d42e7380c65ecb41d603da956');
-
-        console.log(Kakao.isInitialized());
+<script>
+    Kakao.init('28f1ff4d42e7380c65ecb41d603da956');
+    console.log(Kakao.isInitialized());
+    
+    function kakaoLogin() {
+        Kakao.Auth.login({
+          success: function (response) {
+            Kakao.API.request({
+              url: '/v2/user/me',
+              success: function (response) {
+            	  console.log(response);
+            	  console.log(response.properties);
+            	  console.log(response.kakao_account);
+            	  location.href = 'social_signin.jsp?id=' + response.id + '&name=' + response.properties.nickname;
+              },
+              fail: function (error) {
+                console.log(error);
+              },
+            })
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        })
+      }
 </script>
 </head>
 <body>
@@ -45,7 +66,7 @@
 			        <button id="signin" type="submit" class="mint_btn hover">로그인</button>
 		   		</div>
 		   		<div class="btn_all t_center">
-			        <button id="kakao"><img src="../img/kakao_login_medium_narrow.png"></button>
+			        <button id="kakao" onclick="kakaoLogin();"><img src="../img/kakao_login_medium_narrow.png"></button>
 		   		</div>
 		    </form>
 		    <!-- <div class="btn_all t_center">
