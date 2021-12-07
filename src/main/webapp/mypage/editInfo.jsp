@@ -19,7 +19,7 @@
 		e.printStackTrace();
 	}
 	
-	
+		// 비로그인시 메인으로 리다이렉트
 %>
 <style>
 .valid { border: solid 2px green; }
@@ -185,7 +185,7 @@
 	<div class="container">
 		<h2>내정보 수정</h2>
 		<div>
-            <form id="signinForm" name="update" action="mypageMain.jsp" method="post">
+            <form id="signinForm" name="update" action="editInfo_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>이름</label>

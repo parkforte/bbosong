@@ -133,6 +133,28 @@ public class QnADAO {
 		} finally {
 			pool.dbClose(rs, ps, con);
 		}
+	}
+	
+	public boolean delete(String email, int no) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
 
+		try {
+			con = pool.getConnection();
+
+			String sql = "delete from qna where email=? and no=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setInt(2, no);
+
+			int cnt = ps.executeUpdate();
+			if(cnt < 1)
+				return false;
+			
+			return true;
+			
+		} finally {
+			pool.dbClose(ps, con);
+		}
 	}
 }
