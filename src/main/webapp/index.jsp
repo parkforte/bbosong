@@ -171,81 +171,6 @@
 	</div>
 </section>
 <!--::industries end::-->
-<style>
-.client_review .single_review_slider {
-	background-color: #f2ebde;
-	padding: 30px;
-	height: 310px !important;
-}
-
-.client_review .single_review_slider p {
-	display: block;
-	color: black;
-	margin: 9px 0 18px;
-}
-</style>
-
-<%
-//1	
-//2
-ReviewBoardService boardService = new ReviewBoardService();
-List<ReviewBoardVO> list = null;
-try {
-	list = boardService.selectMainNotice();
-} catch (SQLException e) {
-	e.printStackTrace();
-}
-
-//3
-%>
-<section class="client_review section_padding">
-	<div class="container">
-		<div class="row ">
-			<div class="col-xl-6">
-				<div class="section_tittle">
-					<h2>이용후기</h2>
-				</div>
-			</div>
-		</div>
-		<style>
-.place_review p {
-	font-size: 18px;
-	font-weight: 600;
-}
-</style>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="client_review_slider owl-carousel">
-					<%
-					for (ReviewBoardVO vo : list) {
-					%>
-
-					<div class="single_review_slider">
-						<div class="place_review">
-							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a>
-							<p><%=vo.getTitle()%></p>
-						</div>
-						<div class="inside">
-							<p>
-								<a
-									href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent()%></a>
-							</p>
-						</div>
-						<p>
-							<%=vo.getName()%></p>
-					</div>
-					<%
-					}
-					%>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!--top place end-->
 <!--top place start-->
 <section class="event_part section_padding">
 	<div class="container">
@@ -330,6 +255,81 @@ try {
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--top place end-->
+<style>
+.client_review .single_review_slider {
+	background-color: #f2ebde;
+	padding: 30px;
+	height: 310px !important;
+}
+
+.client_review .single_review_slider p {
+	display: block;
+	color: black;
+	margin: 9px 0 18px;
+}
+</style>
+
+<%
+//1	
+//2
+ReviewBoardService boardService = new ReviewBoardService();
+List<ReviewBoardVO> list = null;
+try {
+	list = boardService.selectMainNotice();
+} catch (SQLException e) {
+	e.printStackTrace();
+}
+
+//3
+%>
+<section class="client_review section_padding">
+	<div class="container">
+		<div class="row ">
+			<div class="col-xl-6">
+				<div class="section_tittle">
+					<h2>이용후기</h2>
+				</div>
+			</div>
+		</div>
+		<style>
+.place_review p {
+	font-size: 18px;
+	font-weight: 600;
+}
+</style>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="client_review_slider owl-carousel">
+					<%
+					for (ReviewBoardVO vo : list) {
+					%>
+
+					<div class="single_review_slider">
+						<div class="place_review">
+							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
+							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+								class="fas fa-star"></i></a>
+							<p><%=vo.getTitle()%></p>
+						</div>
+						<div class="inside">
+							<p>
+								<a
+									href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent()%></a>
+							</p>
+						</div>
+						<p>
+							<%=vo.getName()%></p>
+					</div>
+					<%
+					}
+					%>
 				</div>
 			</div>
 		</div>
