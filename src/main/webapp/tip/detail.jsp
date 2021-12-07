@@ -69,10 +69,10 @@
 					</li>
 				</ul>		
 				<div class="t_center">
-					<a href='edit.jsp?no=<%=no%>'>수정</a> <span class="c_mint">|</span>
-		        	<a href='delete.jsp?no=<%=no%>'>
+					<a href='edit.jsp?no=<%=no%>' class="mint_btn hover a_btn">수정</a> <span class="c_mint">|</span>
+		        	<a href='delete.jsp?no=<%=no%>' class="begie_btn hover a_btn">
 		        	삭제</a><span class="c_mint">|</span>
-		        	<a href='list.jsp'>목록</a>			
+		        	<a href='list.jsp'class="mint_btn hover a_btn">목록</a>			
 				</div>
 			</div>
 		</div>
