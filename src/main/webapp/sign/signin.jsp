@@ -12,6 +12,12 @@
 	#kakao { background: none; border: none; }
 	
 </style>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('28f1ff4d42e7380c65ecb41d603da956');
+
+        console.log(Kakao.isInitialized());
+</script>
 </head>
 <body>
 <section class="section_padding">

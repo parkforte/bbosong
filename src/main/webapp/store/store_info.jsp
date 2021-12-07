@@ -17,6 +17,7 @@
 	}
 	
 	#storeList { display: inline-block; }
+	
 	#map {
 		display: inline-block;
 		margin-left: 10px;

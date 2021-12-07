@@ -19,7 +19,19 @@
 	String postcode = request.getParameter("postcode1");
 	String address_ = request.getParameter("address_1");
 	String detailAddress = request.getParameter("detailAddress1");
-	String address = postcode + " " + address_ + " " + detailAddress;
+	
+		System.out.println(email);
+		System.out.println(pw);
+		System.out.println(nickname);
+		System.out.println(tel);
+		System.out.println(postcode);
+		System.out.println(address_);
+		System.out.println(detailAddress);
+	
+	String address = postcode + "|" + address_ + "|" + detailAddress;
+	
+	System.out.println(address);
+	
 	InfoEditDAO dao = new InfoEditDAO();
 	AccountVO vo = new AccountVO();
 	AccountVO vo2 = new AccountVO();

@@ -27,7 +27,7 @@
 	cal.set(yy, mm-1, dd);
 	
 	Timestamp birth = new Timestamp(cal.getTimeInMillis());
-	String address = postcode + " " + address_ + " " + detailAddress;
+	String address = postcode + "|" + address_ + "|" + detailAddress;
 	
 	AccountVO vo = new AccountVO();
 	vo.setEmail(email);
