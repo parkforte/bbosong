@@ -44,10 +44,10 @@
   font-family: "Open Sans", sans-serif;
   text-transform: capitalize;
 }
-
+.btn_1, .btn_2{background:#c96c62;}
 .btn_1:hover, .btn_2:hover {
   color: #fff;
-  background-color: #aac3c3;
+  background-color: #f2ebde;
 }
 
 /* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_menu.scss */
@@ -108,7 +108,9 @@
   font-weight: 700;
   font-size: 20px;
 }
-
+.event_part .event_slider_content{
+	border-radius:10px;
+}
 .client_review .owl-nav button {
   width: 45px;
   height: 45px;
