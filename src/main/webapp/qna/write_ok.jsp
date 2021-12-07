@@ -12,9 +12,6 @@
 <title>QnA 등록</title>
 </head>
 <%
-	//write.jsp에서 post방식으로 서브밋됨
-	request.setCharacterEncoding("utf-8");
-
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	System.out.println(content);

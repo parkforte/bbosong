@@ -93,6 +93,22 @@ public class OrderVO {
 
 
 
+	public OrderVO(int orderNo, int storeNo, int laundryNo, int qty, Timestamp orderDate, Timestamp pickupDate,
+			String orderState, int serialNo) {
+		super();
+		this.orderNo = orderNo;
+		this.storeNo = storeNo;
+		this.laundryNo = laundryNo;
+		this.qty = qty;
+		this.orderDate=orderDate;
+		this.pickupDate = pickupDate;
+		this.orderState = orderState;
+		this.serialNo = serialNo;
+	}
+
+
+
+
 	public int getOrderNo() {
 		return orderNo;
 	}

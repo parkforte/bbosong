@@ -103,7 +103,7 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/service/service.jsp">서비스소개</a>
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/eventBoard/list.jsp">이벤트</a>
-                                            <a class="dropdown-item" href="#">공지사항</a>
+                                            <a class="dropdown-item" href="<%=request.getContextPath() %>/notice/list.jsp">공지사항</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">

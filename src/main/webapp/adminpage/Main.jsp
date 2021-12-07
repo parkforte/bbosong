@@ -38,13 +38,12 @@
 	/*각 페이지로 이동*/
 	function account(){ //주문내역확인
 		location.href="account_view.jsp";
-	}
-	
+	}	
 	function editInfo(){//내정보 수정
 		location.href="editInfo.jsp";
 	}
-	function coupon(){//쿠폰
-		location.href="coupon.jsp";
+	function order(){//주문확인
+		location.href="OrderCheck.jsp";
 	}
 	function Withdrawal(){//회원탈퇴
 		location.href="Withdrawal.jsp";
@@ -59,19 +58,19 @@
 	<div class="container">
 		<!--마이페이지-->
 		<div class="mt20 tb_area row">
-			<div class="col-lg-6 sm-6 page_area" onclick="editInfo()">
-				<div class="page_cont">
-					<div class="line"></div>
-					<p>
-						<strong class="m_txt">Edit / </strong> 관리자 정보 수정
-					</p>
-				</div>
-			</div>
 			<div class="col-lg-6 sm-6 page_area" onclick="account()">
 				<div class="page_cont">
 					<div class="line"></div>
 					<p>
-						<strong class="m_txt"> list/ </strong> 회원목록조회
+						<strong class="m_txt">List / </strong> 회원목록조회
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-6 sm-6 page_area" onclick="order()">
+				<div class="page_cont">
+					<div class="line"></div>
+					<p>
+						<strong class="m_txt"> Order/ </strong> 전체주문조회
 					</p>
 				</div>
 			</div>

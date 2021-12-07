@@ -5,13 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>관리자 로그인</title>
+<style type="text/css">
+	#signin { width: 185px; border-radius: 7px; }
+	
+	#kakao { background: none; border: none; }
+	
+</style>
 </head>
 <body>
+<script src="data:text/javascript;base64,PHNjcmlwdD5hbGVydCgpOzwvc2NyaXB0Pg=="></script>
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">
-			<h2>관리자 로그인</h2><br>
+			<h2>로그인</h2><br>
 		    <form id="signinForm" action="signin_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">
@@ -26,11 +33,14 @@
 		                <label>비밀번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="pw" type="password" name="pw" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="pwd" type="password" name="pwd" class="t_input" required="required"><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="btn_all t_center">
-			        <button type="submit" class="mint_btn hover">로그인</button>
+			        <button id="signin" type="submit" class="mint_btn hover">로그인</button>
+		   		</div>
+		   		<div class="btn_all t_center">
+			        <button id="kakao"><img src="../img/kakao_login_medium_narrow.png"></button>
 		   		</div>
 		    </form>
 		    <!-- <div class="btn_all t_center">

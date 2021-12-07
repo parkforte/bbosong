@@ -21,6 +21,16 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 			location.href='list.jsp';	
 		});
 		
+		$('form[name=admin_tip]').submit(function(){
+	         $('.infobox').each(function(idx, item){
+	            if($(this).val().length<1){
+	               alert($(this).prev().html() + "을(를) 입력하세요");
+	               $(this).focus();
+	               event.preventDefault();
+	               return false;  //each 탈출
+	            }
+	         });
+		
 	});
 </script>
 
@@ -28,7 +38,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 	<div class="container">
 	<h2 class="mb50">세탁정보</h2>
 		<fieldset>
-			<form name="admin_event" action="write_ok.jsp" method="post">
+			<form name="admin_tip" action="write_ok.jsp" method="post">
 				<input type="hidden" name="email" value="bbosong1001@dream.com">
 	            <div class="input_area">
 	                <div class="p_input">

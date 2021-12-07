@@ -32,18 +32,15 @@
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
-	
-	System.out.println(vo.getEmail());
-	System.out.println(session.getAttribute("email"));
 %>
 <script>
-	function delete() {
-		console.log('enter delete');
+	function delete_() {
+		if(confirm('정말 삭제하시겠습니까?'))
+			location.href = 'delete.jsp?no=<%=no%>';
 	}
 </script>
 </head>
 <body>
-
 <section class="section_padding">
   <div class="container">
     <section class="section_padding">
@@ -64,13 +61,13 @@
 					<span class="sp1">조회수</span> <span class="sp2"><%=vo.getReadcount() %></span>
 				</li>
 				<li>
-					<p class="content"><%=vo.getContent() %></p>
+					<span class="content"><%=vo.getContent()%></span>
 				</li>
-			</ul>		
+			</ul>
 			<div class="t_center">
 			<%if(vo.getEmail().equals(session.getAttribute("email"))) {%>
-				<a href="">수정</a> <span class="c_mint">|</span>
-	        	<span onclick="delete();"><a href="#">삭제</a></span><span class="c_mint">|</span>
+				<a href="write.jsp?no=<%=no%>">수정</a> <span class="c_mint">|</span>
+	        	<a href="#" onclick="delete_();">삭제</a> <span class="c_mint">|</span>
 	        	<a href='list.jsp'>목록</a>
 			<%} else {%>
 				<a href='list.jsp'>목록</a>
