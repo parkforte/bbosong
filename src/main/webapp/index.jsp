@@ -34,7 +34,6 @@
 			<div class="col-xl-6">
 				<div class="section_tittle text-center">
 					<h2>지점정보</h2>
-					<p>뽀송Dream의 지점정보</p>
 				</div>
 			</div>
 		</div>
