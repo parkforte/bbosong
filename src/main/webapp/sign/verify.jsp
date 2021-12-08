@@ -40,7 +40,7 @@
 			request.done(function( data ) {
 				verifyCode = data.result;
 				if(verifyCode != null){
-					document.getElementById('notice').innerHTML = varEmail + "로 인증메일을 전송했습니다.";
+					document.getElementById('notice').innerHTML = varEmail + "로 인증코드를 전송했습니다.";
 					
 				} else{
 					alert(data.result);
