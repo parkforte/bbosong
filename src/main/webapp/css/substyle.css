@@ -3,7 +3,8 @@
 
 /*공통적인 부분*/
 *{border-collapse: collapse;list-style-type: none; box-sizing: border-box; margin:0; padding:0;}
-a{color:#666666;}
+a{color:#000;}
+a:hover{color:#000;}
 .mt20{margin-top:20px;}
 .mb20{margin-bottom:20px;}
 .mb10{margin-bottom:10px;}
@@ -147,7 +148,7 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 .page_area:last-of-type{margin-top:30px;}
 .page_area:nth-of-type(3){margin-top:30px;}
 .page_area .page_cont{}
-.page_area .page_cont .line{width:10%; height:4px; background: #000;}
+.line{width:10%; height:4px; background: #000;}
 .page_area .page_cont p{line-height:19px; margin:10px 0;}
 .page_area .page_cont p .m_txt{font-size:24px; font-weight: 600; color:#000;}
 .page_cont{ padding:50px; border:1px solid #ccc;}
@@ -159,3 +160,17 @@ ul.p_tabs2 li.p_on2{color:#aac3c3; font-weight:600; border-bottom:4px solid #aac
 .ckarea{display:inline-block; float:right; font-size:14px;}
 .p_box{padding:0 !important; height:40px; line-height:40px; }
 .pd_side150{padding:0 150px;}
+/*회원탈퇴 완료 화면 , ok후의 화면으로 텍스트만 바꿔 쓰셔도 됩니다.*/
+.Withdrawal{}
+.Withdrawal p{color:#000;}
+.gray_box{background: #f1f1f1; text-align: center; border-radius: 10px; padding:100px 0;}
+.wd_txt{font-size:24px; }
+
+/*매장정보 map*/
+.coordinate { display: none; }
+.active { border-bottom:5px solid #aac3c3; }
+.display_map{display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-evenly; align-items: stretch;}
+#storeList ul{border-bottom:1px solid #aac3c3;}
+#storeList li { padding: 15px;border-top:1px solid #aac3c3;}
+#storeList { display: inline-block; }
+#map {display: inline-block;margin-left: -6px;height: 472px;width: 800px; }
