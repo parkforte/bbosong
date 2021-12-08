@@ -26,7 +26,7 @@ public class OrderDAO {
 			ps.setInt(2, vo.getStoreNo());
 			ps.setInt(3, vo.getTotalQty());
 			ps.setInt(4, vo.getTotalPrice());
-			ps.setString(5, vo.getPickupDate());
+			ps.setTimestamp(5, vo.getPickupDate());
 			int cnt=ps.executeUpdate();
 			if(cnt>0) {
 				System.out.println("order성공! cnt="+cnt+", vo="+vo);

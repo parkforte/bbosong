@@ -19,11 +19,8 @@
 <link rel="stylesheet" href="../assets/css/nice-select.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 
-<style>
-.container {
-	text-align: center;
-}
 
+<style>
 section {
 	height: 880px;
 	position: relative;
@@ -34,10 +31,10 @@ section {
 	background-position: center;
 	z-index: 1;
 }
-
-.orderbox {
-	border-radius: 10px;
-}
+ .Withdrawal{}
+ .gray_box{background: #f1f1f1; text-align: center; border-radius: 10px; padding:100px 0;}
+ .wd_txt{font-size:24px; }
+ .gray_box p{}
 </style>
 <%
 request.setCharacterEncoding("utf-8");
@@ -47,8 +44,7 @@ if (email == null) {
 %>
 <script type="text/javascript">
 			alert('로그인이 필요합니다.');
-			location.href="<%=request.getContextPath()%>
-	/sign/signin.jsp";
+			location.href="<%=request.getContextPath()%>/sign/signin.jsp";
 </script>
 
 <%
@@ -56,22 +52,22 @@ if (email == null) {
 %>
 <section class="section_padding">
 	<div class="container">
-		<br>
-		<div class="col-lg-12">
-			<div class="order_box orderbox">
-				<h2>결제가 완료되었습니다.</h2>
-			<div class="reat_account">
-				<div class="btn_all">
-					<br> <a href="menuList.jsp"><button class="mint_btn hover">메뉴목록</button></a>
-					<a href="<%=request.getContextPath()%>/mypage/order_view.jsp"><button
-							class="begie_btn hover">주문내역</button></a>
-				</div>
-			</div>
-			</div>
-			<br>
-		</div>
-	</div>
+		<div class="">
+        <div class="Withdrawal">
 
+            <p class="wd_txt t_center">
+               결제가<strong class="">완료되었습니다.</strong> 
+            </p>
+            <div class="gray_box">
+                <p>
+                    뽀송dream 서비스를 이용해주셔서 감사합니다.<br/>
+                </p>
+                <a href="<%=request.getContextPath()%>/index.jsp" class="mint_btn hover a_btn">뽀송dream 첫화면</a>
+                <a href="<%=request.getContextPath()%>/mypage/order_view.jsp" class="mint_btn hover a_btn">주문내역확인</a>
+            </div>
+        </div>
+    </div>
+	</div>
 </section>
 
 
