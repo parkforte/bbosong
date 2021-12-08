@@ -38,7 +38,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 	if(email == null) {%>
 		<script>
 			alert('로그인을 해주세요.');
-			location.href = '<%=request.getContextPath()%>/sign/signin.jsp';
+			location.href = '<%=request.getContextPath()%>/adminsign/signin.jsp';
 		</script>
 	<%}
 %>
