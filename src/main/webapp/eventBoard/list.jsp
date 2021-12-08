@@ -102,7 +102,7 @@ int num = totalRecord - curPos;
 							%>
 							<tr>
 								<td><%=vo.getNo()%></td>
-								<td><a href="countUpdate.jsp?no=<%=vo.getNo()%>"><%=vo.getTitle()%></a></td>
+								<td><a href="countUpdate.jsp?no=<%=vo.getNo()%>"><%=vo.getTitle()%><%=MypageUtil.displayNew(vo.getRegdate()) %></a></td>
 								<td><%=MypageUtil.displayStoreName(vo.getEmail())%></td>
 								<td><%=MypageUtil.changeFormat(vo.getRegdate())%></td>
 								<td><%=vo.getReadcount()%></td>

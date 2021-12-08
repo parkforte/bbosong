@@ -41,8 +41,8 @@
 					</li>
 				</ul>		
 				<div class="t_center">
-					<a href="">수정</a> <span class="c_mint">|</span>
-		        	<a href="">삭제</a><span class="c_mint">|</span>
+					<a href="#">수정</a> <span class="c_mint">|</span>
+		        	<a href="#">삭제</a><span class="c_mint">|</span>
 		        	<a href='list.jsp'>목록</a>			
 				</div>
 			</div>

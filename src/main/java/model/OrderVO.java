@@ -9,7 +9,7 @@ public class OrderVO {
 	private int laundryNo;
 	private int qty;
 	private Timestamp orderDate;
-	private String pickupDate;
+	private Timestamp pickupDate;
 	private String orderState;
 	private int serialNo;
 	private int totalQty;
@@ -23,7 +23,7 @@ public class OrderVO {
 	
 
 	public OrderVO(int orderNo, String email, int storeNo, int laundryNo, int qty, Timestamp orderDate,
-			String pickupDate, String orderState, int serialNo, int totalQty, int totalPrice) {
+			Timestamp pickupDate, String orderState, int serialNo, int totalQty, int totalPrice) {
 		super();
 		this.orderNo = orderNo;
 		this.email = email;
@@ -40,7 +40,7 @@ public class OrderVO {
 
 
 	public OrderVO(int orderNo, String email, int storeNo, int laundryNo, int qty, Timestamp orderDate,
-			String pickupDate, String orderState, int serialNo) {
+			Timestamp pickupDate, String orderState, int serialNo) {
 		super();
 		this.orderNo = orderNo;
 		this.email = email;
@@ -56,7 +56,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, String email, int storeNo, Timestamp orderDate, String pickupDate, String orderState,
+	public OrderVO(int orderNo, String email, int storeNo, Timestamp orderDate, Timestamp pickupDate, String orderState,
 			int totalQty, int totalPrice) {
 		super();
 		this.orderNo = orderNo;
@@ -79,7 +79,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, String email, int storeNo, int qty, String pickupDate, String orderState,
+	public OrderVO(int orderNo, String email, int storeNo, int qty, Timestamp pickupDate, String orderState,
 			int serialNo2) {
 		super();
 		this.orderNo = orderNo;
@@ -93,7 +93,7 @@ public class OrderVO {
 
 
 
-	public OrderVO(int orderNo, int storeNo, int laundryNo, int qty, Timestamp orderDate, String pickupDate,
+	public OrderVO(int orderNo, int storeNo, int laundryNo, int qty, Timestamp orderDate, Timestamp pickupDate,
 			String orderState, int serialNo) {
 		super();
 		this.orderNo = orderNo;
@@ -193,14 +193,14 @@ public class OrderVO {
 
 
 
-	public String getPickupDate() {
+	public Timestamp getPickupDate() {
 		return pickupDate;
 	}
 
 
 
 
-	public void setPickupDate(String pickupDate) {
+	public void setPickupDate(Timestamp pickupDate) {
 		this.pickupDate = pickupDate;
 	}
 
