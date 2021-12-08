@@ -6,8 +6,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp"%>
 <style>
-.event_part .owl-nav .owl-next{left:auto; right:0% !important;}
-.jc{justify-content: space-evenly !important;}
+.event_part .owl-nav .owl-next {
+	left: auto;
+	right: 0% !important;
+}
+
+.jc {
+	justify-content: space-evenly !important;
+}
 </style>
 <!-- banner part start-->
 <section class="banner_part">
@@ -18,7 +24,8 @@
 					<div class="banner_text_iner">
 						<h1>뽀송Dream</h1>
 						<p>Let’s start your laundry with us, your dream will come true</p>
-						<a href="<%=request.getContextPath()%>/service/service.jsp" class="btn_1">자세히 알아보기</a>
+						<a href="<%=request.getContextPath()%>/service/service.jsp"
+							class="btn_1">자세히 알아보기</a>
 					</div>
 				</div>
 			</div>
@@ -185,14 +192,11 @@
 						<div class="row jc">
 							<div class="col-lg-6 col-md-6">
 								<div class="event_slider_content">
-									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
-										<div class="popular-caption">
-											<h3>정장세트</h3>
-											<span>8,000원</span>
-										</div>
-										<div class="popular-img">
-											<img src="img/suits.jpg" alt="정장세트">
+									<div class="card" style="width: 18rem;">
+										<img src="mg/suits.jpg" class="card-img-top" alt="정장세트">
+										<div class="card-body">
+											<h5 class="card-title">정장세트</h5>
+											<p class="card-text"></p>
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
