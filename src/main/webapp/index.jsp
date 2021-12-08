@@ -5,6 +5,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp"%>
+<style>
+.event_part .owl-nav .owl-next{left:auto; right:0% !important;}
+.jc{justify-content: space-evenly !important;}
+</style>
 <!-- banner part start-->
 <section class="banner_part">
 	<div class="container">
