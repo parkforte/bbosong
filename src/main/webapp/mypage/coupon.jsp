@@ -1,3 +1,5 @@
+<%@page import="model.MyCouponVO"%>
+<%@page import="model.MyCouponDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.CouponVO"%>
@@ -10,11 +12,11 @@
 	request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
 	CouponDAO dao= new CouponDAO();
-	
 	List<CouponVO> list=null;
 	
 	try{
 	list=dao.showAllCoupon(email);
+	
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
@@ -70,6 +72,7 @@
 	});
 	
 	$('#c_btn').click(function (){
+		
 		$('form[name=coupon]').attr('action','couponList.jsp');
 		$('form[name=coupon]').submit();
 	});
@@ -87,13 +90,13 @@
                 <input type="text" class="t_input" name="serialno">
                 <button type="submit" class="mint_btn hover" id="c_btn">쿠폰등록</button>
                 <ul class="list_style mt20">
-                    <li>쿠폰 번호는 영문과 숫자로 이루어져 있습니다.</li>
+                    <li>쿠폰 번호는 숫자로 이루어져 있습니다.</li>
                      <li>쿠폰에 표기된 유효기간을 꼭 확인해주세요.</li>
                 </ul>
             </form>
           <div id="tab-2" class="p_cont">
               <div class="cp_area">
-                  <p>보유쿠폰 : &nbsp;<span class="color_green">0</span>&nbsp; 개</p>
+                  <p>보유쿠폰 : &nbsp;<span class="color_green"><%=list.size() %></span>&nbsp; 개</p>
              </div>
              
              <ul class="list_style mt20">
@@ -138,7 +141,7 @@
               </div>
           </div>
         	 <div class="t_center">
-  				<a href="mypageMain.jsp" class="btn_1">마이페이지</a>
+  				<a href="mypageMain.jsp" class="btn_1 bg_btn">마이페이지</a>
   			</div>
     	</div>
 	</div>

@@ -54,6 +54,7 @@
 		<%}else{%>
 			<script>
 			alert('정보수정을 실패했습니다.');
+			location.href="mypageMain.jsp";
 			</script>
 	<%}
 	// password가 ""이나 null이면 다음 로직 실행 x

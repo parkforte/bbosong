@@ -17,7 +17,7 @@
 	int cnt = cpdao.insertCoupon(vo, email);
 	if(cnt>0){
 %>	
-	<script type="text/javascript">
+		<script type="text/javascript">
 			alert("쿠폰등록이 완료");
 			location.href="mypageMain.jsp";
 		</script>

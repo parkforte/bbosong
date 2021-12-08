@@ -59,7 +59,7 @@
             <div class="form-group">
                <div class="custom-control custom-checkbox small p_box">
                   <span class="w_text">
-                  - 탈퇴한 아이디는 다시 사용할 수 없으며, 쿠폰/주문내역 등 입력하신 개인정보도 모두 삭제 처리 됩니다.
+                  - 탈퇴한 아이디(이메일)는 재사용이 가능하지만, 쿠폰/주문내역 등 입력하신 개인정보는 모두 삭제 처리 됩니다.
                   </span>
                   
                      <div class="ckarea">

@@ -26,12 +26,14 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 .mint_btn{background:#aac3c3;  height:40px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
 .hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
 .begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}
+.bg_btn{color:#000; background:#f2ebde;}
+.bg_btn:hover{color:#fff; background:#c96c62;}
 /*a태그일때 버튼 style 입히고 싶은 경우*/
 .a_btn{display:inline-block; height:40px; line-height:40px;}
 
 /*select*/
-.select select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer;}
-.select option:checked{background:#aac3c3;}
+select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer;}
+option:checked{background:#aac3c3;}
 
 /*table*/
 .tb_area{}
