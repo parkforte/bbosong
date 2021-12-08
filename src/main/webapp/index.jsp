@@ -185,6 +185,13 @@
 <!--top place start-->
 <section class="event_part section_padding">
 	<div class="container">
+	<div class="row justify-content-center">
+			<div class="col-xl-6">
+				<div class="section_tittle text-center">
+					<h2>메뉴정보</h2>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="event_slider owl-carousel">
@@ -192,11 +199,14 @@
 						<div class="row jc">
 							<div class="col-lg-6 col-md-6">
 								<div class="event_slider_content">
-									<div class="card" style="width: 18rem;">
-										<img src="mg/suits.jpg" class="card-img-top" alt="정장세트">
-										<div class="card-body">
-											<h5 class="card-title">정장세트</h5>
-											<p class="card-text"></p>
+									<div class="single-popular-items mb-50 text-center">
+										<h5>뽀송한 정장Dream</h5>
+										<div class="popular-caption">
+											<h3>정장세트</h3>
+											<span>8,000원</span>
+										</div>
+										<div class="popular-img">
+											<img src="img/suits.jpg" alt="정장">
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
@@ -216,7 +226,7 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
+										<h5>뽀송한 겨울옷Dream</h5>
 										<div class="popular-caption">
 											<h3>겨울코트</h3>
 											<span>8,000원</span>
@@ -242,7 +252,7 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
+										<h5>뽀송한 이불Dream</h5>
 										<div class="popular-caption">
 											<h3>이불류</h3>
 											<span>10,000원</span>

@@ -164,8 +164,9 @@ int num = totalRecord - curPos;
 				%>
 
 
-				<div class="divSearch">
+				<div class="divSearch t_center">
 					<form name="frmSearch" method="post" action='list.jsp'>
+						<span class="select">
 						<select name="searchCondition">
 							<option value="title" <%if ("title".equals(condition)) {%>
 								selected="selected" <%}%>>제목</option>
@@ -173,7 +174,9 @@ int num = totalRecord - curPos;
 								selected="selected" <%}%>>내용</option>
 							<option value="name" <%if ("name".equals(condition)) {%>
 								selected="selected" <%}%>>작성자</option>
-						</select> <input type="text" name="searchKeyword" title="검색어입력"
+						</select>
+						</span>
+						 <input type="text" class="t_input" name="searchKeyword" title="검색어입력"
 							value="<%=keyword%>"> <input type="submit"
 							class="btn_all mint_btn hover" name="submit" value="검색">
 					</form>

@@ -17,20 +17,9 @@
 <link rel="stylesheet" href="../assets/css/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/slick.css">
 <link rel="stylesheet" href="../assets/css/nice-select.css">
-<link rel="stylesheet" href="../assets/css/style.css">
 
 
 <style>
-section {
-	height: 880px;
-	position: relative;
-	overflow: hidden;
-	background-image: url('../img/laundry-gd.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	z-index: 1;
-}
  .Withdrawal{}
  .gray_box{background: #f1f1f1; text-align: center; border-radius: 10px; padding:100px 0;}
  .wd_txt{font-size:24px; }
