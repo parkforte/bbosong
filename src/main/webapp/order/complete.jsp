@@ -44,15 +44,15 @@ if (email == null) {
 		<div class="">
         <div class="Withdrawal">
 
-            <p class="wd_txt t_center">
+            <p class="wd_txt t_center mb50">
                결제가<strong class="">완료되었습니다.</strong> 
             </p>
             <div class="gray_box">
                 <p>
                     뽀송dream 서비스를 이용해주셔서 감사합니다.<br/>
                 </p>
-                <a href="<%=request.getContextPath()%>/index.jsp" class="mint_btn hover a_btn">뽀송dream 첫화면</a>
-                <a href="<%=request.getContextPath()%>/mypage/order_view.jsp" class="mint_btn hover a_btn">주문내역확인</a>
+                <a href="<%=request.getContextPath()%>/index.jsp" class="mint_btn hover a_btn mt20">뽀송dream 첫화면</a>
+                <a href="<%=request.getContextPath()%>/mypage/order_view.jsp" class="mint_btn hover a_btn mt20">주문내역확인</a>
             </div>
         </div>
     </div>
