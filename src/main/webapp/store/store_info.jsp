@@ -4,6 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.coordinate { display: none; }
+.active { border-bottom:5px solid #aac3c3; }
+.display_map{display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-evenly; align-items: stretch;}
+#storeList ul{border-bottom:1px solid #aac3c3;}
+#storeList li { padding: 15px;border-top:1px solid #aac3c3;}
+#storeList { display: inline-block; }
+#map {display: inline-block;margin-left: -6px;height: 472px;width: 800px; }
+</style>
 <meta charset="UTF-8">
 <title>매장정보</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

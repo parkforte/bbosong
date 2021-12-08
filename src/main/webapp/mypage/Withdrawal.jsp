@@ -75,7 +75,6 @@
 	            <input type="submit" value="확인" class="mint_btn hover ">
             </div>
          </form>
-         <hr>
       </div>
 
    </div>
