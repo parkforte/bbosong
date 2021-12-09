@@ -393,7 +393,7 @@ public class ReviewBoardDAO {
 					+ " ("
 					+ "     select no, title, name, content from review order by no desc"
 					+ " )"
-					+ " where rownum<=6";
+					+ " where rownum<=10";
 			ps=con.prepareStatement(sql);
 			
 			rs=ps.executeQuery();

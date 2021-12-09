@@ -320,7 +320,7 @@ try {
 								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 								class="fas fa-star"></i></a>
-							<p><%=vo.getTitle()%></p>
+							<a href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><p><%=vo.getTitle()%></p></a>
 						</div>
 						<div class="inside">
 							<p>
@@ -328,8 +328,7 @@ try {
 									href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><%=vo.getContent()%></a>
 							</p>
 						</div>
-						<p>
-							<%=vo.getName()%></p>
+						<a href="<%=request.getContextPath()%>/reviewboards/detail.jsp?no=<%=vo.getNo()%>"><p><%=vo.getName()%></p></a>
 					</div>
 					<%
 					}
