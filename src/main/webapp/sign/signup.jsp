@@ -217,8 +217,8 @@
 		            <div class="p_input">
 		                <input id="sample6_postcode" type="text" name="postcode" class="t_input" placeholder="우편번호" required="required" disabled="disabled">
 						<input type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input id="sample6_address" type="text" name="address_" placeholder="주소" required="required" disabled="disabled">
-						<input id="sample6_detailAddress" type="text" name="detailAddress" placeholder="상세주소" required="required">
+						<input id="sample6_address" class="t_input mt20" type="text" name="address_" placeholder="주소" required="required" disabled="disabled">
+						<input id="sample6_detailAddress" class="t_input mt20" type="text" name="detailAddress" placeholder="상세주소" required="required">
 		            </div>
 		        </div>
 		        <div class="input_area">
