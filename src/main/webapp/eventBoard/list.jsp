@@ -55,12 +55,15 @@ int curPos = (currentPage - 1) * pageSize;
 
 int num = totalRecord - curPos;
 %>
+<style>
+.text_center{
+	text-align: center;
+}
+</style>
 <section class="section_padding">
 	<div class="container">
-		<section class="section_padding">
 			<div class="container">
 				<h2>이벤트</h2>
-				<br>
 				<%
 				if (keyword != null && !keyword.isEmpty()) {
 				%>
@@ -77,8 +80,8 @@ int num = totalRecord - curPos;
 						<colgroup>
 							<col width="10%">
 							<col width="50%">
-							<col width="10%">
-							<col width="20%">
+							<col width="15%">
+							<col width="15%">
 							<col width="10%">
 						</colgroup>
 						<thead>
@@ -101,11 +104,11 @@ int num = totalRecord - curPos;
 								num--;
 							%>
 							<tr>
-								<td><%=vo.getNo()%></td>
+								<td class="text_center"><%=vo.getNo()%></td>
 								<td><a href="countUpdate.jsp?no=<%=vo.getNo()%>"><%=vo.getTitle()%><%=MypageUtil.displayNew(vo.getRegdate()) %></a></td>
-								<td><%=MypageUtil.displayStoreName(vo.getEmail())%></td>
-								<td><%=MypageUtil.changeFormat(vo.getRegdate())%></td>
-								<td><%=vo.getReadcount()%></td>
+								<td class="text_center"><%=MypageUtil.displayStoreName(vo.getEmail())%></td>
+								<td class="text_center"><%=MypageUtil.changeFormat(vo.getRegdate())%></td>
+								<td class="text_center"><%=vo.getReadcount()%></td>
 							</tr>
 							<!-- 반복문종료 -->
 							<%
@@ -164,8 +167,9 @@ int num = totalRecord - curPos;
 				%>
 
 
-				<div class="divSearch">
+				<div class="divSearch t_center">
 					<form name="frmSearch" method="post" action='list.jsp'>
+						<span class="select">
 						<select name="searchCondition">
 							<option value="title" <%if ("title".equals(condition)) {%>
 								selected="selected" <%}%>>제목</option>
@@ -173,7 +177,9 @@ int num = totalRecord - curPos;
 								selected="selected" <%}%>>내용</option>
 							<option value="name" <%if ("name".equals(condition)) {%>
 								selected="selected" <%}%>>작성자</option>
-						</select> <input type="text" name="searchKeyword" title="검색어입력"
+						</select>
+						</span>
+						 <input type="text" class="t_input" name="searchKeyword" title="검색어입력"
 							value="<%=keyword%>"> <input type="submit"
 							class="btn_all mint_btn hover" name="submit" value="검색">
 					</form>
@@ -182,7 +188,6 @@ int num = totalRecord - curPos;
 				<div class="btn_all" id="btn">
 					<a href="write.jsp"><button class="btn_all mint_btn hover">글쓰기</button></a>
 				</div>
-		</section>
 
 
 		<!--//table style1-->

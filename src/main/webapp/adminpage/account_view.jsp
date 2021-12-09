@@ -153,7 +153,7 @@
 					<!--  페이지 번호 끝 -->	
 				</div>
 				<div class="divSearch t_center">
-				   	<form name="frmSearch" method="post" action='list.jsp'>
+				   	<form name="frmSearch" method="post" action='account_view.jsp'>
 				        <span class="select">
 					        <select name="searchCondition">
 					            <option value="name" 

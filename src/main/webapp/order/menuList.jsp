@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../assets/css/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/slick.css">
 <link rel="stylesheet" href="../assets/css/nice-select.css">
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/newStyle.css">
 <!-- newStyle css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
 <!-- subStyle css -->
@@ -21,6 +21,11 @@
 
 <style>
 
+.bbosong{
+	background: #c96c62 !important;
+	padding: 13px 30px !important;
+	border-radius: 0 !important;
+}
 
 
 </style>
