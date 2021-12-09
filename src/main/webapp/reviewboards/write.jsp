@@ -48,13 +48,13 @@
     .btn_all{margin-bottom:20px;}
     .mint_btn{background:#aac3c3;  height:30px; padding:0 20px; color:#fff; border-radius:10px; border:none; outline:none; cursor: pointer;}
     .hover:hover{box-shadow:3px 3px rgba(0, 0, 0, .1)}
-    .begie_btn{background:#f2ebde;  height:40px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}    
+    .begie_btn{background:#f2ebde;  height:30px; padding:0 20px; color:#666; border-radius: 10px; border:none; outline:none; cursor: pointer;}    
      
      /*table*/
     div.center{width:1000px;}
     div.center{border-spacing: 0;border: 0;}
     div.center{border:0; }
-    div.center{padding:10px 20px; background:#f2ebde; border-bottom:1px solid #ccc;}
+    div.center{padding:10px 20px; border-bottom:1px solid #ccc;}
     div.center{padding:10px 20px;text-align:center; border-bottom:1px solid #ccc;}
 </style>
 <script type="text/javascript">
@@ -116,8 +116,8 @@
             <span>(최대 2M)</span>
         </div>
         <div class="center">
-            <input type = "submit" value="<%=btVal %>"/>
-            <input type = "Button" id="btList" value="글목록" />         
+            <input type = "submit" class="mint_btn hover" value="<%=btVal %>"/>
+            <input type = "Button" class="begie_btn hover"  id="btList" value="글목록" />         
         </div>
     </fieldset>
 </form>

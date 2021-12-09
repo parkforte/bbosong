@@ -71,12 +71,12 @@
 			</li>
 			</ul>
 			<div class="t_center">
-				<a href='edit.jsp?no=<%=no%>'>수정</a> |
+				<a href='edit.jsp?no=<%=no%>' class="mint_btn hover a_btn">수정</a>
 	        	<a href
-	='delete.jsp?no=<%=no%>&groupNo=<%=vo.getGroupNo()%>&step=<%=vo.getStep()%>&oldFileName=<%=oldFileName%>'>
-	        	삭제</a> |
-	        	<a href='write.jsp?no=<%=no%>'>답변</a> |        	
-	        	<a href='list.jsp'>목록</a>			
+	='delete.jsp?no=<%=no%>&groupNo=<%=vo.getGroupNo()%>&step=<%=vo.getStep()%>&oldFileName=<%=oldFileName%>' class="begie_btn hover a_btn">
+	        	삭제</a>
+	        	<a href='write.jsp?no=<%=no%>' class="mint_btn hover a_btn">답변</a>   	
+	        	<a href='list.jsp' class="begie_btn hover a_btn">목록</a>			
 			</div>
 		</div>
 	</div>
