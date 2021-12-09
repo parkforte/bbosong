@@ -71,9 +71,6 @@
 								class="fas fa-star"></i></a>
 						</div>
 						<p>강남구, 서울특별시</p>
-						<h5>
-							From <span>3,000원</span>
-						</h5>
 					</div>
 				</div>
 			</div>
@@ -103,9 +100,6 @@
 								class="fas fa-star"></i></a>
 						</div>
 						<p>서초구, 서울특별시</p>
-						<h5>
-							From <span>3,000원</span>
-						</h5>
 					</div>  
 				</div>
 			</div>
@@ -137,9 +131,6 @@
 								class="fas fa-star"></i></a>
 						</div>
 						<p>동작구, 서울특별시</p>
-						<h5>
-							From <span>3,000원</span>
-						</h5>
 					</div>
 				</div>
 			</div>
@@ -171,9 +162,6 @@
 								class="fas fa-star"></i></a>
 						</div>
 						<p>송파구, 서울특별시</p>
-						<h5>
-							From <span>3,000원</span>
-						</h5>
 					</div>
 				</div>
 			</div>
@@ -205,7 +193,7 @@
 											<span>8,000원</span>
 										</div>
 										<div class="popular-img">
-											<img src="img/suits.jpg" alt="정장">
+											<img src="img/suit.jpg" alt="정장">
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
@@ -231,7 +219,7 @@
 											<span>8,000원</span>
 										</div>
 										<div class="popular-img">
-											<img src="img/coat.jpg" alt="겨울코트">
+											<img src="img/winter_jaket.jpg" alt="겨울코트">
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="6">

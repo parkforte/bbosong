@@ -4,7 +4,7 @@
 /*수정내용 start*/
 
 /* 헤더메뉴라인 */
-
+h1,h2,h3{color:#000;}
 .sub_menu {
   background-color: #aac3c3;
   padding: 14px 0px;
@@ -86,7 +86,7 @@
 }
 
 .client_review .section_tittle h2 {
-  color: #c96c62;
+  color: #000;
 }
 
 
@@ -120,7 +120,11 @@
   background-color: #c96c62 !important;
   color: #fff !important;
 }
-
+.event_part .event_slider_content h5{
+	color:#c96c62;
+	font-weight:600;
+	font-size:16px;
+}
 /* 지점정보 */
 
 .section_tittle h2 {
