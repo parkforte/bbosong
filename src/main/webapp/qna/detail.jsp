@@ -66,11 +66,11 @@
 			</ul>
 			<div class="t_center">
 			<%if(vo.getEmail().equals(session.getAttribute("email"))) {%>
-				<a href="write.jsp?no=<%=no%>">수정</a> <span class="c_mint">|</span>
-	        	<a href="#" onclick="delete_();">삭제</a> <span class="c_mint">|</span>
-	        	<a href='list.jsp'>목록</a>
+				<a href="write.jsp?no=<%=no%>" class="a_btn mint_btn hover">수정</a> 
+	        	<a href="#" onclick="delete_();"class="a_btn begie_btn hover">삭제</a>
+	        	<a href='list.jsp' class="a_btn mint_btn hover">목록</a>
 			<%} else {%>
-				<a href='list.jsp'>목록</a>
+				<a href='list.jsp' class="a_btn mint_btn hover">목록</a>
 			<%}%>
 			</div>
 		</div>

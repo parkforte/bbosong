@@ -25,7 +25,7 @@
 	
 	#paging { font-size: 1.2em }
 	
-	tr:hover { background: rgb(230,242,242); }
+	
 	td:not(#title) {
 	text-align: center; 		
 	}
@@ -59,61 +59,58 @@
 	int curPos = pg.getCurPos();
 	int num = pg.getNum();
 %>
-
-<section class="section_padding">
-	<div class="container">
 	<section class="section_padding">
-	<div class="container">
-		<h2>Q&A</h2>
-		<br>
-		<div class="mt20 tb_area">
-	        <table  class="table1">
-	            <colgroup>
-	                <col width="10%">
-	                <col width="50%">
-	                <col width="10%">
-	                <col width="20%">
-	                <col width="10%">
-	            </colgroup>
-	            <thead>
-	            <tr> 
-	                <th scope="col">번호</th>
-	                <th scope="col">제목</th>
-	                <th scope="col">작성자</th>
-	                <th scope="col">작성일</th>
-	                <th scope="col">조회수</th>
-	            </tr>
-	            </thead>
-	            <tbody>
-	            <!-- 반복문시작 -->
-	            <%
-	            	for(int i=0; i<pageSize; i++){
-	            		if(num<1) break;	
-	            	    
-	        			QnAVO vo = list.get(curPos++);
-	        			num--;
-	            	
-	           	%>
-	            <tr>
-	                <td><%=vo.getNo()%></td>
-	                <td id="title">
-	                	<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
-		                	<%=BoardUtil.displayNew(vo.getRegdate()) %>
-		                	<%=vo.getTitle()%>
-		                	<%=BoardUtil.displayFile(vo.getFileName()) %>
-	                	</a>
-	                </td>
-	                <td><%=vo.getNickname() %></td>
-	                <td><%=BoardUtil.changeFormat(vo.getRegdate()) %></td>
-	                <td><%=vo.getReadcount() %></td>
-	            </tr>
-	            <!-- 반복문종료 -->
-	            <%} %>
-	            </tbody>
-	        </table>
-		</div>
-	</div>
-    <br>
+		<div class="container">
+			<h2>Q&A</h2>
+			<br>
+			<div class="mt20 tb_area">
+		        <table  class="table1">
+		            <colgroup>
+		                <col width="10%">
+		                <col width="50%">
+		                <col width="10%">
+		                <col width="20%">
+		                <col width="10%">
+		            </colgroup>
+		            <thead>
+		            <tr> 
+		                <th scope="col">번호</th>
+		                <th scope="col">제목</th>
+		                <th scope="col">작성자</th>
+		                <th scope="col">작성일</th>
+		                <th scope="col">조회수</th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <!-- 반복문시작 -->
+		            <%
+		            	for(int i=0; i<pageSize; i++){
+		            		if(num<1) break;	
+		            	    
+		        			QnAVO vo = list.get(curPos++);
+		        			num--;
+		            	
+		           	%>
+		            <tr>
+		                <td><%=vo.getNo()%></td>
+		                <td id="title">
+		                	<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
+			                	<%=BoardUtil.displayNew(vo.getRegdate()) %>
+			                	<%=vo.getTitle()%>
+			                	<%=BoardUtil.displayFile(vo.getFileName()) %>
+		                	</a>
+		                </td>
+		                <td><%=vo.getNickname() %></td>
+		                <td><%=BoardUtil.changeFormat(vo.getRegdate()) %></td>
+		                <td><%=vo.getReadcount() %></td>
+		            </tr>
+		            <!-- 반복문종료 -->
+		            <%} %>
+		            </tbody>
+		        </table>
+			</div>
+		
+   
     <div id="paging" align="center">
 	<!-- 이전 블럭으로 이동 -->					
 	<%	if(firstPage>1){ %>
@@ -150,19 +147,15 @@
     <!--검색 area-->
     
     <div id="frm">
-	<form method="post" id="serchForm" action="list.jsp">
-		<input type="text" id="keyword" value="">
-		<button type="submit"><img src="../img/searching.png"/></button>
-    </form>
+		<form method="post" id="serchForm" action="list.jsp">
+			<input type="text" id="keyword" value="" class="t_input">
+			<button type="submit" class="mint_btn hover">검색</button>
+	    </form>
     </div>
     <div class="btn_all" id="btn">
     	<a href="write.jsp"><button class="btn_all mint_btn hover">글쓰기</button></a> 
     </div>
-     </section> 
-
-
     <!--//table style1-->
-   
    </div>
 </section>
 
