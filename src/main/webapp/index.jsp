@@ -6,8 +6,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp"%>
 <style>
-.event_part .owl-nav .owl-next{left:auto; right:0% !important;}
-.jc{justify-content: space-evenly !important;}
+.event_part .owl-nav .owl-next {
+	left: auto;
+	right: 0% !important;
+}
+
+.jc {
+	justify-content: space-evenly !important;
+}
 </style>
 <!-- banner part start-->
 <section class="banner_part">
@@ -18,7 +24,8 @@
 					<div class="banner_text_iner">
 						<h1>뽀송Dream</h1>
 						<p>Let’s start your laundry with us, your dream will come true</p>
-						<a href="<%=request.getContextPath()%>/service/service.jsp" class="btn_1">자세히 알아보기</a>
+						<a href="<%=request.getContextPath()%>/service/service.jsp"
+							class="btn_1">자세히 알아보기</a>
 					</div>
 				</div>
 			</div>
@@ -100,7 +107,7 @@
 						<h5>
 							From <span>3,000원</span>
 						</h5>
-					</div>
+					</div>  
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6">
@@ -178,6 +185,13 @@
 <!--top place start-->
 <section class="event_part section_padding">
 	<div class="container">
+	<div class="row justify-content-center">
+			<div class="col-xl-6">
+				<div class="section_tittle text-center">
+					<h2>메뉴정보</h2>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="event_slider owl-carousel">
@@ -186,13 +200,13 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
+										<h5>뽀송한 정장Dream</h5>
 										<div class="popular-caption">
 											<h3>정장세트</h3>
 											<span>8,000원</span>
 										</div>
 										<div class="popular-img">
-											<img src="img/suits.jpg" alt="정장세트">
+											<img src="img/suits.jpg" alt="정장">
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
@@ -212,7 +226,7 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
+										<h5>뽀송한 겨울옷Dream</h5>
 										<div class="popular-caption">
 											<h3>겨울코트</h3>
 											<span>8,000원</span>
@@ -238,7 +252,7 @@
 							<div class="ol-lg-6 col-md-6">
 								<div class="event_slider_content">
 									<div class="single-popular-items mb-50 text-center">
-										<h5>뽀송Dream</h5>
+										<h5>뽀송한 이불Dream</h5>
 										<div class="popular-caption">
 											<h3>이불류</h3>
 											<span>10,000원</span>

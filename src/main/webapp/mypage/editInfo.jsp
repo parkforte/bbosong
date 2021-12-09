@@ -32,10 +32,6 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/daumPostCode.js"></script>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
-<script>
-
-	
-</script>
 <script type="text/javascript">
  	$(function() {
 		make_select();
@@ -180,7 +176,10 @@ function back(){
 	history.back(-1);
 }
 </script>
-
+<style>
+select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer; border:1px solid #ccc;}
+option:checked{background:#aac3c3 !important;}
+</style>
 <section class="section_padding">
 	<div class="container">
 		<h2>내정보 수정</h2>
@@ -208,7 +207,7 @@ function back(){
 		                <label>비밀번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="pw1" type="password" name="pw1" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="pw1" type="password" name="pw1" class="t_input" /><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -216,7 +215,7 @@ function back(){
 		                <label>비밀번호 확인</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="pw2" type="password" name="pw2" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="pw2" type="password" name="pw2" class="t_input" /><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -224,7 +223,7 @@ function back(){
 		                <label>닉네임</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="nickname" type="text" name="nickname" placeholder="<%=vo.getNickname() %>" class="t_input" required="required">
+		                <input id="nickname" type="text" name="nickname" placeholder="<%=vo.getNickname() %>" class="t_input"/>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -232,9 +231,9 @@ function back(){
 		                <label>생년월일</label>
 		            </div>
 		            <div class="p_input">
-		                <select id="year" name="yy" class="select"></select>년
-						<select id="month" name="mm" class="select"></select>월
-						<select id="day" name="dd" class="select"></select>일
+		                <select id="year" name="yy" class="select"></select>&nbsp; 년 &nbsp;
+						<select id="month" name="mm" class="select"></select>&nbsp; 월 &nbsp;
+						<select id="day" name="dd" class="select"></select>&nbsp; 일 &nbsp;
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -242,10 +241,10 @@ function back(){
 		                <label>주소</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=asArr1 %>" required="required" disabled="disabled">
+		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=asArr1 %>"  disabled="disabled" />
 						<button type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()">우편번호찾기</button><br>
-						<input id="sample6_address" type="text" name="address_1" value="<%=asArr2 %>" required="required" disabled="disabled" class="t_input mt20">
-						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="<%=asArr3 %>" required="required" class="t_input mt20">
+						<input id="sample6_address" type="text" name="address_1" value="<%=asArr2 %>" required="required" disabled="disabled" class="t_input mt20"/>
+						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="<%=asArr3 %>" class="t_input mt20"/>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -253,7 +252,7 @@ function back(){
 		                <label>전화번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" required="required">
+		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" />
 		            </div>
 		        </div>
 		        

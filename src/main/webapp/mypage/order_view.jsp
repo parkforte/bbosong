@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.OrderInfoDAO"%>
@@ -19,12 +20,15 @@
 	
 	try{
 	list=dao.selectAll(condition, keyword, email);
+	System.out.println("email"+email);
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	DecimalFormat df = new DecimalFormat("#,###");
 	
+	if(keyword==null) keyword="";
 	//페이징 처리
 		int currentPage=1;  //현재 페이지
 		
@@ -74,7 +78,6 @@
 
 	});
 </script>
-
 <section class="section_padding">
 	<div class="container">
 		<h2>주문내역확인</h2>
@@ -85,8 +88,7 @@
 			<%
 			}
 		%>
-		<div>
-           <table class="table1" summary="주문번호, 지점번호, 세탁번호, 결제금액, 주문일자, 수거일자, 배송현황, 발급번호로 구성되어있는 주문내역확인테이블 입니다.">
+           <table class="table1 t_center" summary="주문번호, 지점번호, 세탁번호, 결제금액, 주문일자, 수거일자, 배송현황, 발급번호로 구성되어있는 주문내역확인테이블 입니다.">
                <colgroup>
                    <col width="10%" />
                    <col width="14%" />
@@ -99,11 +101,11 @@
 	               <tr>
 	                   <th scope="col">주문번호</th>
 	                   <th scope="col">지점번호</th>
+	                   <th scope="col">주문수량</th>
 	                   <th scope="col">결제금액</th>
 	                   <th scope="col">주문날짜</th>
 	                   <th scope="col">수거날짜</th>
 	                   <th scope="col">주문상태</th>
-	                   <th scope="col">발급번호</th>
 	               </tr>
                </thead>
                <tbody>
@@ -121,11 +123,11 @@
 	                   <td><%=vo.getOrderNo() %></td>
 	                   <td><%=vo.getStoreNo() %></td>
 	                   <%-- <td><%=vo.getLaundryNo() %></td> --%>
-	                   <td><%=vo.getQty() %></td>
+	                   <td><%=vo.getTotalQty() %></td>
+	                   <td><%=df.format(vo.getTotalPrice()) %></td>
 	                   <td><%=sdf.format(vo.getOrderDate()) %></td>
-	                   <td><%=vo.getPickupDate() %></td>
+	                   <td><%=sdf.format(vo.getPickupDate()) %></td>
 	                   <td><%=vo.getOrderState() %></td>
-	                   <td><%=vo.getSerialNo() %></td>
 	               </tr>
 	               <%}
 	               }else{%>
@@ -171,7 +173,7 @@
 					<!--  페이지 번호 끝 -->	
 				</div>
 				<div class="divSearch t_center">
-				   	<div>
+				   	<form name="frmSearch" method="post" action='order_view.jsp'>
 				        <span class="select">
 					        <select name="searchCondition">
 					            <option value="title" 
@@ -189,13 +191,12 @@
 				        <input type="text" name="searchKeyword" title="검색어 입력"
 				        	value="<%=keyword%>" class="t_input">   
 						<input type="submit" value="검색" class="mint_btn hover">
-				    </div>
+				    </form>
 				</div>
          </div>
          <div class="t_center mt50">
-         	<a href="mypageMain.jsp" class="btn_1">마이페이지</a>
+         	<a href="mypageMain.jsp" class="btn_1 bg_btn">마이페이지</a>
          </div>
-        </div>
 	</div>
 </section>
 <%@ include file="../inc/bottom.jsp"%>

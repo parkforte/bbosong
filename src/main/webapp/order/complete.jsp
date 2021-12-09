@@ -17,20 +17,9 @@
 <link rel="stylesheet" href="../assets/css/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/slick.css">
 <link rel="stylesheet" href="../assets/css/nice-select.css">
-<link rel="stylesheet" href="../assets/css/style.css">
 
 
 <style>
-section {
-	height: 880px;
-	position: relative;
-	overflow: hidden;
-	background-image: url('../img/laundry-gd.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	z-index: 1;
-}
  .Withdrawal{}
  .gray_box{background: #f1f1f1; text-align: center; border-radius: 10px; padding:100px 0;}
  .wd_txt{font-size:24px; }
@@ -55,15 +44,15 @@ if (email == null) {
 		<div class="">
         <div class="Withdrawal">
 
-            <p class="wd_txt t_center">
+            <p class="wd_txt t_center mb50">
                결제가<strong class="">완료되었습니다.</strong> 
             </p>
             <div class="gray_box">
                 <p>
                     뽀송dream 서비스를 이용해주셔서 감사합니다.<br/>
                 </p>
-                <a href="<%=request.getContextPath()%>/index.jsp" class="mint_btn hover a_btn">뽀송dream 첫화면</a>
-                <a href="<%=request.getContextPath()%>/mypage/order_view.jsp" class="mint_btn hover a_btn">주문내역확인</a>
+                <a href="<%=request.getContextPath()%>/index.jsp" class="mint_btn hover a_btn mt20">뽀송dream 첫화면</a>
+                <a href="<%=request.getContextPath()%>/mypage/order_view.jsp" class="mint_btn hover a_btn mt20">주문내역확인</a>
             </div>
         </div>
     </div>

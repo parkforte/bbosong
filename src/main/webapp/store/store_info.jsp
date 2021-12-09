@@ -4,28 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>매점정보</title>
-<style type="text/css">
-	.coordinate { display: none; }
-	
-	.active { background: rgb(230,220,200); }
-	
-	#storeList li { 
-		padding: 10px;
-		border: solid 1px; 
-	}
-	
-	#storeList { display: inline-block; }
-	
-	#map {
-		display: inline-block;
-		margin-left: 10px;
-		height: 410px;
-		width: 800px; 
-	}
-	
+<style>
+.coordinate { display: none; }
+.active { border-bottom:5px solid #aac3c3; }
+.display_map{display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-evenly; align-items: stretch;}
+#storeList ul{border-bottom:1px solid #aac3c3;}
+#storeList li { padding: 15px;border-top:1px solid #aac3c3;}
+#storeList { display: inline-block; }
+#map {display: inline-block;margin-left: -6px;height: 472px;width: 800px; }
 </style>
+<meta charset="UTF-8">
+<title>매장정보</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -69,7 +58,7 @@
 %>
 <section class="section_padding">
 	<div class="container">
-		<div class="mt20 w1200">
+		<div class="mt20 display_map">
 			<!-- <div class="seoul">
 				<h3>서비스 지역</h3>
 				<img src="../img/seoul.png">
