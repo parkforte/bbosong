@@ -105,7 +105,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=c"><img src="img/wash3.png" alt=""></a>
+					<a href="store/store_info.jsp?store=c"><img src="img/wash4.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
@@ -136,7 +136,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=d"><img src="img/wash6.png" alt=""></a>
+					<a href="store/store_info.jsp?store=d"><img src="img/wash9.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
