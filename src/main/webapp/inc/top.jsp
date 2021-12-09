@@ -142,8 +142,8 @@
                                        
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
 	                                        	<%if(session.getAttribute("email") == null && session.getAttribute("userid") == null) { %>
-	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/user_aggrement.jsp">로그인</a>
-                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
+	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">로그인</a>
+                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/user_aggrement.jsp">회원가입</a>
 	                                        	<%} else if(session.getAttribute("userid") != null) {%>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/adminpage/Main.jsp">관리자 페이지</a>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/adminsign/signout.jsp">로그아웃</a>	                                        	
