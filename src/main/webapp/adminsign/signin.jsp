@@ -18,7 +18,7 @@
 <section class="section_padding">
 	<div class="container">
 		<div class="mt20 w1200">
-			<h2>로그인</h2><br>
+			<h2>관리자로그인</h2><br>
 		    <form id="signinForm" action="signin_ok.jsp" method="post">
 		        <div class="input_area">
 		            <div class="p_title">

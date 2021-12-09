@@ -35,7 +35,15 @@
 				$("#year > option[value="+year+"]").attr("selected", "true"); 
 				$("#month > option[value="+mon+"]").attr("selected", "true"); 
 				$("#day > option[value="+day+"]").attr("selected", "true");
+				
 		}
+		
+		$('form[name=checkForm]').submit(function(){
+			if(!$('#lastcheck').is(":checked")){
+				alert("주문확인을 체크해주세요");
+				event.preventDefault();
+			}
+		})
 	});
 </script>
 <!-- CSS here -->
@@ -62,18 +70,6 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	String email = (String) session.getAttribute("email");
-	if (email == null) {
-	%>
-	<script type="text/javascript">
-				alert('로그인이 필요합니다.');
-				location.href="<%=request.getContextPath()%>
-		/sign/signin.jsp";
-	</script>
-	<%
-	}
-	%>
-	
-	<%
 	String TotalPrice = request.getParameter("totalPrice");
 	System.out.println(TotalPrice);
 	
@@ -85,6 +81,22 @@
 	String TotalQty = request.getParameter("totalQty");
 	System.out.println(TotalQty);
 	int totalQty = Integer.parseInt(TotalQty);
+	
+	if (email == null) {
+	%>
+	<script type="text/javascript">
+				alert('로그인이 필요합니다.');
+				location.href="<%=request.getContextPath()%>
+		/sign/signin.jsp";
+	</script>
+	<%
+	}
+	if(TotalPrice.equals("0")){%>
+	<script type="text/javascript">
+		alert('장바구니에 상품이 없습니다. 장바구니를 확인해주세요.');
+		location.href="<%=request.getContextPath() %>/order/menuList.jsp";
+	</script>
+	<%	}
 	
 	AccountDAO dao = new AccountDAO();
 	AccountVO vo = null;
@@ -107,7 +119,7 @@
 	<div class="container">
 		<div class="billing_details">
 			<div class="row">
-				<form class="row contact_form" action="checkout_ok.jsp"
+				<form name="checkForm" class="row contact_form" action="checkout_ok.jsp"
 					method="post" novalidate="novalidate">
 					<div class="row col-lg-8">
 						<h3>주문정보입력</h3>
@@ -142,7 +154,6 @@
 						<div class="col-md-12 form-group p_star">
 							<label>쿠폰선택</label> <select name="serialNo" id="serialNo"
 								class="country_select">
-								<option name="serialNo" id="op" value="0">사용안함</option>
 								<%
 								//쿠폰가져오기
 								MyCouponVO couponVo = null;
@@ -187,7 +198,7 @@
 								</label>
 							</div>
 							<div class="mt20" style="text-align: center">
-								<label> <input type="checkbox"
+								<label> <input type="checkbox" id="lastcheck"
 									class="option-input checkbox" /> 주문정보를 확인하였습니다.
 								</label> <input type="submit" class="mint_btn" value="결제하기">
 							</div>
