@@ -44,7 +44,9 @@ public class OrderInfoDAO {
 				Timestamp pickupDate=rs.getTimestamp("pickupDate");
 				String orderState=rs.getString("orderState");
 				int serialNo=rs.getInt("serialNo");
-				OrderVO vo = new OrderVO(orderNo, email, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo, qty, serialNo);
+				int totalQty = rs.getInt("totalQty");
+				int totalPrice = rs.getInt("totalPrice");
+				OrderVO vo = new OrderVO(orderNo, email, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo, totalQty, totalPrice);
 				list.add(vo);
 			}
 			System.out.println("글목록 결과 list.size="+list.size()
@@ -87,7 +89,9 @@ public class OrderInfoDAO {
 				Timestamp pickupDate=rs.getTimestamp("pickupDate");
 				String orderState=rs.getString("orderState");
 				int serialNo=rs.getInt("serialNo");
-				OrderVO vo = new OrderVO(orderNo, sql, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo, qty, serialNo);
+				int totalQty = rs.getInt("totalQty");
+				int totalPrice = rs.getInt("totalPrice");
+				OrderVO vo = new OrderVO(orderNo, sql, storeNo, laundryNo, qty, orderDate, pickupDate, orderState, serialNo, totalQty, totalPrice);
 				list.add(vo);
 			}
 			System.out.println("글목록 결과 list.size="+list.size()

@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.OrderInfoDAO"%>
@@ -19,11 +20,14 @@
 	
 	try{
 	list=dao.selectAll(condition, keyword, email);
+	System.out.println("email"+email);
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	DecimalFormat df = new DecimalFormat("#,###");
+	
 	if(keyword==null) keyword="";
 	//페이징 처리
 		int currentPage=1;  //현재 페이지
@@ -74,10 +78,6 @@
 
 	});
 </script>
-<style>
-.bg_btn{color:#000; background:#f2ebde;}
-.bg_btn:hover{color:#fff; background:#c96c62;}
-</style>
 <section class="section_padding">
 	<div class="container">
 		<h2>주문내역확인</h2>
@@ -101,11 +101,11 @@
 	               <tr>
 	                   <th scope="col">주문번호</th>
 	                   <th scope="col">지점번호</th>
+	                   <th scope="col">주문수량</th>
 	                   <th scope="col">결제금액</th>
 	                   <th scope="col">주문날짜</th>
 	                   <th scope="col">수거날짜</th>
 	                   <th scope="col">주문상태</th>
-	                   <th scope="col">발급번호</th>
 	               </tr>
                </thead>
                <tbody>
@@ -123,11 +123,11 @@
 	                   <td><%=vo.getOrderNo() %></td>
 	                   <td><%=vo.getStoreNo() %></td>
 	                   <%-- <td><%=vo.getLaundryNo() %></td> --%>
-	                   <td><%=vo.getQty() %></td>
+	                   <td><%=vo.getTotalQty() %></td>
+	                   <td><%=df.format(vo.getTotalPrice()) %></td>
 	                   <td><%=sdf.format(vo.getOrderDate()) %></td>
 	                   <td><%=sdf.format(vo.getPickupDate()) %></td>
 	                   <td><%=vo.getOrderState() %></td>
-	                   <td><%=vo.getSerialNo() %></td>
 	               </tr>
 	               <%}
 	               }else{%>
