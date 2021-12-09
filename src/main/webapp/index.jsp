@@ -55,7 +55,7 @@
 					</div>
 					<div class="hotel_text_iner">
 						<h3>
-							<a href="#"> 강남지점</a>
+							<a href="#"> 강남지점</a> 
 						</h3>
 						<div class="place_review">
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
@@ -251,7 +251,7 @@
 													<br> <input type="submit"
 														class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
-											</form>
+											</form> 
 										</div>
 									</div>
 								</div>
