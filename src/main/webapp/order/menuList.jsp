@@ -176,7 +176,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/beding22.jpg" alt="이불류"> 
+											<img src="../img/beding2222.jpg" alt="이불류"> 
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="11">
 												<div class="img-cap">
