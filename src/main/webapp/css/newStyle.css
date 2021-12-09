@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6{color:#000;}
 }
 
 .client_review .section_tittle h2 {
-  color: #000;
+  color: #000 !important;
 }
 
 
@@ -121,9 +121,9 @@ h1, h2, h3, h4, h5, h6{color:#000;}
   color: #fff !important;
 }
 .event_part .event_slider_content h5{
-	color:#c96c62;
-	font-weight:600;
-	font-size:16px;
+	color:#c96c62 !important;
+	font-weight:600 !important;
+	font-size:16px !important;
 }
 /* 지점정보 */
 
