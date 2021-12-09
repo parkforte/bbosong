@@ -137,7 +137,7 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
 	                                        	<%if(session.getAttribute("email") == null) { %>
 	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signin.jsp">로그인</a>
-                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
+                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/user_aggrement.jsp">회원가입</a>
 	                                        	<%} else {%>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/mypage/mypageMain.jsp">마이페이지</a>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signout.jsp">로그아웃</a>
