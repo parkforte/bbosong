@@ -141,7 +141,7 @@
 	                                        	<%} else {%>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/mypage/mypageMain.jsp">마이페이지</a>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signout.jsp">로그아웃</a>
-		                                            <a class="dropdown-item" href="#">회원탈퇴</a>
+		                                            <a class="dropdown-item" href="<%=request.getContextPath()%>/mypage/Withdrawal.jsp">회원탈퇴</a>
                                         		<%}%>
                                         </div>
                                     </li>
