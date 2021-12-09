@@ -47,10 +47,10 @@
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_right_content">
                             <span>지점 정보</span>
-                            <a href="#">강남구</a>
-                            <a href="#">서초구</a>
-                            <a href="#">동작구</a>
-                            <a href="#">송파구</a>
+                            <a href="<%=request.getContextPath() %>/store/store_info.jsp?store=a">강남구</a>
+                            <a href="<%=request.getContextPath() %>/store/store_info.jsp?store=b">서초구</a>
+                            <a href="<%=request.getContextPath() %>/store/store_info.jsp?store=c">동작구</a>
+                            <a href="<%=request.getContextPath() %>/store/store_info.jsp?store=d">송파구</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
