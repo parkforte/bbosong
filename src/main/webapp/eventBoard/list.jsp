@@ -23,6 +23,7 @@ th {
 </style>
 <%
 String email=(String)session.getAttribute("email");
+System.out.println(email);
 request.setCharacterEncoding("utf-8");
 String condition = request.getParameter("searchCondition");
 String keyword = request.getParameter("searchKeyword");
@@ -106,7 +107,7 @@ int num = totalRecord - curPos;
 							<tr>
 								<td class="text_center"><%=vo.getNo()%></td>
 								<td><a href="countUpdate.jsp?no=<%=vo.getNo()%>"><%=vo.getTitle()%><%=MypageUtil.displayNew(vo.getRegdate()) %></a></td>
-								<td class="text_center"><%=MypageUtil.displayStoreName(vo.getEmail())%></td>
+								<td class="text_center"><%=MypageUtil.displayStoreName(email)%></td>
 								<td class="text_center"><%=MypageUtil.changeFormat(vo.getRegdate())%></td>
 								<td class="text_center"><%=vo.getReadcount()%></td>
 							</tr>

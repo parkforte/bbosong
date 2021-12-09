@@ -29,11 +29,10 @@ public class EventBoardDAO {
 		try {
 			con=pool.getConnection();
 			String sql="insert into eventboard (no, title, content,email,readcount) "
-					+ " values(SEQ_EVENTBOARD.nextval,?,?,?,0)";
+					+ " values(SEQ_EVENTBOARD.nextval,?,?,'bbosong1000@dream.com',0)";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getContent());
-			ps.setString(3, vo.getEmail());
 			int result=ps.executeUpdate();
 			if(result>0) {
 				System.out.println("글등록 성공! result="+result);

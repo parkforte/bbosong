@@ -15,9 +15,21 @@
 </style>
 <meta charset="UTF-8">
 <title>매장정보</title>
+<%
+	String store = request.getParameter("store");
+
+	if(store==null || store.isEmpty())
+		store = "a";
+%>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(function() {
+		var init = $('#<%=store%>');
+		init.addClass('active');
+		$('#storeList li').not(init).removeClass('active');
+		changeMap(init);
+		
+		
 		$('#storeList li').on('click', function() {
 			$(this).addClass('active');
 			$('#storeList li').not(this).removeClass('active');
@@ -53,19 +65,14 @@
 </script>
 </head>
 <body>
-<%
 
-%>
 <section class="section_padding">
 	<div class="container">
+		<h3>지점정보</h3>
 		<div class="mt20 display_map">
-			<!-- <div class="seoul">
-				<h3>서비스 지역</h3>
-				<img src="../img/seoul.png">
-			</div> -->
 			<div id="storeList">
 				<ul>
-					<li id="a" class="active">
+					<li id="a">
 						<span class="coordinate">37.517525</span><span class="coordinate">127.046369</span>
 						<h4>강남지점</h4>
 						<p>서울 강남구 선릉로130길 56 1층 4호</p>
@@ -94,9 +101,6 @@
 			<div id="map"></div>
 			<div id="showMap">
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=28f1ff4d42e7380c65ecb41d603da956"></script>
-				<script>
-					showMap(37.517525, 127.046369);
-				</script>
 			</div>
 		</div>
 	</div>

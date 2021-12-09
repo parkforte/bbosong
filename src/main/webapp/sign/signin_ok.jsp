@@ -1,4 +1,4 @@
-<%@page import="model.AccountVO"%>
+tptu<%@page import="model.AccountVO"%>
 <%@page import="model.AccountDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

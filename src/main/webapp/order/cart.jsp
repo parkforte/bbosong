@@ -29,6 +29,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
 <!-- subStyle css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/substyle.css">
+
+ 
     <%
     request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
@@ -137,12 +139,14 @@
               <input type="hidden" name="totalQty" value="<%=totalQty%>">
               <input type="hidden" name="totalPrice" value="<%=totalPrice%>">
               <div class="checkout_btn_inner float-right">
-                <input type="submit" class="btn_all mint_btn hover" value="수거요청">
+                <input type="submit" class="btn_all mint_btn hover" id="checkout" value="수거요청">
               </div>
               </form>
             </div>
           </div>
       </section>
       <!--================End Cart Area =================-->
-  </main>>
+  </main>
+  
+
 <%@ include file="../inc/bottom.jsp" %>

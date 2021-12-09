@@ -27,6 +27,13 @@
 	int mm = Integer.parseInt(request.getParameter("mm"));
 	int dd = Integer.parseInt(request.getParameter("dd"));
 	
+	if(email==null){%>
+	<script type="text/javascript">
+		alert('로그인이 필요합니다.');
+		location.href="<%=request.getContextPath() %>/sign/signin.jsp";
+	</script>
+<%	}
+	
 	Date d = new Date();
 	Calendar cal = Calendar.getInstance();
 	cal.set(yy, mm-1, dd);

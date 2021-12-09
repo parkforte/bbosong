@@ -26,7 +26,7 @@
 	    <!--agree area-->
 	    <h1>회원약관</h1>
 	    <div class="mt20" style="width:900px;">
-	        <div class="text_area">
+	        <div class="text_area" style="text-align: center;">
 				<textarea class="agree" style="height: 20em" readonly>
 	제 1 조 (목적)
 	이 약관은 네이버 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와

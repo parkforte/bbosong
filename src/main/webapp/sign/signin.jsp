@@ -66,7 +66,7 @@
 			        <button id="signin" type="submit" class="mint_btn hover">로그인</button>
 		   		</div>
 		   		<div class="btn_all t_center">
-			        <button id="kakao" onclick="kakaoLogin();"><img src="../img/kakao_login_medium_narrow.png"></button>
+			        <button id="kakao" type="button" onclick="kakaoLogin();"><img src="../img/kakao_login_medium_narrow.png"></button>
 		   		</div>
 		    </form>
 		    <!-- <div class="btn_all t_center">
