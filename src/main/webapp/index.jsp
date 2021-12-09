@@ -47,7 +47,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=a"><img src="img/ind/industries_1.png" alt=""></a>
+					<a href="store/store_info.jsp?store=a"><img src="img/wash1.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hotel_social_icon">
 							<ul>
@@ -79,7 +79,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=b"><img src="img/ind/industries_2.png" alt=""></a>
+					<a href="store/store_info.jsp?store=b"><img src="img/wash2.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hotel_social_icon">
 							<ul>
@@ -111,7 +111,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=c"><img src="img/ind/industries_3.png" alt=""></a>
+					<a href="store/store_info.jsp?store=c"><img src="img/wash3.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
@@ -145,7 +145,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<a href="store/store_info.jsp?store=d"><img src="img/ind/industries_3.png" alt=""></a>
+					<a href="store/store_info.jsp?store=d"><img src="img/wash6.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
