@@ -7,7 +7,7 @@ public class ReviewUtil {
 	public static final String UPLOAD_PATH="pds_upload";
 	//테스트 경로(각자의 컴퓨터에 맞게 경로를 바꿔야 함)
 	public static final String TEST_PATH
-="D:\\lecture\\workspace_list\\jsp_ws\\herbmall\\src\\main\\webapp\\pds_upload";
+="C:\\Users\\hello\\git\\bbosong\\src\\main\\webapp\\pds_upload";
 	
 	public static String displayRe(int step) {
 		//답변글인 경우 단계별로 이미지 보여주기

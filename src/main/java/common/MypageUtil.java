@@ -9,7 +9,7 @@ public class MypageUtil {
 	public static final String UPLOAD_PATH="notice_upload";
 	//테스트 경로
 	public static final String TEST_PATH
-="D:\\projects\\git\\bbosong\\src\\main\\webapp\\notice_upload";
+="C:\\Users\\hello\\git\\bbosong\\src\\main\\webapp\\notice_upload";
 	
 	public static String displayRe(int step) {
 		//답변글인 경우 단계별로 이미지 보여주기

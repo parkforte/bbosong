@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class EventBoardDAO {
 		try {
 			con=pool.getConnection();
 			String sql="insert into eventboard (no, title, content,email,readcount) "
-					+ " values(SEQ_EVENTBOARD.nextval,?,?,'bbosong1000@dream.com',0)";
+					+ " values(SEQ_EVENTBOARD.nextval,?,?,'bbosong1001@dream.com',0)";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getContent());
@@ -133,5 +134,43 @@ public class EventBoardDAO {
 		
 	}
 	
+	public int updateEvent(EventBoardVO vo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update eventboard set title=?, content=? where no=?";
+			
+			ps=con.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getContent());
+			ps.setInt(3, vo.getNo());
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("글 수정 결과 cnt="+cnt+", 매개변수 vo="+vo);
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+	
+	public int deleteEvent(int no) throws SQLException {
+		Connection con=null;
+		CallableStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			String sql="delete from eventboard where no=?";
+			ps=con.prepareCall(sql);
+			ps.setInt(1, no);
+			int cnt=ps.executeUpdate();
+			System.out.println("글 삭제 cnt="+ cnt +", 매개변수 no="+no);	
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
 	
 }
