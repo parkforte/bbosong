@@ -1,3 +1,4 @@
+<%@page import="model.AccountDAO"%>
 <%@page import="common.MypageUtil"%>  
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
@@ -12,11 +13,15 @@
 <%  
 //1
 	request.setCharacterEncoding("utf-8");
-	String email=(String)session.getAttribute("email");
+	String userid=(String)session.getAttribute("email");
+	String name=(String)session.getAttribute("name");
+	
+	if(name==null) name="";
+	
+	
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
-	
-		
+	System.out.println("name = "+name);
 	//2
 	NoticeDAO dao = new NoticeDAO();
 	
@@ -50,20 +55,13 @@
    int totalPage=(int)Math.ceil((double)totalRecord/pageSize);
    int num=totalRecord-curPos;
 %>
+
 <script>
-	/* $(function(){
-		 
-			$('#write').hide();
-			if(session.getAttribute("email") == "bbosong1001@dream.com"){
-				$('#write').show();
-			}
-	}); */
 	$(function(){
-		 
-		$('#write').hide();
-		if(email.equals("bbosong1001@dream.com")){
-			$('#write').show();
-		}
+	   $('#write').hide();
+	   <%if(name.equals("강남지점")){%>
+	   		$('#write').show();
+	   <%}%>
 	});
 </script>
 	<section class="section_padding">
@@ -184,4 +182,5 @@
 				</div>
 			</div>
 	</section>
+	
 <%@include file="../inc/bottom.jsp" %>
