@@ -79,8 +79,8 @@
 
 </head>
 <body>
-<div class="divForm">
-<form name="frmWrite" method="post" action="<%=actionVal %>" 
+<div class="divForm container">
+<form name="frmWrite" method="post" action="<%=actionVal %>"
 	enctype="multipart/form-data">
 	<%	if(isReply){ %>
 			<input type="text" name="groupNo" value="<%=vo.getGroupNo()%>">

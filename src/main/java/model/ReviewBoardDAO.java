@@ -218,7 +218,7 @@ public class ReviewBoardDAO {
 		}finally {
 			pool.dbClose(ps, con);
 		}
-	}	
+	}		
 	
 	
 	public boolean checkPwd(ReviewBoardVO vo) throws SQLException {
@@ -393,7 +393,7 @@ public class ReviewBoardDAO {
 					+ " ("
 					+ "     select no, title, name, content from review order by no desc"
 					+ " )"
-					+ " where rownum<=10";
+					+ " where rownum<=6";
 			ps=con.prepareStatement(sql);
 			
 			rs=ps.executeQuery();

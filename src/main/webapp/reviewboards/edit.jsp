@@ -62,7 +62,7 @@
 
 </head>
 <body>
-<div class="divForm">
+<div class="divForm container">
 <form name="frmEdit" method="post" action="edit_ok.jsp"
 	enctype="multipart/form-data"> 
 	<!-- 수정시 no가 필요하므로 히든 필드에 담아서 넘겨준다 -->

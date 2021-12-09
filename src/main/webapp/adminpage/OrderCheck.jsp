@@ -116,7 +116,7 @@
 									<%=i %></span>
 							<%}else{ %>
 								<a href
-				="account_view.jsp?currentPage=<%=i%>&searchCondition=<%=condition%>&searchKeyword="> <!-- 원래 값 < %=keyword%> 있음 -->
+				="OrderCheck.jsp?currentPage=<%=i%>&searchCondition=<%=condition%>&searchKeyword="> <!-- 원래 값 < %=keyword%> 있음 -->
 									[<%=i %>]</a>			
 							<%}//if %>
 					<%	}//for 	%>
