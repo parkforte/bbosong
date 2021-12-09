@@ -74,6 +74,8 @@
 				<h3>서비스 지역</h3>
 				<img src="../img/seoul.png">
 			</div> -->
+			<h3>지점정보</h3>
+			<hr>
 			<div id="storeList">
 				<ul>
 					<li id="a" class="active">
