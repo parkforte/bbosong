@@ -176,7 +176,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/bedding.jpg" alt="이불류"> 
+											<img src="../img/beding22.jpg" alt="이불류"> 
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="11">
 												<div class="img-cap">
@@ -193,7 +193,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/shoes.jpg" alt="신발"> 
+											<img src="../img/shoes22.jpg" alt="신발"> 
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="12">
 												<div class="img-cap">

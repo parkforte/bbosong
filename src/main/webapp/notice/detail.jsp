@@ -8,6 +8,7 @@
 <%@ include file="../inc/top.jsp"%>
 <%  
 	String no=request.getParameter("no");
+	String email=(String)session.getAttribute("email");
 	SimpleDateFormat sdf = new SimpleDateFormat();
 	if(no==null || no.isEmpty()){
 %>
@@ -45,8 +46,25 @@
 			
 			String oldFileName=vo.getFileName();	
 			if(oldFileName==null) oldFileName="";
-	%>  
-
+	%> 
+<script src="../js/jquery-3.6.0.min.js"></script> 
+<script>
+	/* $(function(){
+		 
+			$('#write').hide();
+			if(session.getAttribute("email") == "bbosong1001@dream.com"){
+				$('#write').show();
+			}
+	}); */
+	$(function(){
+		$('#edit').hide();
+		$('#delete').hide();
+		if(email.equals("bbosong1001@dream.com")){
+			$('#edit').show();
+			$('#delete').show();
+		}
+	});
+</script>
 	<section class="section_padding">
 		<div class="container">
 			<h2>글 상세보기</h2>
@@ -73,8 +91,8 @@
 					</li>
 				</ul>		
 				<div class="t_center">
-					<a class="mint_btn hover a_btn" href='edit.jsp?no=<%=no%>'>수정</a>
-		        	<a class="begie_btn hover a_btn" href='delete.jsp?no=<%=no%>&groupNo=<%=vo.getGroupNo()%>&step=<%=vo.getStep()%>'>삭제</a>
+					<a id="edit" class="mint_btn hover a_btn" href='edit.jsp?no=<%=no%>'>수정</a>
+		        	<a id="delete" class="begie_btn hover a_btn" href='delete.jsp?no=<%=no%>&groupNo=<%=vo.getGroupNo()%>&step=<%=vo.getStep()%>'>삭제</a>
 		        	<a class="mint_btn hover a_btn" href='list.jsp'>목록</a>			
 				</div>
 			</div>
