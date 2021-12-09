@@ -7,9 +7,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../inc/top.jsp" %>
+<script src="../js/jquery-3.6.0.min.js"></script>
+
 <%  
 //1
 	request.setCharacterEncoding("utf-8");
+	String email=(String)session.getAttribute("email");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
 	
@@ -47,6 +50,22 @@
    int totalPage=(int)Math.ceil((double)totalRecord/pageSize);
    int num=totalRecord-curPos;
 %>
+<script>
+	/* $(function(){
+		 
+			$('#write').hide();
+			if(session.getAttribute("email") == "bbosong1001@dream.com"){
+				$('#write').show();
+			}
+	}); */
+	$(function(){
+		 
+		$('#write').hide();
+		if(email.equals("bbosong1001@dream.com")){
+			$('#write').show();
+		}
+	});
+</script>
 	<section class="section_padding">
 			<div class="divList container">
 				<h2>공지사항</h2>
@@ -161,7 +180,7 @@
 				</div>
 			
 				<div class="divBtn t_right mt20 mb20">
-				    <a href='write.jsp' class="mint_btn a_btn hover">글쓰기</a>
+				    <a href='write.jsp' class="mint_btn a_btn hover" id="write">글쓰기</a>
 				</div>
 			</div>
 	</section>

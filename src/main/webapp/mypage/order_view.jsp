@@ -112,7 +112,7 @@
                		
 	               <!--게시판 내용 반복문 시작  -->	
 					  <%
-						if(email!=null){  
+						if(email!=null && list.size()!=0){  
 					  	for(int i=0;i<pageSize ;i++){
 		  			    	if(num<1) break;	
 		  			    
