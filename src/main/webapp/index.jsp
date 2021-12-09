@@ -47,7 +47,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<img src="img/ind/industries_1.png" alt="">
+					<a href="store/store_info.jsp?store=a"><img src="img/ind/industries_1.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hotel_social_icon">
 							<ul>
@@ -62,7 +62,7 @@
 					</div>
 					<div class="hotel_text_iner">
 						<h3>
-							<a href="#"> 강남지점</a> 
+							<a href="store/store_info.jsp?store=a"> 강남지점</a> 
 						</h3>
 						<div class="place_review">
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
@@ -79,7 +79,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<img src="img/ind/industries_2.png" alt="">
+					<a href="store/store_info.jsp?store=b"><img src="img/ind/industries_2.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hotel_social_icon">
 							<ul>
@@ -94,7 +94,7 @@
 					</div>
 					<div class="hotel_text_iner">
 						<h3>
-							<a href="#"> 서초지점</a>
+							<a href="store/store_info.jsp?store=b"> 서초지점</a>
 						</h3>
 						<div class="place_review">
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
@@ -111,7 +111,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<img src="img/ind/industries_3.png" alt="">
+					<a href="store/store_info.jsp?store=c"><img src="img/ind/industries_3.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
@@ -128,7 +128,7 @@
 					</div>
 					<div class="hotel_text_iner">
 						<h3>
-							<a href="#"> 동작지점</a>
+							<a href="store/store_info.jsp?store=c"> 동작지점</a>
 						</h3>
 						<div class="place_review">
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
@@ -145,7 +145,7 @@
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="single_ihotel_list">
-					<img src="img/ind/industries_3.png" alt="">
+					<a href="store/store_info.jsp?store=d"><img src="img/ind/industries_3.png" alt=""></a>
 					<div class="hover_text">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
@@ -162,7 +162,7 @@
 					</div>
 					<div class="hotel_text_iner">
 						<h3>
-							<a href="#"> 송파지점</a>
+							<a href="store/store_info.jsp?store=d"> 송파지점</a>
 						</h3>
 						<div class="place_review">
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
