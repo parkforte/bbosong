@@ -33,7 +33,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 		
 	});
 </script>
-<%
+<%-- <%
 	String email = (String)session.getAttribute("email");
 	if(email == null) {%>
 		<script>
@@ -41,7 +41,7 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 			location.href = '<%=request.getContextPath()%>/adminsign/signin.jsp';
 		</script>
 	<%}
-%>
+%> --%>
 <section class="section_padding">
 	<div class="container">
 	<h2 class="mb50">세탁정보</h2>

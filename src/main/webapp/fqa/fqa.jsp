@@ -51,6 +51,7 @@
 
 <section class="section_padding">
    <div class="container">
+   		<h2>FQA</h2><br>
   		<!-- accordion -->
         <div class="acc_cont">
             <ul class="accordion">
