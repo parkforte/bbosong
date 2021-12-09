@@ -351,8 +351,7 @@ try {
 
 <%
 System.out.println("Session email    : " + session.getAttribute("email"));
-%>
-<%
 System.out.println("Session verified : " + session.getAttribute("verified"));
+System.out.println("Session userid   : "+session.getAttribute("userid"));
 %>
 <%@include file="inc/bottom.jsp"%>

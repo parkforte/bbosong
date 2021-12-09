@@ -3,13 +3,6 @@
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <jsp:useBean id="AdminService" class="model.AdminService" 
 	scope="session"></jsp:useBean>
 <%
@@ -29,7 +22,7 @@
 			AdminVO vo=AdminService.selectByEmail(email);
 			
 			//[1] 세션에 저장
-			session.setAttribute("userid", email);
+			session.setAttribute("userid", vo.getEmail());
 			
 			//[2] 쿠키에 저장					
 			if(chkSave != null ){  //체크한 경우

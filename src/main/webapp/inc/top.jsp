@@ -120,11 +120,17 @@
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                  		  <%if(session.getAttribute("email") == null) { %>
+                                  		  <%if(session.getAttribute("email") == null && session.getAttribute("userid") == null) { %>
                                         		<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
 		                                            role="button" data-toggle="dropdown" aria-haspopup="true"
 		                                            aria-expanded="false">
 		                                            로그인
+                                      			</a>
+                                      		<%} else if(session.getAttribute("userid") != null){%>	
+                                      			<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+		                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+		                                            aria-expanded="false">
+		                                            관리자 페이지
                                       			</a>
                                     	   	<%} else {%>
                                     	   		<a class="nav-link dropdown-toggle" href="<%=request.getContextPath()%>/mypage/mypageMain.jsp" id="navbarDropdown_1"
@@ -135,13 +141,16 @@
                                       		<%}%>
                                        
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-	                                        	<%if(session.getAttribute("email") == null) { %>
-	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signin.jsp">로그인</a>
-                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/user_aggrement.jsp">회원가입</a>
+	                                        	<%if(session.getAttribute("email") == null && session.getAttribute("userid") == null) { %>
+	                                        		<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/user_aggrement.jsp">로그인</a>
+                                           			<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signup.jsp">회원가입</a>
+	                                        	<%} else if(session.getAttribute("userid") != null) {%>
+		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/adminpage/Main.jsp">관리자 페이지</a>
+		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/adminsign/signout.jsp">로그아웃</a>	                                        	
 	                                        	<%} else {%>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/mypage/mypageMain.jsp">마이페이지</a>
 		                                        	<a class="dropdown-item" href="<%=request.getContextPath()%>/sign/signout.jsp">로그아웃</a>
-		                                            <a class="dropdown-item" href="<%=request.getContextPath()%>/mypage/Withdrawal.jsp">회원탈퇴</a>
+		                                            <a class="dropdown-item" href="#">회원탈퇴</a>
                                         		<%}%>
                                         </div>
                                     </li>
@@ -153,5 +162,5 @@
                 </div>
             </div>
         </div>
-    </header> 
+    </header>
     <!-- Header part end-->
