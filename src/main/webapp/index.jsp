@@ -245,7 +245,7 @@
 											<span>10,000원</span>
 										</div>
 										<div class="popular-img">
-											<img src="img/bedding.jpg" alt="이불류">
+											<img src="img/beding22.jpg" alt="이불류">
 											<form method="post"
 												action="<%=request.getContextPath()%>/order/addCart.jsp">
 												<input type="hidden" name="laundryNo" value="11">
