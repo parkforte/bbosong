@@ -102,7 +102,6 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/service/service.jsp">서비스소개</a>
-                                            <a class="dropdown-item" href="#">이용방법</a>
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/eventBoard/list.jsp">이벤트</a>
                                             <a class="dropdown-item" href="<%=request.getContextPath() %>/notice/list.jsp">공지사항</a>
                                         </div>
@@ -148,7 +147,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="<%=request.getContextPath() %>/order/menuList.jsp" class="btn_1 d-none d-lg-block">주문</a>
+                            <a href="<%=request.getContextPath() %>/order/menuList.jsp" class="btn_1 d-none d-lg-block bbosong">주문</a>
                         </nav>
                     </div>
                 </div>

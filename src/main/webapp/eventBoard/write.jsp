@@ -21,13 +21,25 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 		
 	});
 </script>
+<%
 
+	request.setCharacterEncoding("utf-8");
+	String email=(String)session.getAttribute("email");
+
+	if(email==null){%>
+		<script type="text/javascript">
+			alert('로그인이 필요합니다.');
+			location.href="<%=request.getContextPath() %>/sign/signin.jsp";
+		</script>
+	<%	}%>
+
+%>
 <section class="section_padding">
 	<div class="container">
 	<h2 class="mb50">이벤트</h2>
 		<fieldset>
 			<form name="admin_event" action="write_ok.jsp" method="post">
-				<input type="hidden" name="email" value="bbosong1001@dream.com">
+				<input type="hidden" name="email" value="<%=email%>">
 	            <div class="input_area">
 	                <div class="p_input">
 	                	<label for="title">제목</label>

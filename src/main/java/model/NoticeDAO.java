@@ -14,12 +14,7 @@ import db.ConnectionPoolMgr;
 
 public class NoticeDAO {
 	ConnectionPoolMgr pool = new ConnectionPoolMgr();
-	/**
-	 *글작성메서드
-	 * @param vo
-	 * @return
-	 * @throws SQLException
-	 */
+	
 	public int insertNotice(NoticeVO vo) throws SQLException{
 		Connection con=null;
 		PreparedStatement ps =null;
@@ -122,11 +117,7 @@ public class NoticeDAO {
 				String email=rs.getString("email");
 				int readcount=rs.getInt("readcount");
 				Timestamp regdate=rs.getTimestamp("regdate");
-				//답변형 추가
-				int groupNo=rs.getInt("groupno");
-				int step=rs.getInt("step");
-				int sortNo=rs.getInt("sortno");
-				String delFlag=rs.getString("delflag");
+				
 				//자료실 추가
 				String fileName=rs.getString("filename");
 				long fileSize=rs.getLong("fileSize");
@@ -140,10 +131,6 @@ public class NoticeDAO {
 				vo.setRegdate(regdate);
 				vo.setTitle(title);
 				
-				vo.setGroupNo(groupNo);
-				vo.setSortNo(sortNo);
-				vo.setStep(step);
-				vo.setDelFlag(delFlag);
 				
 				vo.setFileName(fileName);
 				vo.setFileSize(fileSize);
@@ -271,4 +258,24 @@ public class NoticeDAO {
 		}
 	}
 	
+	public int updateDownCount(int no) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update notice set downcount=downcount+1"					
+					+ " where no=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("다운로드수 증가 결과 cnt="+cnt+", 매개변수 no="+no);
+			
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
 }

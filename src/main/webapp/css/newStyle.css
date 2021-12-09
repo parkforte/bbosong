@@ -22,12 +22,12 @@
 }
 
 .sub_menu .sub_menu_social_icon span i {
-  color: #fe5c24;
+  color: #c96c62;
   margin-right: 8px;
 }
 
 .sub_menu .sub_menu_social_icon a:hover {
-  color: #fe5c24;
+  color: #c96c62;
 }
 
 .sub_menu .sub_menu_social_icon span {
@@ -44,15 +44,15 @@
   font-family: "Open Sans", sans-serif;
   text-transform: capitalize;
 }
-
+.btn_1, .btn_2{background:#c96c62;}
 .btn_1:hover, .btn_2:hover {
   color: #fff;
-  background-color: #aac3c3;
+  background-color: #f2ebde;
 }
 
 /* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_menu.scss */
 .main_menu .main-menu-item ul li .nav-link:hover {
-  color: #fe5c24;
+  color: #c96c62;
 }
 
 /* 배너라인  */
@@ -60,7 +60,7 @@
   height: 880px;
   position: relative;
   overflow: hidden;
-  background-image: url(../img/mainbanner.jpg);
+  background-image: url(../img/bbosong_banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -69,7 +69,7 @@
 
 .banner_part .banner_text .btn_1 {
   margin-top: 60px;
-  background-color: #fe5c24;
+  background-color: #c96c62;
   padding: 23px 79px;
 }
 
@@ -82,11 +82,11 @@
 
 /* 이용후기 */
 .client_review {
-  background-color: #aac3c3;
+  background-color: #fff;
 }
 
 .client_review .section_tittle h2 {
-  color: #fe5c24;
+  color: #c96c62;
 }
 
 
@@ -104,18 +104,20 @@
 
 /* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_event_part.scss */
 .event_part .owl-nav button i {
-  color: #fe5c24;
+  color: #c96c62;
   font-weight: 700;
   font-size: 20px;
 }
-
+.event_part .event_slider_content{
+	border-radius:10px;
+}
 .client_review .owl-nav button {
   width: 45px;
   height: 45px;
   line-height: 45px;
   text-align: center;
   display: inline-block;
-  background-color: #fe5c24 !important;
+  background-color: #c96c62 !important;
   color: #fff !important;
 }
 
@@ -123,7 +125,7 @@
 
 .section_tittle h2 {
   font-size: 46px;
-  color: #fe5c24;
+  color: #c96c62;
   line-height: 1.1;
   font-weight: 700;
   position: relative;
@@ -134,7 +136,7 @@
 /* 메뉴 */
 
 .event_part {
-  background-image: url(../img/drying.jpg);
+  background-image: url(../img/order_back.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -29,10 +29,16 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
 <!-- subStyle css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/substyle.css">
-      
- 
-<%
+    <%
+    request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
+	if(email==null){%>
+		<script type="text/javascript">
+			alert('로그인이 필요합니다.');
+			location.href="<%=request.getContextPath() %>/sign/signin.jsp";
+		</script>
+<%	}%>
+<%
 	CartDAO dao=new CartDAO();
 	List<CartVO> list=null;
 	try{
@@ -47,10 +53,10 @@
   <main>
       <section class="cart_area section_padding">
         <div class="container">
+        <h3>장바구니</h3>
           <div class="cart_inner">
             <div class="table-responsive">
               <table class="table">
-                <thead>
                  <colgroup>
                 <col width="10%">
                 <col width="35%">
@@ -59,6 +65,7 @@
                 <col width="20%">
                 <col width="15%">
             	</colgroup>
+                <thead>
                   <tr>
                     <th scope="col">번호</th>
                     <th scope="col">상품명</th>
@@ -75,7 +82,7 @@
                 	%>
                   <tr>
                     <td>
-                      <h5><%= vo.getCartNo() %></h5>
+                      <p><%= vo.getCartNo() %></p>
                     </td>
                     <td>
                       <div class="media">
@@ -85,16 +92,16 @@
                       </div>
                     </td>
                     <td>
-                      <h5><%=vo.getQty() %></h5>
+                      <p><%=vo.getQty() %></p>
                     </td>
                     <td>
-                      <h5><%=OrderUtil.changeDecimalFormat(vo.getPrice())%></h5>
+                      <p><%=OrderUtil.changeDecimalFormat(vo.getPrice())%></p>
                     </td>
                     <td>
-                      <h5><%=MypageUtil.changeFormat(vo.getRegdate()) %></h5>
+                      <p><%=MypageUtil.changeFormat(vo.getRegdate()) %></p>
                     </td>
                     <td class="text-right">
-                      <h5><a class="mint_btn" href="deleteItem.jsp?cartNo=<%=vo.getCartNo()%>">삭제</a></h5>
+                      <p><a href="deleteItem.jsp?cartNo=<%=vo.getCartNo()%>"><button class="btn_all begie_btn hover">삭제</button></a></[]>
                     </td>
                   </tr>
                   <%	} %>
@@ -118,10 +125,10 @@
 		                     <%=OrderUtil.changeDecimalFormat(totalPrice)%>
                      </td>
                     <td>
-                    <a class="mint_btn" href="menuList.jsp">메뉴목록</a>
+                    <a href="menuList.jsp"><button class="btn_all mint_btn hover">메뉴목록</button></a>
                     </td>
                     <td class="text-right">
-                      <a class="mint_btn" href="deleteCart.jsp">전체비우기</a>
+                      <a href="deleteCart.jsp"><button class="btn_all mint_btn hover">전체비우기</button></a>
                     </td>
                   </tr>
                 </tbody>
@@ -130,7 +137,7 @@
               <input type="hidden" name="totalQty" value="<%=totalQty%>">
               <input type="hidden" name="totalPrice" value="<%=totalPrice%>">
               <div class="checkout_btn_inner float-right">
-                <input type="submit" class="mint_btn" value="수거요청">
+                <input type="submit" class="btn_all mint_btn hover" value="수거요청">
               </div>
               </form>
             </div>

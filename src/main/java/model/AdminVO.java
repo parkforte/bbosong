@@ -18,6 +18,17 @@ public class AdminVO {
 		this.name = name;
 		this.storeNo = storeNo;
 	}
+	
+	public AdminVO(String email, String pwd) {
+		super();
+		this.email = email;
+		this.pwd = pwd;
+	}
+	
+	public AdminVO(String email) {
+		super();
+		this.email = email;
+	}
 
 	public String getEmail() {
 		return email;

@@ -11,9 +11,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%
-	String email = (String) session.getAttribute("email");
+    <%
+    request.setCharacterEncoding("utf-8");
+	String email=(String)session.getAttribute("email");
+	if(email==null){%>
+		<script type="text/javascript">
+			alert('로그인이 필요합니다.');
+			location.href="<%=request.getContextPath() %>/sign/signin.jsp";
+		</script>
+<%	}
 	System.out.println(email);
 	String laundryNo=request.getParameter("laundryNo");
 	int parseLaundryNo=Integer.parseInt(laundryNo);

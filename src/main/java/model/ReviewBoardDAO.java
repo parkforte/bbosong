@@ -11,7 +11,6 @@ import java.util.List;
 
 import model.ReviewBoardVO;
 import db.ConnectionPoolMgr;
-import db.ConnectionPoolMgr2;
 
 public class ReviewBoardDAO {
 	ConnectionPoolMgr pool = new ConnectionPoolMgr();	
@@ -394,7 +393,7 @@ public class ReviewBoardDAO {
 					+ " ("
 					+ "     select no, title, name, content from review order by no desc"
 					+ " )"
-					+ " where rownum<=6";
+					+ " where rownum<=10";
 			ps=con.prepareStatement(sql);
 			
 			rs=ps.executeQuery();

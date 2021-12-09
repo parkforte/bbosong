@@ -10,41 +10,38 @@
 	
 	String email= request.getParameter("email");
 	String pw=request.getParameter("pw");
-	String msg="회원탈퇴실패" , url="Withdrawal.jsp";
+	
 	WithdrawalDAO dao = new WithdrawalDAO();
-	
-	
 	
 	// 비밀번호 다를 떄 뒤로가기
 	//loginCheck()
-	
-	
-	
-	
-	
-	
 	try{
-		int result=dao.deleteAccount(email, pw);
-		System.out.println(result);
+		int result=dao.loginCheck(email, pw);
 		if(result==myservice.LOGIN_OK){
-		System.out.println("dd");
-		int cnt = dao.deleteAccount(email, pw);
-		if(cnt>0){
-			msg="회원탈퇴가 처리되었습니다.";
-			session.invalidate();
-			
-			url="accountOut.jsp";			
-		}else if(result == myservice.DISAGREE_PWD){
-				msg="패스워드가 다릅니다;_;";
-		}else if(result == myservice.USERID_NONE){
-				msg="아이디가 존재하지 않습니다;_;";
-			
-		}
-			
-		}
+			dao.deletePW(pw);
+			dao.deleteAccount(email);%>
+			<script>
+			location.href="accountOut.jsp";
+			</script>
+		<%}else if(result==myservice.DISAGREE_PWD){%>
+			<script>
+				alert('비밀번호가 틀렸습니다.');
+				history.back(-1);
+			</script>
+		<%}else if(result==myservice.USERID_NONE){%>
+			<script>
+				alert('아이디가 일치하지 않습니다.');
+				history.back(-1);
+			</script>
+		<%}
+		
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
+	
+	
+	
+
 %>
 
 <%-- <jsp:forword page="../common/message.jsp" /> --%>

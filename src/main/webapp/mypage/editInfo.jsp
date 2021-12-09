@@ -12,15 +12,16 @@
 	vo=dao.selectByEmail(email);
 	
 	email=vo.getEmail();
-	String name=vo.getName();  
+	String name=vo.getName();
 	
 	
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
-	
 	String [] addressSp = vo.getAddress().split("\\|");
-	
+	String asArr1 = addressSp[0];
+	String asArr2 = addressSp[1];
+	String asArr3 = addressSp[2];
 		// 비로그인시 메인으로 리다이렉트
 %>
 <style>
@@ -39,7 +40,6 @@
 		var checkedpw2 = false;
 		
 		$('#editform').submit(function(e) {
-			console.log('Enter submit()');
 			/* if(!checkedEmail) {
 				alert('이메일을 확인해주세요');
 				$('#email').focus();
@@ -48,7 +48,7 @@
 				return;
 			}
 			 */
-			if(!checkedpw1) {
+			/* if(!checkedpw1) {
 				alert('비밀번호를 확인해주세요');
 				$('#pw1').focus();
 				e.preventDefault();
@@ -62,44 +62,45 @@
 				e.preventDefault();
 				e.stopPropagation();
 				return;
-			}
+			} */
 			
 			$('#sample6_postcode').attr('disabled', false);
 			$('#sample6_address').attr('disabled', false);
+			console.log($('#sample6_postcode').attr('disabled'));
+			console.log($('#sample6_address').attr('disabled'));
 		});
 	
-		<%-- $('#email').on('blur', function() {
+		<%-- <%-- $('#email').on('blur', function() {
 			var valEmail = $('#email').val();	
 			if(!is_validate_email(valEmail)) {
 				$('#email').next().html('이메일 형식이 잘못되었습니다.');
 				changeInvalid($('#email'));
 				return;
-			}
+			} 
 				
-			 var request = $.ajax({
+			var request = $.ajax({
 			url: "<%=request.getContextPath() %>/CheckEmail", //통신할 url
 			method: "POST",
 			data: { email : valEmail }, //전송할 데이타
 			dataType: "json"
-			});	 
+		});	 --%> 
 		
-		 	request.done(function( data ) {
-				if(data.result){
-					$('#email').next().html('사용할 수 없는 이메일 입니다.');
-					changeInvalid($('#email'));
-					checkedEmail = false;
-				} else{
-					changeValid($('#email'));
-					$('#emailNotice').removeClass('invalidText');
-					$('#emailNotice').addClass('validText');
-					checkedEmail = true;
-				}	
-			});
-		 	
-			request.fail(function( jqXHR, textStatus ) {
-			  alert( "Request failed: " + textStatus );
-			});	
-		}); --%>
+		 /* request.done(function( data ) {
+			if(data.result){
+				$('#email').next().html('사용할 수 없는 이메일 입니다.');
+				changeInvalid($('#email'));
+				checkedEmail = false;
+			} else{
+				changeValid($('#email'));
+				$('#emailNotice').removeClass('invalidText');
+				$('#emailNotice').addClass('validText');
+				checkedEmail = true;
+			}	
+		});	 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});	
+		}); */
 		
 	$('#pw1').on('blur', function() {
 		if(!is_validate_pw($('#pw1').val())) {
@@ -170,8 +171,15 @@
 		}
 	});
 </script>
-
-
+<script>
+function back(){
+	history.back(-1);
+}
+</script>
+<style>
+select{padding:10px 20px; border-radius: 5px; outline: none; cursor: pointer; border:1px solid #ccc;}
+option:checked{background:#aac3c3 !important;}
+</style>
 <section class="section_padding">
 	<div class="container">
 		<h2>내정보 수정</h2>
@@ -199,7 +207,7 @@
 		                <label>비밀번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="pw1" type="password" name="pw1" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="pw1" type="password" name="pw1" class="t_input" /><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -207,7 +215,7 @@
 		                <label>비밀번호 확인</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="pw2" type="password" name="pw2" class="t_input" required="required"><span class="invalidText"></span>
+		                <input id="pw2" type="password" name="pw2" class="t_input" /><span class="invalidText"></span>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -215,7 +223,7 @@
 		                <label>닉네임</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="nickname" type="text" name="nickname" value="<%=vo.getNickname() %>" class="t_input" required="required">
+		                <input id="nickname" type="text" name="nickname" placeholder="<%=vo.getNickname() %>" class="t_input"/>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -223,9 +231,9 @@
 		                <label>생년월일</label>
 		            </div>
 		            <div class="p_input">
-		                <select id="year" name="yy" class="select"></select>년
-						<select id="month" name="mm" class="select"></select>월
-						<select id="day" name="dd" class="select"></select>일
+		                <select id="year" name="yy" class="select"></select>&nbsp; 년 &nbsp;
+						<select id="month" name="mm" class="select"></select>&nbsp; 월 &nbsp;
+						<select id="day" name="dd" class="select"></select>&nbsp; 일 &nbsp;
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -233,10 +241,10 @@
 		                <label>주소</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=addressSp[0] %>" required="required" disabled="disabled">
+		                <input id="sample6_postcode" type="text" name="postcode1" class="t_input"  value="<%=asArr1 %>"  disabled="disabled" />
 						<button type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()">우편번호찾기</button><br>
-						<input id="sample6_address" type="text" name="address_1" value="<%=addressSp[1] %>" required="required" disabled="disabled">
-						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="상세주소" value="<%=addressSp[2] %>">
+						<input id="sample6_address" type="text" name="address_1" value="<%=asArr2 %>" required="required" disabled="disabled" class="t_input mt20"/>
+						<input id="sample6_detailAddress" type="text" name="detailAddress1" placeholder="<%=asArr3 %>" class="t_input mt20"/>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -244,14 +252,14 @@
 		                <label>전화번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" required="required">
+		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" />
 		            </div>
 		        </div>
 		        
 		    
             <div class="btn_all t_center">
                 <button type="submit" class="mint_btn hover" id="infoedit_btn">회원정보 수정</button>
-                <button type="button" class="begie_btn hover">취소</button>
+                <button type="button" class="begie_btn hover" onclick="back()">취소</button>
             </div>
             </form>
         </div>

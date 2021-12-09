@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../assets/css/themify-icons.css">
 <link rel="stylesheet" href="../assets/css/slick.css">
 <link rel="stylesheet" href="../assets/css/nice-select.css">
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/newStyle.css">
 <!-- newStyle css -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/newStyle.css">
 <!-- subStyle css -->
@@ -21,10 +21,22 @@
 
 <style>
 
+.bbosong{
+	background: #c96c62 !important;
+	padding: 13px 30px !important;
+	border-radius: 0 !important;
+}
+
+
 </style>
 <%
 	String email=(String)session.getAttribute("email");
-%>
+	if(email==null){%>
+		<script type="text/javascript">
+			alert('로그인이 필요합니다.');
+			location.href="<%=request.getContextPath() %>/sign/signin.jsp";
+		</script>
+<%	}%>
 
 <section>
 	<div class="container">
@@ -77,7 +89,7 @@
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+														<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -94,7 +106,7 @@
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="2">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -111,7 +123,7 @@
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="5">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -128,7 +140,7 @@
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="4">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>											
 										</div>
@@ -145,7 +157,7 @@
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="6">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -168,7 +180,7 @@
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="11">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -185,7 +197,7 @@
 												<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="12">
 												<div class="img-cap">
-													<input type="submit" class="mint_btn" value="장바구니에 담기">
+													<input type="submit" class="btn_all mint_btn hover" value="장바구니에 담기">
 												</div>
 											</form>
 										</div>
@@ -200,7 +212,7 @@
 						<form method="post" action="cart.jsp">
 							<input type="hidden" name="email" value="<%=email%>">
 							<div class="checkout_btn_inner float-right">
-								<input type="submit" class="btn_1 d-none d-lg-block" value="장바구니">
+								<input type="submit" class="btn_all mint_btn hover" value="장바구니 확인">
 							</div>
 						</form>
 					</div>

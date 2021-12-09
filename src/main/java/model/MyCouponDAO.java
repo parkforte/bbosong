@@ -39,4 +39,26 @@ public class MyCouponDAO {
 			pool.dbClose(rs, ps, con);
 		}
 	}
+	
+	public int deleteCoupon(String email, int serialno) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		try {
+			con=pool.getConnection();
+			String sql="delete from mycoupon where email=? and serialno=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setInt(2, serialno);
+			int cnt=ps.executeUpdate();
+			if(cnt>0) {
+				System.out.println(serialno+"쿠폰 삭제성공!");
+			}else {
+				System.out.println(serialno+"쿠폰 사용안함!");
+			}
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+	
 }

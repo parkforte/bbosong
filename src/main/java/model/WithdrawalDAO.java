@@ -13,48 +13,29 @@ import util.HashingUtil;
 public class WithdrawalDAO {
 	private ConnectionPoolMgr pool=new ConnectionPoolMgr();
 	
-	 public int deleteAccount(String email, String pw) throws SQLException, NoSuchAlgorithmException {
-	      Connection con=null;
-	      PreparedStatement ps =null;
-	      ResultSet rs = null;
+	 public int deletePW(String pw) throws SQLException, NoSuchAlgorithmException {
+	      Connection con =null;
+	      PreparedStatement ps= null;
+	      boolean insSucceed = false;
 	      HashingUtil hash = new HashingUtil();
-	      AccountVO vo= new AccountVO();
-	      int cnt = 0;
-	      String salt = hash.makeNewSalt();
-	      String digest = hash.hashing(pw, salt);
-	      
-	      boolean isSucceed = false;
 	      try {
-	          con=pool.getConnection();
-	          String sql = "select salt from hash where email = ?";
-	          ps=con.prepareStatement(sql);
-	          ps.setString(1, vo.getEmail());
-	          System.out.println("DBUG cnt = "+cnt);
-	          cnt = ps.executeUpdate();
-	          rs = ps.executeQuery();
-	          while(rs.next()) {
-	         String digest1 = rs.getString("digest");
-	         String salt1 = rs.getString("salt");
-	         
-	          if(digest == digest1 && salt == salt1) {
-	             ps.close();
-	             
-	             sql = "delete from account where email = ?";
-	             ps.setString(1, vo.getEmail());
-	             System.out.println("DBUG cnt2 = "+cnt);
-	             cnt = ps.executeUpdate();
-	             }
-	          } 
-	          System.out.println("DBUG cnt3 ="+cnt+"매개변수 email,pw"+email+pw);
-	         isSucceed = true;
-	      }catch(SQLException e) {
-	         e.printStackTrace();
-	      } 
-	      finally {
-	    	 
-	         pool.dbClose(ps, con);
+	      con=pool.getConnection();
+	      String salt=hash.makeNewSalt();
+	      String digest=hash.hashing(pw, salt);
+	      
+	      String slq="delete  from hash where digest=? and salt=?";
+	      
+	      ps=con.prepareStatement(slq);
+	      
+	      ps.setString(1, digest);
+	      ps.setString(2, salt);
+	      
+	      int cnt = ps.executeUpdate();
+	      return cnt;
+	      
+	      }finally {
+	    	  pool.dbClose(ps, con);
 	      }
-		return cnt;
 	      
 	   }
 	public int loginCheck(String email, String pw) throws SQLException, NoSuchAlgorithmException {
@@ -75,12 +56,12 @@ public class WithdrawalDAO {
 	         rs = ps.executeQuery();
 	         
 	         if(!rs.next())
-	        	 return MypageService.NON_EXIST_ID;
+	        	 return MypageService.USERID_NONE;
 	         
-	         String dbDigest = rs.getString("digest");
-	         String dbSalt = rs.getString("digest");
+		         String dbDigest = rs.getString("digest");
+		         String dbSalt = rs.getString("salt");
 	         
-	         String inputDigest = hash.hashing(pw, dbSalt);
+		         String inputDigest = hash.hashing(pw, dbSalt);
 	         
 	         if(!dbDigest.equals(inputDigest))
 	        	 return MypageService.DISAGREE_PWD;
@@ -102,4 +83,26 @@ public class WithdrawalDAO {
 	         pool.dbClose(rs, ps, con);
 	      }
 	   }
+
+	public int deleteAccount(String email) throws SQLException {
+		Connection con =null;
+		PreparedStatement ps = null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="delete from account where email=?";
+			ps=con.prepareStatement(sql);
+			
+			ps.setString(1, email);
+			
+			int cnt = ps.executeUpdate();
+			
+			return cnt;
+		} finally{
+			pool.dbClose(ps, con);
+		}
+		
+	}
+
 }

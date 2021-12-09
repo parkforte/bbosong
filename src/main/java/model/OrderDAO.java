@@ -2,11 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 import db.ConnectionPoolMgr;
 
@@ -24,7 +20,7 @@ public class OrderDAO {
 		try {
 			con=pool.getConnection();
 			String sql="insert into order_ (orderNo, email, storeno, totalQty, totalPrice, pickupDate, orderState )"
-					+" values(seq_order.nextval, ?,?,?,?,?,'배송중')";
+					+" values(seq_order.nextval, ?,?,?,?,?,'수거중')";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, email);
 			ps.setInt(2, vo.getStoreNo());

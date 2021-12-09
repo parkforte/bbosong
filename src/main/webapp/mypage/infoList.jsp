@@ -1,17 +1,17 @@
-<%@page import="model.AccountDAO"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.InfoEditDAO"%>
 <%@page import="model.AccountVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file='../inc/top.jsp'%>
+<%@include file="../inc/top.jsp"%>
 <%
 	String email =(String)session.getAttribute("email");
-	
 	AccountVO vo = null;
-	AccountDAO dao = new AccountDAO();
+	InfoEditDAO dao = new InfoEditDAO();
+	SimpleDateFormat sdf= new SimpleDateFormat();
 	try{
-	vo=dao.selectAll(condition, keyword);
+	vo=dao.selectByEmail(email);
 	
 	email=vo.getEmail();
 	String name=vo.getName();
@@ -21,19 +21,27 @@
 		e.printStackTrace();
 	}
 	
-	
+	// 비로그인시 메인으로 리다이렉트
 %>
-<section calss="section_padding">
+<style>
+.valid { border: solid 2px green; }
+.invalid { border: solid 2px red; }
+.invalidText { color: red; }
+</style>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="../js/daumPostCode.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.js"></script>
+<section class="section_padding">
 	<div class="container">
-		<h2>내정보 수정</h2>
+		<h2>내정보</h2>
 		<div>
-            <form id="signinForm" action="" method="post">
+            <div>
 		        <div class="input_area">
 		            <div class="p_title">
 		                <label>이름</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="name" type="text" name="name" placeholder="<%=vo.getName()%>" class="t_input" required="required" disabled="disabled">
+		            	<p><%=vo.getName()%></p>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -41,24 +49,7 @@
 		                <label>이메일</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="email" type="email" name="email" class="t_input" placeholder="<%=session.getAttribute("email") %>" required="required" disabled="disabled"><span class="invalidText"></span>
-		            </div>
-		        </div>
-		        
-		        <div class="input_area">
-		            <div class="p_title">
-		                <label>비밀번호</label>
-		            </div>
-		            <div class="p_input">
-		                <input id="pw1" type="password" name="pw1" class="t_input" required="required"><span class="invalidText"></span>
-		            </div>
-		        </div>
-		        <div class="input_area">
-		            <div class="p_title">
-		                <label>비밀번호 확인</label>
-		            </div>
-		            <div class="p_input">
-		                <input id="pw2" type="password" name="pw2" class="t_input" required="required"><span class="invalidText"></span>
+		            	<p><%=session.getAttribute("email") %></p>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -66,7 +57,7 @@
 		                <label>닉네임</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="nickname" type="text" name="nickname" placeholder="<%=vo.getNickname() %>" class="t_input" required="required">
+		            	<p><%=vo.getNickname() %></p>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -74,9 +65,7 @@
 		                <label>생년월일</label>
 		            </div>
 		            <div class="p_input">
-		                <select id="year" name="yy" class="select"></select>년
-						<select id="month" name="mm" class="select"></select>월
-						<select id="day" name="dd" class="select"></select>일
+		                <p><%=sdf.format(vo.getBirth()) %></p>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -84,10 +73,7 @@
 		                <label>주소</label>
 		            </div>
 		            <div class="p_input">
-		                <input id="sample6_postcode" type="text" name="postcode" class="t_input" placeholder="우편번호" required="required" disabled="disabled">
-						<input type="button"  class="mint_btn hover" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input id="sample6_address" type="text" name="address_" placeholder="<%=vo.getAddress() %>" required="required" disabled="disabled">
-						<input id="sample6_detailAddress" type="text" name="detailAddress" placeholder="상세주소" required="required">
+		                <p><%=vo.getAddress() %></p>
 		            </div>
 		        </div>
 		        <div class="input_area">
@@ -95,17 +81,16 @@
 		                <label>전화번호</label>
 		            </div>
 		            <div class="p_input">
-		                <input type="text" name="tel" value="<%=vo.getTel() %>" class="t_input" required="required">
+		            	<p><%=vo.getTel() %></p>
 		            </div>
 		        </div>
 		        
-		    </form>
+		    
             <div class="btn_all t_center">
-                <button type="submit" class="mint_btn hover" id="infoedit_btn">회원정보 수정</button>
-                <button type="button" class="begie_btn hover">취소</button>
+                <a href="mypageMain.jsp" class="mint_btn hover a_btn">확인</a>
+            </div>
             </div>
         </div>
 	</div>
 </section>
-
-<%@include file='../inc/bottom.jsp'%>
+<%@include file="../inc/bottom.jsp"%>

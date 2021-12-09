@@ -12,6 +12,7 @@
 	request.setCharacterEncoding("utf-8");
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
+	
 		
 	//2
 	NoticeDAO dao = new NoticeDAO();
@@ -49,16 +50,10 @@
 	<section class="section_padding">
 			<div class="divList container">
 				<h2>공지사항</h2>
-				<%
-				if(keyword!=null && !keyword.isEmpty()){
-				%>
-						<p>검색어 : <%=keyword%>,  <%=list.size()%>건 검색되었습니다. </p>
-				<%
-				}
-				%>
-				
-			
-				<table class="table1"
+				<%if(keyword!=null && !keyword.isEmpty()){%>
+				 <p>검색어 : <%=keyword%>,  <%=list.size()%>건 검색되었습니다. </p>
+				<%}%>
+				<table class="table1 t_center"
 					 	summary="공지사항게시판에 관한 표로써, 번호, 제목, 작성자, 작성일, 조회수에 대한 정보를 제공합니다.">
 					<caption style="display:none;">답변형게시판</caption>
 					<colgroup>
@@ -89,19 +84,18 @@
 						<tr>
 							<td><%=vo.getNo()%></td>
 							<td>
-									<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
-									<%=MypageUtil.displayFile(vo.getFileName())%>
-									
-									<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
-										<!-- 제목이 긴 경우 일부만 보여주기 -->
-										<%=MypageUtil.cutString(vo.getTitle(), 35)%>
-									</a>
-									
-									<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
-									<%=MypageUtil.displayNew(vo.getRegdate())%>
-									
+								<!-- 파일이 첨부된 경우 파일이미지 보여주기 -->
+								<%=MypageUtil.displayFile(vo.getFileName())%>
+								
+								<a href="countUpdate.jsp?no=<%=vo.getNo()%>">
+									<!-- 제목이 긴 경우 일부만 보여주기 -->
+									<%=MypageUtil.cutString(vo.getTitle(), 35)%>
+								</a>
+								
+								<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
+								<%=MypageUtil.displayNew(vo.getRegdate())%>
 							</td>
-							<td><%=vo.getTitle()%></td>
+							<td>뽀송드림</td>
 							<td><%=sdf.format(vo.getRegdate()) %></td>
 							<td><%=vo.getReadcount() %></td>		
 						</tr> 
