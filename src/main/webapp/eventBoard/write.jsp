@@ -25,15 +25,14 @@ textarea{width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;}
 
 	request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
+	if(!email.equals("bbosong1001@dream.com") || email==null){%>
+	<script type="text/javascript">
+		alert('관리자 로그인이 필요합니다.');
+		location.href="<%=request.getContextPath() %>/adminsign/signin.jsp";
+	</script>
+<%	}%>
 
-	if(email==null){%>
-		<script type="text/javascript">
-			alert('로그인이 필요합니다.');
-			location.href="<%=request.getContextPath() %>/sign/signin.jsp";
-		</script>
-	<%	}%>
 
-%>
 <section class="section_padding">
 	<div class="container">
 	<h2 class="mb50">이벤트</h2>
