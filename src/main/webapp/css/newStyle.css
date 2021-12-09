@@ -4,7 +4,7 @@
 /*수정내용 start*/
 
 /* 헤더메뉴라인 */
-h1,h2,h3{color:#000;}
+h1, h2, h3, h4, h5, h6{color:#000;}
 .sub_menu {
   background-color: #aac3c3;
   padding: 14px 0px;
