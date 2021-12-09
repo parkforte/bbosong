@@ -68,7 +68,7 @@
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a> <span>(210 review)</span>
+								class="fas fa-star"></i></a>
 						</div>
 						<p>강남구, 서울특별시</p>
 						<h5>
@@ -100,7 +100,7 @@
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a> <span>(210 review)</span>
+								class="fas fa-star"></i></a>
 						</div>
 						<p>서초구, 서울특별시</p>
 						<h5>
@@ -134,7 +134,7 @@
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a> <span>(210 review)</span>
+								class="fas fa-star"></i></a>
 						</div>
 						<p>동작구, 서울특별시</p>
 						<h5>
@@ -168,7 +168,7 @@
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 								class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
 							<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-								class="fas fa-star"></i></a> <span>(210 review)</span>
+								class="fas fa-star"></i></a>
 						</div>
 						<p>송파구, 서울특별시</p>
 						<h5>
