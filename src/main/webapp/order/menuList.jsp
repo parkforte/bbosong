@@ -85,7 +85,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/suits.jpg" alt="정장세트">
+											<img src="../img/suit.jpg" alt="정장세트">
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="3">
 												<div class="img-cap">
@@ -119,7 +119,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/unsplash.jpg" alt="스웨터">
+											<img src="../img/sweater.jpg" alt="스웨터">
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="5">
 												<div class="img-cap">
@@ -136,7 +136,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/jeans.jpg" alt="바지">
+											<img src="../img/pants.jpg" alt="바지">
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="4">
 												<div class="img-cap">
@@ -153,7 +153,7 @@
 								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 									<div class="single-popular-items mb-50 text-center">
 										<div class="popular-img">
-											<img src="../img/coat.jpg" alt="겨울코트">
+											<img src="../img/winter_jaket.jpg" alt="겨울코트">
 											<form method="post" action="addCart.jsp">
 												<input type="hidden" name="laundryNo" value="6">
 												<div class="img-cap">

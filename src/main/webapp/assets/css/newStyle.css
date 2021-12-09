@@ -3545,7 +3545,7 @@ input:hover, input:focus {
 
 .popular-items .single-popular-items .popular-img {
 	overflow: hidden;
-	border-bottom: 3px solid #aac3c3;
+	border-bottom: 5px solid #aac3c3;
 	margin-bottom: 19px;
 	position: relative
 }
