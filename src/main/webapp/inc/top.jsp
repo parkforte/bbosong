@@ -53,15 +53,6 @@
                             <a href="<%=request.getContextPath() %>/store/store_info.jsp?store=d">송파구</a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-12 col-md-6">
-                        <div class="sub_menu_social_icon">
-                            <a href="#"><i class="flaticon-facebook"></i></a>
-                            <a href="#"><i class="flaticon-twitter"></i></a>
-                            <a href="#"><i class="flaticon-skype"></i></a>
-                            <a href="#"><i class="flaticon-instagram"></i></a>
-                            <span><i class="flaticon-phone-call"></i>+81 02 3481 1005</a></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
