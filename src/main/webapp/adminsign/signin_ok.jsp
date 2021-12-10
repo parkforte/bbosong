@@ -23,6 +23,7 @@
 			
 			//[1] 세션에 저장
 			session.setAttribute("userid", vo.getEmail());
+			session.setAttribute("name", vo.getName());
 			
 			//[2] 쿠키에 저장					
 			if(chkSave != null ){  //체크한 경우

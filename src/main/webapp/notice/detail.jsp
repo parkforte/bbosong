@@ -8,7 +8,10 @@
 <%@ include file="../inc/top.jsp"%>
 <%  
 	String no=request.getParameter("no");
-	String email=(String)session.getAttribute("email");
+	String userid=(String)session.getAttribute("email");
+	String name=(String)session.getAttribute("name");
+	
+	if(name==null) name="";
 	SimpleDateFormat sdf = new SimpleDateFormat();
 	if(no==null || no.isEmpty()){
 %>
@@ -49,21 +52,15 @@
 	%> 
 <script src="../js/jquery-3.6.0.min.js"></script> 
 <script>
-	/* $(function(){
-		 
-			$('#write').hide();
-			if(session.getAttribute("email") == "bbosong1001@dream.com"){
-				$('#write').show();
-			}
-	}); */
+	
 	$(function(){
-		$('#edit').hide();
-		$('#delete').hide();
-		if(email.equals("bbosong1001@dream.com")){
-			$('#edit').show();
-			$('#delete').show();
-		}
-	});
+		   $('#edit').hide(); 
+		   $('#delete').hide(); 
+		   <%if(name.equals("강남지점")){%>
+			   $('#edit').show(); 
+			   $('#delete').show(); 
+		   <%}%>
+		});
 </script>
 	<section class="section_padding">
 		<div class="container">
