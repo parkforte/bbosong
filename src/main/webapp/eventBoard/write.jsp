@@ -44,7 +44,9 @@ textarea {
 
 	request.setCharacterEncoding("utf-8");
 	String email=(String)session.getAttribute("email");
-	if(email==null){%>
+	String userid=(String)session.getAttribute("userid");
+	System.out.println("userid="+userid);
+	if(userid==null){%>
 	<script type="text/javascript">
 		alert('관리자 로그인이 필요합니다.');
 		location.href="<%=request.getContextPath() %>/adminsign/signin.jsp";

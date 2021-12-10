@@ -11,6 +11,11 @@
 	
 	String condition=request.getParameter("searchCondition");
 	String keyword=request.getParameter("searchKeyword");
+	
+	if(keyword==null || keyword.isEmpty()){
+		keyword="";
+	}
+	
 	AccountDAO dao= new AccountDAO();
 	
 	List<AccountVO> list=null;
